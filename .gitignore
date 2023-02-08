@@ -1,0 +1,5 @@
+*.o
+*.swp
+cub3d
+*.dYSM
+*.cub
