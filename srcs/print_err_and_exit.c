@@ -6,14 +6,14 @@
 /*   By: jincpark <jincpark@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/08 17:22:53 by jincpark          #+#    #+#             */
-/*   Updated: 2023/02/08 20:02:57 by jincpark         ###   ########.fr       */
+/*   Updated: 2023/02/09 00:54:35 by jincpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdio.h>
 #include <stdlib.h>
 #include "../libft/libft.h"
-#include "../incs/defines.h"
+#include "../incs/define.h"
 
 void	print_err_and_exit(t_err_type type)
 {

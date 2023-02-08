@@ -6,7 +6,7 @@
 #    By: jincpark <jincpark@student.42seoul.kr>     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/02/08 18:00:49 by jincpark          #+#    #+#              #
-#    Updated: 2023/02/08 19:43:12 by jincpark         ###   ########.fr        #
+#    Updated: 2023/02/08 22:50:36 by jincpark         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -31,8 +31,7 @@ INCDIR		=	incs
 LIBS		=	$(LFTDIR)/libft.a
 INCS		=	-I $(LFTDIR) -I $(INCDIR)
 SRCS		=	$(SRCDIR)/main.c \
-				$(SRCDIR)/check_arg.c \
-				$(SRCDIR)/check_map.c \
+				$(SRCDIR)/parse_map_data.c \
 				$(SRCDIR)/print_err_and_exit.c
 
 ifdef IF_DEBUG
