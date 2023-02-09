@@ -6,7 +6,7 @@
 /*   By: jincpark <jincpark@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/08 19:14:11 by jincpark          #+#    #+#             */
-/*   Updated: 2023/02/09 17:05:37 by jincpark         ###   ########.fr       */
+/*   Updated: 2023/02/09 23:21:49 by jincpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ typedef struct	s_map_data
 {
 	char			*texture[4];
 	unsigned int	color[2];
-	char			*map;
+	char			**map;
 	size_t			width;
 	size_t			height;
 }	t_map_data;

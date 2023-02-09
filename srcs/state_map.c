@@ -6,7 +6,7 @@
 /*   By: jincpark <jincpark@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/09 01:54:32 by jincpark          #+#    #+#             */
-/*   Updated: 2023/02/09 17:15:47 by jincpark         ###   ########.fr       */
+/*   Updated: 2023/02/09 21:43:26 by jincpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,10 +27,10 @@ void	make_map_token(t_state *state, t_parse_data *parse_data)
 	if (!token)
 		print_err_and_exit(E_SYS);
 	token->type = MAP;
-	len = ft_strlen(str);
-	if (str[len - 1] == '\n')
+	len = ft_strlen(str) - 1;
+	while (str[len] == ' ' || str[len] == '\n')
 		len--;
-	token->value = (void *)ft_substr(str, 0, len);
+	token->value = (void *)ft_substr(str, 0, len + 1);
 	if (!token->value)
 		free_token_and_exit(token, E_SYS);
 	ft_lstadd_back(&parse_data->token_list, ft_lstnew((void *)token));

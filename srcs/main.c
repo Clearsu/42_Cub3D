@@ -6,7 +6,7 @@
 /*   By: jincpark <jincpark@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/08 17:15:46 by jincpark          #+#    #+#             */
-/*   Updated: 2023/02/09 18:20:45 by jincpark         ###   ########.fr       */
+/*   Updated: 2023/02/09 23:44:55 by jincpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -92,7 +92,7 @@ int	main(int argc, char **argv)
 
 	check_arg(argc, argv);
 	init_structs(&parse_data, &map_data);
-	parse_map_data(&map_data, &parse_data, argv[1]);
+	parse(&map_data, &parse_data, argv[1]);
 	print_token_list(parse_data.token_list);
 	return (0);
 }
