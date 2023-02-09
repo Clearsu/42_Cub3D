@@ -6,7 +6,7 @@
 /*   By: jincpark <jincpark@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/08 19:14:11 by jincpark          #+#    #+#             */
-/*   Updated: 2023/02/09 00:21:36 by jincpark         ###   ########.fr       */
+/*   Updated: 2023/02/09 17:05:37 by jincpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,13 +14,13 @@
 # define STRUCT_H
 
 #include "../libft/libft.h"
-#include "defines.h"
+#include "define.h"
 
 typedef struct	s_token
 {
-	t_type	type;
+	t_state	type;
 	void	*value;
-}
+}	t_token;
 
 typedef struct	s_parse_data
 {
@@ -37,5 +37,7 @@ typedef struct	s_map_data
 	size_t			width;
 	size_t			height;
 }	t_map_data;
+
+typedef void	(*t_state_fp)(t_state *state, t_parse_data *parse_data);
 
 #endif

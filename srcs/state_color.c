@@ -6,11 +6,15 @@
 /*   By: jincpark <jincpark@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/09 01:45:28 by jincpark          #+#    #+#             */
-/*   Updated: 2023/02/09 03:21:26 by jincpark         ###   ########.fr       */
+/*   Updated: 2023/02/09 19:17:55 by jincpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include <stdlib.h>
 #include "../incs/define.h"
+#include "../incs/struct.h"
+#include "../incs/parse.h"
+#include "../incs/error.h"
 
 static t_token	*init_token_and_get_color_value(char *str)
 {
@@ -19,16 +23,19 @@ static t_token	*init_token_and_get_color_value(char *str)
 	size_t	start;
 	size_t	finish;
 	
+	idx = 2;
+	while (str[idx++] == ' ');
+	start = idx - 1;
+	while (str[idx] != ' ' && str[idx] != '\0' && str[idx] != '\n')
+		idx++;
+	finish = idx;
+	if (start == finish - 1)
+		print_err_and_exit(E_MAP);
 	token = ft_calloc(1, sizeof(t_token));
 	if (!token)
 		print_err_and_exit(E_SYS);
-	idx = 2;
-	while (str[idx++] == ' ');
-	start = idx;
-	while (str[idx++] != ' ');
-	finish = idx;
 	token->value = (void *)ft_substr(str, start, finish - start);
-	if (!token_value)
+	if (!token->value)
 		free_token_and_exit(token, E_SYS);
 	return (token);
 }

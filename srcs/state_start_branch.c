@@ -6,13 +6,14 @@
 /*   By: jincpark <jincpark@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/09 00:26:05 by jincpark          #+#    #+#             */
-/*   Updated: 2023/02/09 03:08:44 by jincpark         ###   ########.fr       */
+/*   Updated: 2023/02/09 19:20:56 by jincpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdlib.h>
 #include "../incs/parse.h"
 #include "../incs/define.h"
+#include "../incs/error.h"
 
 void	start(t_state *state, t_parse_data *parse_data)
 {
@@ -48,6 +49,11 @@ void	branch(t_state *state, t_parse_data *parse_data)
 {
 	char	*str;
 
+	if (!parse_data->buff_now)
+	{
+		*state = FINISH;
+		return ;
+	}
 	str = (char *)parse_data->buff_now->content;
 	if (is_only_space_or_newline(str))
 		*state = EMPTY;
@@ -66,5 +72,5 @@ void	branch(t_state *state, t_parse_data *parse_data)
 	else if (is_only_map_char(str))
 		*state = MAP;
 	else
-		*state = FINISH;
+		print_err_and_exit(E_MAP);
 }

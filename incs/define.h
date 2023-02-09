@@ -6,12 +6,12 @@
 /*   By: jincpark <jincpark@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/08 17:20:25 by jincpark          #+#    #+#             */
-/*   Updated: 2023/02/09 03:08:53 by jincpark         ###   ########.fr       */
+/*   Updated: 2023/02/09 17:30:10 by jincpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef DEFINES_H
-# define DEFINES_H
+#ifndef DEFINE_H
+# define DEFINE_H
 
 #define TRUE 1
 #define FALSE 0
@@ -26,9 +26,7 @@
 #define FLOOR 0
 #define CEILING 1
 
-typedef void	(*t_state_fp)(t_state *state, t_parse_data *parse_data);
-
-#define TOTAL_STATES 10
+#define TOTAL_STATES 11
 
 typedef enum e_state
 {
@@ -44,6 +42,7 @@ typedef enum e_state
 	MAP,
 	FINISH
 }	t_state;
+
 
 typedef enum e_err_type
 {

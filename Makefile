@@ -6,7 +6,7 @@
 #    By: jincpark <jincpark@student.42seoul.kr>     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/02/08 18:00:49 by jincpark          #+#    #+#              #
-#    Updated: 2023/02/08 22:50:36 by jincpark         ###   ########.fr        #
+#    Updated: 2023/02/09 21:18:04 by jincpark         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -32,6 +32,13 @@ LIBS		=	$(LFTDIR)/libft.a
 INCS		=	-I $(LFTDIR) -I $(INCDIR)
 SRCS		=	$(SRCDIR)/main.c \
 				$(SRCDIR)/parse_map_data.c \
+				$(SRCDIR)/parse_check.c \
+				$(SRCDIR)/parse_etc.c \
+				$(SRCDIR)/state_start_branch.c \
+				$(SRCDIR)/state_texture.c \
+				$(SRCDIR)/state_empty.c \
+				$(SRCDIR)/state_color.c \
+				$(SRCDIR)/state_map.c \
 				$(SRCDIR)/print_err_and_exit.c
 
 ifdef IF_DEBUG
