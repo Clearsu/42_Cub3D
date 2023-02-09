@@ -6,7 +6,7 @@
 /*   By: jincpark <jincpark@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/08 17:15:46 by jincpark          #+#    #+#             */
-/*   Updated: 2023/02/10 02:42:32 by jincpark         ###   ########.fr       */
+/*   Updated: 2023/02/10 03:07:09 by jincpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -85,8 +85,8 @@ void	print_map_data(t_map_data *map_data)
 	printf("NORTH: %s\n", map_data->texture[3]);
 	printf("\n");
 	printf("COLOR\n");
-	printf("FLOOR: %x\n", map_data->color[0]);
-	printf("CEILING: %x\n", map_data->color[1]);
+	printf("FLOOR: %u\n", map_data->color[0]);
+	printf("CEILING: %u\n", map_data->color[1]);
 	printf("\n");
 	printf("MAP\n");
 	for (int i = 0; i < map_data->height; i++)
