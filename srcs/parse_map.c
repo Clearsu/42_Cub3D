@@ -6,7 +6,7 @@
 /*   By: jincpark <jincpark@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/09 23:05:12 by jincpark          #+#    #+#             */
-/*   Updated: 2023/02/09 23:53:14 by jincpark         ###   ########.fr       */
+/*   Updated: 2023/02/10 00:24:28 by jincpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,23 +50,44 @@ static void	get_height(size_t *height, t_list *token_list)
 	*height = len;
 }
 
+static char	select_char(char c)
+{
+	if (c == ' ')
+		return (-1);
+	if (c == '1')
+		return (1);
+	if (c == '0')
+		return (0);
+	else
+		return (c);
+}
+
 static void	put_map_element(t_map_data *map_data, t_list *token_list)
 {
 	t_token	*token;
 	size_t	x;
 	size_t	y;
+	char	*str;
 
 	y = 0;
-	while (y < map_data->height)
+	while (token_list)
 	{
 		token = (t_token *)token_list->content;
-		if
-		x = 0;
-		while (x < map_data->width)
+		if (token->type == MAP)
 		{
-			x++;
+			x = 0;
+			str = (char *)token->value;
+			while (*str)
+			{
+				map_data->map[y][x] = select_char(*str);
+				str++;
+				x++;
+			}
+			while (x < map_data->width)
+				map_data->map[y][x++] = -1;
+			y++;
 		}
-		y++;
+		token_list = token_list->next;
 	}
 }
 
