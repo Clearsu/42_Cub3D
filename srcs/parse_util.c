@@ -6,7 +6,7 @@
 /*   By: jincpark <jincpark@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/09 21:18:11 by jincpark          #+#    #+#             */
-/*   Updated: 2023/02/09 23:50:36 by jincpark         ###   ########.fr       */
+/*   Updated: 2023/02/10 02:54:14 by jincpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,7 @@ char	**alloc_2d_char_arr(size_t width, size_t height)
 	ptr = malloc(sizeof(char *) * (height));
 	if (!ptr)
 		print_err_and_exit(E_SYS);
-	ft_memset(ptr, 0, height);
+	i = 0;
 	while (i < height)
 	{
 		ptr[i] = malloc(sizeof(char) * (width));
@@ -46,7 +46,6 @@ char	**alloc_2d_char_arr(size_t width, size_t height)
 			free_2d_arr(ptr, i);
 			print_err_and_exit(E_SYS);
 		}
-		ft_memset(ptr[i], 0, width);
 		i++;
 	}
 	return (ptr);

@@ -6,7 +6,7 @@
 /*   By: jincpark <jincpark@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/08 17:15:46 by jincpark          #+#    #+#             */
-/*   Updated: 2023/02/09 23:44:55 by jincpark         ###   ########.fr       */
+/*   Updated: 2023/02/10 02:42:32 by jincpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,16 +75,28 @@ void	print_token_list(t_list *token_list)
 		token_list = token_list->next;
 	}
 }
-/*
-void	print_buff_list(t_list *buff_list)
+
+void	print_map_data(t_map_data *map_data)
 {
-	while (buff_list)
+	printf("TEXTURE\n");
+	printf("EAST: %s\n", map_data->texture[0]);
+	printf("WEST: %s\n", map_data->texture[1]);
+	printf("SOUTH: %s\n", map_data->texture[2]);
+	printf("NORTH: %s\n", map_data->texture[3]);
+	printf("\n");
+	printf("COLOR\n");
+	printf("FLOOR: %x\n", map_data->color[0]);
+	printf("CEILING: %x\n", map_data->color[1]);
+	printf("\n");
+	printf("MAP\n");
+	for (int i = 0; i < map_data->height; i++)
 	{
-		printf("%s", (char *)buff_list->content);
-		buff_list = buff_list->next;
+		for (int j = 0; j < map_data->width; j++)
+			printf("%d", map_data->map[i][j]);
+		printf("\n");
 	}
 }
-*/
+
 int	main(int argc, char **argv)
 {
 	t_parse_data	parse_data;
@@ -93,6 +105,7 @@ int	main(int argc, char **argv)
 	check_arg(argc, argv);
 	init_structs(&parse_data, &map_data);
 	parse(&map_data, &parse_data, argv[1]);
-	print_token_list(parse_data.token_list);
+//	print_token_list(parse_data.token_list);
+	print_map_data(&map_data);
 	return (0);
 }
