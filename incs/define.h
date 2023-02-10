@@ -6,7 +6,7 @@
 /*   By: jincpark <jincpark@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/08 17:20:25 by jincpark          #+#    #+#             */
-/*   Updated: 2023/02/09 17:30:10 by jincpark         ###   ########.fr       */
+/*   Updated: 2023/02/10 19:28:37 by jincpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,10 @@
 
 #define FLOOR 0
 #define CEILING 1
+
+#define INSIDE 0
+#define WALL 1
+#define OUTSIDE 2
 
 #define TOTAL_STATES 11
 

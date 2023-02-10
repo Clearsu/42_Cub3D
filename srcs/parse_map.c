@@ -6,7 +6,7 @@
 /*   By: jincpark <jincpark@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/09 23:05:12 by jincpark          #+#    #+#             */
-/*   Updated: 2023/02/10 00:24:28 by jincpark         ###   ########.fr       */
+/*   Updated: 2023/02/10 20:00:25 by jincpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,11 +53,11 @@ static void	get_height(size_t *height, t_list *token_list)
 static char	select_char(char c)
 {
 	if (c == ' ')
-		return (-1);
+		return (OUTSIDE);
 	if (c == '1')
-		return (1);
+		return (WALL);
 	if (c == '0')
-		return (0);
+		return (INSIDE);
 	else
 		return (c);
 }
@@ -84,7 +84,7 @@ static void	put_map_element(t_map_data *map_data, t_list *token_list)
 				x++;
 			}
 			while (x < map_data->width)
-				map_data->map[y][x++] = -1;
+				map_data->map[y][x++] = OUTSIDE;
 			y++;
 		}
 		token_list = token_list->next;

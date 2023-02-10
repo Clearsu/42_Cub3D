@@ -6,7 +6,7 @@
 #    By: jincpark <jincpark@student.42seoul.kr>     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/02/08 18:00:49 by jincpark          #+#    #+#              #
-#    Updated: 2023/02/09 23:42:54 by jincpark         ###   ########.fr        #
+#    Updated: 2023/02/10 19:58:15 by jincpark         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -36,6 +36,7 @@ SRCS		=	$(SRCDIR)/main.c \
 				$(SRCDIR)/parse_texture_color.c \
 				$(SRCDIR)/parse_check.c \
 				$(SRCDIR)/parse_util.c \
+				$(SRCDIR)/basic_wall_check.c \
 				$(SRCDIR)/state_start_branch.c \
 				$(SRCDIR)/state_texture.c \
 				$(SRCDIR)/state_empty.c \

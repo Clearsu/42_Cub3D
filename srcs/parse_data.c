@@ -6,7 +6,7 @@
 /*   By: jincpark <jincpark@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/08 18:36:24 by jincpark          #+#    #+#             */
-/*   Updated: 2023/02/09 23:45:19 by jincpark         ###   ########.fr       */
+/*   Updated: 2023/02/10 19:56:44 by jincpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -80,4 +80,5 @@ void	parse(t_map_data *map_data, t_parse_data *parse_data, char *fname)
 	parse_texture(map_data->texture, parse_data->token_list);
 	parse_color(map_data->color, parse_data->token_list);
 	parse_map(map_data, parse_data->token_list);
+	basic_wall_check(map_data);
 }
