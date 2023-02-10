@@ -6,12 +6,19 @@
 /*   By: jincpark <jincpark@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/10 20:14:55 by jincpark          #+#    #+#             */
-/*   Updated: 2023/02/10 20:36:01 by jincpark         ###   ########.fr       */
+/*   Updated: 2023/02/10 21:30:15 by jincpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../incs/struct.h"
 #include "../incs/error.h"
+
+static int	is_direction(char c)
+{
+	if (c == 'N' || c == 'S' || c == 'E' || c == 'W')
+		return (TRUE);
+	return (FALSE);
+}
 
 void	check_spawn_location(t_map_data *map_data)
 {
@@ -26,12 +33,12 @@ void	check_spawn_location(t_map_data *map_data)
 		x = 0;
 		while (x < map_data->width)
 		{
-			if (map_data->map[y][x] == 'E' || map_data->map[y][x] == 'W' \
-				|| map_data->map[y][x] == 'S' || map_data->map[y][x] == 'N')
+			if (is_direction(map_data->map[y][x]))
 			{
 				map_data->spawn[SPAWN_X] = x;
 				map_data->spawn[SPAWN_Y] = y;
 				map_data->spawn[SPAWN_D] = map_data->map[y][x];
+				map_data->map[y][x] = INSIDE;
 				cnt++;
 			}
 			x++;

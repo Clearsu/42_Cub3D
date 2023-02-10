@@ -6,10 +6,11 @@
 /*   By: jincpark <jincpark@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/08 17:15:46 by jincpark          #+#    #+#             */
-/*   Updated: 2023/02/10 20:31:39 by jincpark         ###   ########.fr       */
+/*   Updated: 2023/02/10 22:35:03 by jincpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include <stdio.h>
 #include <fcntl.h>
 #include <unistd.h>
 #include <string.h>
@@ -45,36 +46,19 @@ static void	check_arg(int argc, char **argv)
 		print_err_and_exit(E_ARG_EXTENSION);
 }
 
-void	init_structs(t_parse_data *parse_data, t_map_data *map_data)
+static void	init_structs(t_parse_data *parse_data,
+		t_map_data *map_data, t_mlx_vars *mlx_vars)
 {
 	ft_memset(parse_data, 0, sizeof(t_parse_data));
 	ft_memset(&map_data->texture, 0, sizeof(char *) * 4);
 	ft_memset(&map_data->color, 0, sizeof(unsigned int) * 2);
 	ft_memset(&map_data->spawn, 0, sizeof(size_t) * 2);
+	ft_memset(&mlx_vars->img_data, 0, sizeof(t_img_data));
 	map_data->map = NULL;
 	map_data->width = 0;
 	map_data->height = 0;
-}
-
-#include <stdio.h>
-void	print_token_list(t_list *token_list)
-{
-	t_token *token;
-
-	while (token_list)
-	{
-		token = (t_token *)token_list->content;
-		if (token->type == EMPTY)
-			printf("type: EMPTY, value: null\n");
-		else if (token->type == T_EAST || token->type == T_WEST
-			|| token->type == T_SOUTH || token->type == T_NORTH)
-			printf("type: TEXTURE, value: %s\n", (char *)token->value);
-		else if (token->type == C_FLOOR || token->type == C_CEILING)
-			printf("type: COLOR, value: %s\n", (char *)token->value);
-		else if (token->type == MAP)
-			printf("type: MAP, value: %s\n", (char *)token->value);
-		token_list = token_list->next;
-	}
+	mlx_vars->mlx = NULL;
+	mlx_vars->win = NULL;
 }
 
 void	print_map_data(t_map_data *map_data)
@@ -102,11 +86,12 @@ int	main(int argc, char **argv)
 {
 	t_parse_data	parse_data;
 	t_map_data		map_data;
+	t_mlx_vars		mlx_vars;
 
 	check_arg(argc, argv);
-	init_structs(&parse_data, &map_data);
+	init_structs(&parse_data, &map_data, &mlx_vars);
 	parse(&map_data, &parse_data, argv[1]);
-//	print_token_list(parse_data.token_list);
 	print_map_data(&map_data);
+//	execute_maze(&map_data, &mlx_vars);
 	return (0);
 }

@@ -6,7 +6,7 @@
 /*   By: jincpark <jincpark@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/09 00:26:05 by jincpark          #+#    #+#             */
-/*   Updated: 2023/02/09 19:20:56 by jincpark         ###   ########.fr       */
+/*   Updated: 2023/02/10 21:36:25 by jincpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,8 +26,8 @@ void	start(t_state *state, t_parse_data *parse_data)
 int	is_only_map_char(char *str)
 {
 	while (*str != '\0' && (*str == '1' || *str == '0' || \
-			  *str == 'E' || *str == 'W' || *str == 'S' || *str == 'N' || \
-			  *str == ' '))
+		*str == 'E' || *str == 'W' || *str == 'S' || *str == 'N' || \
+		*str == ' '))
 		str++;
 	if (*str == '\n')
 		str++;
@@ -38,22 +38,31 @@ int	is_only_map_char(char *str)
 
 int	is_only_space_or_newline(char *str)
 {
-	while (*str && *str++ == ' ');
-	while (*str && *str++ == '\n');
+	while (*str && *str == ' ')
+		str++;
+	while (*str && *str == '\n')
+		str++;
 	if (*str != '\0')
 		return (FALSE);
 	return (TRUE);
+}
+
+static int	is_finish(t_list *buff_now, t_state *state)
+{
+	if (!buff_now)
+	{
+		*state = FINISH;
+		return (TRUE);
+	}
+	return (FALSE);
 }
 
 void	branch(t_state *state, t_parse_data *parse_data)
 {
 	char	*str;
 
-	if (!parse_data->buff_now)
-	{
-		*state = FINISH;
+	if (is_finish(parse_data->buff_now, state))
 		return ;
-	}
 	str = (char *)parse_data->buff_now->content;
 	if (is_only_space_or_newline(str))
 		*state = EMPTY;

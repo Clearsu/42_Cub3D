@@ -6,7 +6,7 @@
 /*   By: jincpark <jincpark@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/10 19:14:27 by jincpark          #+#    #+#             */
-/*   Updated: 2023/02/10 20:03:03 by jincpark         ###   ########.fr       */
+/*   Updated: 2023/02/10 21:22:52 by jincpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -103,6 +103,4 @@ void	basic_wall_check(t_map_data *map_data)
 	check_right_wall(map_data);
 	check_top_wall(map_data);
 	check_bottom_wall(map_data);
-	//check_if_fully_closed(map_data);
-	//is_single_spawn_location(map_data);
 }
