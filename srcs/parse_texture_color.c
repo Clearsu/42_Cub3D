@@ -6,7 +6,7 @@
 /*   By: jincpark <jincpark@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/09 21:29:02 by jincpark          #+#    #+#             */
-/*   Updated: 2023/02/10 03:10:47 by jincpark         ###   ########.fr       */
+/*   Updated: 2023/02/10 19:01:51 by jincpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,6 +56,7 @@ static unsigned int	get_color_value(char *str)
 	char			**str_split;
 	unsigned int	cval;
 	int				temp;
+	size_t			i;
 
 	if (!is_right_color_form(str))
 		print_err_and_exit(E_MAP);
@@ -63,16 +64,17 @@ static unsigned int	get_color_value(char *str)
 	if (!str_split)
 		print_err_and_exit(E_SYS);
 	cval = 0;
-	while (*str_split)
+	i = 0;
+	while (str_split[i])
 	{
-		temp = ft_atoi(*str_split);
+		temp = ft_atoi(str_split[i]);
 		if (temp > 255)
 		{
 			ft_free2((void **)str_split);
 			print_err_and_exit(E_MAP);
 		}
 		cval += temp;
-		str_split++;
+		i++;
 	}
 	ft_free2((void **)str_split);
 	return (cval);
