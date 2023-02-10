@@ -6,7 +6,7 @@
 /*   By: jincpark <jincpark@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/08 17:20:25 by jincpark          #+#    #+#             */
-/*   Updated: 2023/02/10 19:28:37 by jincpark         ###   ########.fr       */
+/*   Updated: 2023/02/10 20:27:59 by jincpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,10 @@
 #define INSIDE 0
 #define WALL 1
 #define OUTSIDE 2
+
+#define SPAWN_X 0
+#define SPAWN_Y 1
+#define SPAWN_D 2
 
 #define TOTAL_STATES 11
 

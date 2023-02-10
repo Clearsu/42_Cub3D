@@ -6,7 +6,7 @@
 /*   By: jincpark <jincpark@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/09 23:05:12 by jincpark          #+#    #+#             */
-/*   Updated: 2023/02/10 20:04:11 by jincpark         ###   ########.fr       */
+/*   Updated: 2023/02/10 20:14:39 by jincpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -99,4 +99,5 @@ void	parse_map(t_map_data *map_data, t_list *token_list)
 	put_map_element(map_data, token_list);
 	basic_wall_check(map_data);
 	is_map_fully_closed(map_data);
+	check_spawn_location(map_data);
 }

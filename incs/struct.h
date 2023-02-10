@@ -6,7 +6,7 @@
 /*   By: jincpark <jincpark@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/08 19:14:11 by jincpark          #+#    #+#             */
-/*   Updated: 2023/02/10 02:57:17 by jincpark         ###   ########.fr       */
+/*   Updated: 2023/02/10 20:27:46 by jincpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,6 +36,7 @@ typedef struct	s_map_data
 	char			**map;
 	size_t			width;
 	size_t			height;
+	size_t			spawn[3];
 }	t_map_data;
 
 typedef void	(*t_state_fp)(t_state *state, t_parse_data *parse_data);
