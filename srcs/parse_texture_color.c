@@ -6,7 +6,7 @@
 /*   By: jincpark <jincpark@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/09 21:29:02 by jincpark          #+#    #+#             */
-/*   Updated: 2023/02/10 19:01:51 by jincpark         ###   ########.fr       */
+/*   Updated: 2023/02/10 19:08:51 by jincpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,7 +73,7 @@ static unsigned int	get_color_value(char *str)
 			ft_free2((void **)str_split);
 			print_err_and_exit(E_MAP);
 		}
-		cval += temp;
+		cval = (cval << 8) + temp;
 		i++;
 	}
 	ft_free2((void **)str_split);
