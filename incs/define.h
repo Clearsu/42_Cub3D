@@ -6,12 +6,15 @@
 /*   By: jincpark <jincpark@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/08 17:20:25 by jincpark          #+#    #+#             */
-/*   Updated: 2023/02/10 20:58:56 by jincpark         ###   ########.fr       */
+/*   Updated: 2023/02/10 23:32:44 by jincpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef DEFINE_H
 # define DEFINE_H
+
+# define WIDTH 1080
+# define HEIGHT 720
 
 # define TRUE 1
 # define FALSE 0
@@ -58,5 +61,7 @@ typedef enum e_err_type
 	E_MAP,
 	E_SYS
 }	t_err_type;
+
+# define ESC 53
 
 #endif

@@ -1,29 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   state_empty.c                                      :+:      :+:    :+:   */
+/*   execute_maze.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jincpark <jincpark@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/02/09 03:05:48 by jincpark          #+#    #+#             */
-/*   Updated: 2023/02/10 23:19:11 by jincpark         ###   ########.fr       */
+/*   Created: 2023/02/10 22:54:29 by jincpark          #+#    #+#             */
+/*   Updated: 2023/02/10 23:32:16 by jincpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "struct.h"
-#include "define.h"
-#include "error.h"
+#include "execute.h"
+#include "mlx.h"
 
-void	make_empty_token(t_state *state, t_parse_data *parse_data)
+void	execute_maze(t_map_data *map_data, t_mlx_vars *mlx_vars)
 {
-	t_token	*token;
-
-	token = ft_calloc(1, sizeof(t_token));
-	if (!token)
-		print_err_and_exit(E_SYS);
-	token->type = EMPTY;
-	token->value = NULL;
-	ft_lstadd_back(&parse_data->token_list, ft_lstnew((void *)token));
-	parse_data->buff_now = parse_data->buff_now->next;
-	*state = BRANCH;
+	init_mlx_and_img(mlx_vars);
+	mlx_key_hook(mlx_vars->win, key_hook_handler, mlx_vars);
+	mlx_loop(mlx_vars->mlx);
 }

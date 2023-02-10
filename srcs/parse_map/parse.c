@@ -6,7 +6,7 @@
 /*   By: jincpark <jincpark@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/08 18:36:24 by jincpark          #+#    #+#             */
-/*   Updated: 2023/02/10 21:39:29 by jincpark         ###   ########.fr       */
+/*   Updated: 2023/02/10 23:18:18 by jincpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,12 +14,12 @@
 #include <sys/types.h>
 #include <unistd.h>
 #include <stdlib.h>
-#include "../libft/libft.h"
-#include "../incs/define.h"
-#include "../incs/struct.h"
-#include "../incs/state.h"
-#include "../incs/parse.h"
-#include "../incs/error.h"
+#include "libft.h"
+#include "define.h"
+#include "struct.h"
+#include "state.h"
+#include "parse.h"
+#include "error.h"
 
 static t_list	*put_lines_into_buff_list(int fd)
 {

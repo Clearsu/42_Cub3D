@@ -6,12 +6,12 @@
 /*   By: jincpark <jincpark@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/09 21:18:11 by jincpark          #+#    #+#             */
-/*   Updated: 2023/02/10 02:54:14 by jincpark         ###   ########.fr       */
+/*   Updated: 2023/02/10 23:18:47 by jincpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../incs/struct.h"
-#include "../incs/error.h"
+#include "struct.h"
+#include "error.h"
 
 void	free_token_and_exit(t_token *token, t_err_type err_type)
 {

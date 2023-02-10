@@ -6,12 +6,12 @@
 /*   By: jincpark <jincpark@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/10 19:59:07 by jincpark          #+#    #+#             */
-/*   Updated: 2023/02/10 20:12:07 by jincpark         ###   ########.fr       */
+/*   Updated: 2023/02/10 23:18:01 by jincpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../incs/struct.h"
-#include "../incs/error.h"
+#include "struct.h"
+#include "error.h"
 
 static void	is_facing_outside(char **map, size_t x, size_t y)
 {

@@ -6,11 +6,11 @@
 /*   By: jincpark <jincpark@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/09 23:05:12 by jincpark          #+#    #+#             */
-/*   Updated: 2023/02/10 20:14:39 by jincpark         ###   ########.fr       */
+/*   Updated: 2023/02/10 23:18:34 by jincpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../incs/parse.h"
+#include "parse.h"
 
 static void	get_width(size_t *width, t_list *token_list)
 {

@@ -6,12 +6,12 @@
 /*   By: jincpark <jincpark@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/09 21:29:02 by jincpark          #+#    #+#             */
-/*   Updated: 2023/02/10 21:09:16 by jincpark         ###   ########.fr       */
+/*   Updated: 2023/02/10 23:18:41 by jincpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../incs/struct.h"
-#include "../incs/error.h"
+#include "struct.h"
+#include "error.h"
 
 void	parse_texture(char *texture[4], t_list *token_list)
 {

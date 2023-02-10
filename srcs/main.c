@@ -6,7 +6,7 @@
 /*   By: jincpark <jincpark@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/08 17:15:46 by jincpark          #+#    #+#             */
-/*   Updated: 2023/02/10 22:35:03 by jincpark         ###   ########.fr       */
+/*   Updated: 2023/02/10 23:17:21 by jincpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,11 +14,12 @@
 #include <fcntl.h>
 #include <unistd.h>
 #include <string.h>
-#include "../libft/libft.h"
-#include "../incs/define.h"
-#include "../incs/parse.h"
-#include "../incs/struct.h"
-#include "../incs/error.h"
+#include "libft.h"
+#include "define.h"
+#include "parse.h"
+#include "struct.h"
+#include "execute.h"
+#include "error.h"
 
 static int	is_valid_extension(char *fname)
 {
@@ -92,6 +93,6 @@ int	main(int argc, char **argv)
 	init_structs(&parse_data, &map_data, &mlx_vars);
 	parse(&map_data, &parse_data, argv[1]);
 	print_map_data(&map_data);
-//	execute_maze(&map_data, &mlx_vars);
+	execute_maze(&map_data, &mlx_vars);
 	return (0);
 }

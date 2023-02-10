@@ -6,12 +6,12 @@
 /*   By: jincpark <jincpark@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/10 19:14:27 by jincpark          #+#    #+#             */
-/*   Updated: 2023/02/10 21:22:52 by jincpark         ###   ########.fr       */
+/*   Updated: 2023/02/10 23:17:44 by jincpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../incs/struct.h"
-#include "../incs/error.h"
+#include "struct.h"
+#include "error.h"
 
 static void	check_left_wall(t_map_data *map_data)
 {

@@ -6,15 +6,15 @@
 /*   By: jincpark <jincpark@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/09 03:18:05 by jincpark          #+#    #+#             */
-/*   Updated: 2023/02/10 19:14:09 by jincpark         ###   ########.fr       */
+/*   Updated: 2023/02/10 23:18:28 by jincpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdlib.h>
-#include "../libft/libft.h"
-#include "../incs/struct.h"
-#include "../incs/define.h"
-#include "../incs/error.h"
+#include "libft.h"
+#include "struct.h"
+#include "define.h"
+#include "error.h"
 
 void	check_invalid_char(t_list *buff_list)
 {

@@ -6,14 +6,14 @@
 /*   By: jincpark <jincpark@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/09 00:55:17 by jincpark          #+#    #+#             */
-/*   Updated: 2023/02/10 21:26:48 by jincpark         ###   ########.fr       */
+/*   Updated: 2023/02/10 23:19:42 by jincpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../incs/define.h"
-#include "../incs/struct.h"
-#include "../incs/parse.h"
-#include "../incs/error.h"
+#include "define.h"
+#include "struct.h"
+#include "parse.h"
+#include "error.h"
 
 static t_token	*init_token_and_get_path(char *str)
 {
