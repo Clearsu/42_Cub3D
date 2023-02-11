@@ -6,7 +6,7 @@
 /*   By: jincpark <jincpark@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/08 19:14:11 by jincpark          #+#    #+#             */
-/*   Updated: 2023/02/10 22:22:34 by jincpark         ###   ########.fr       */
+/*   Updated: 2023/02/11 22:49:47 by jincpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,6 +54,38 @@ typedef struct s_mlx_vars
 	void		*win;
 	t_img_data	img_data;
 }	t_mlx_vars;
+
+typedef struct s_player_data
+{
+	double	pos_x;
+	double	pos_y;
+	double	dir_x;
+	double	dir_y;
+	double	plane_x;
+	double	plane_y;
+	double	time_curr;
+	double	time_old;
+	double	camera_x;
+	double	ray_dir_x;
+	double	ray_dir_y;
+	double	side_dist_x;
+	double	side_dist_y;
+	double	delta_dist_x;
+	double	delta_dist_y;
+	double	perp_wall_dist;
+	int		map_x;
+	int		map_y;
+	int		step_x;
+	int		step_y;
+	int		hit;
+	int		side;
+}	t_player_data;
+
+typedef struct s_raycast_param
+{
+	t_player_data	*pdata;
+	t_map_data		*map_data;
+}	t_raycast_param;
 
 typedef void	(*t_state_fp)(t_state *state, t_parse_data *parse_data);
 

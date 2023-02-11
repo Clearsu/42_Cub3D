@@ -6,7 +6,7 @@
 #    By: jincpark <jincpark@student.42seoul.kr>     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/02/08 18:00:49 by jincpark          #+#    #+#              #
-#    Updated: 2023/02/10 23:28:47 by jincpark         ###   ########.fr        #
+#    Updated: 2023/02/11 21:43:43 by jincpark         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -31,7 +31,7 @@ PARSEDIR	=	parse_map
 UTILDIR		=	util
 INCDIR		=	incs
 MLXDIR 		= 	minilibx
-EXECDIR		=	execute
+RCASTDIR	=	raycast
 
 #FILES
 MLXLIB		=	libmlx.dylib
@@ -51,9 +51,10 @@ SRCS		=	$(SRCDIR)/main.c \
 				$(SRCDIR)/$(PARSEDIR)/state_empty.c \
 				$(SRCDIR)/$(PARSEDIR)/state_color.c \
 				$(SRCDIR)/$(PARSEDIR)/state_map.c \
-				$(SRCDIR)/$(EXECDIR)/execute_maze.c \
-				$(SRCDIR)/$(EXECDIR)/mlx_util.c \
-				$(SRCDIR)/$(EXECDIR)/key_hook.c \
+				$(SRCDIR)/$(RCASTDIR)/play_start.c \
+				$(SRCDIR)/$(RCASTDIR)/raycast.c \
+				$(SRCDIR)/$(RCASTDIR)/mlx_util.c \
+				$(SRCDIR)/$(RCASTDIR)/key_hook.c \
 				$(SRCDIR)/$(UTILDIR)/print_err_and_exit.c
 
 ifdef IF_DEBUG
