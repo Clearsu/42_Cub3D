@@ -6,7 +6,7 @@
 /*   By: jincpark <jincpark@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/10 22:54:29 by jincpark          #+#    #+#             */
-/*   Updated: 2023/02/11 22:05:35 by jincpark         ###   ########.fr       */
+/*   Updated: 2023/02/13 22:39:43 by jincpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,50 +15,51 @@
 #include "raycast.h"
 #include "define.h"
 
-static void	set_dir_vector(t_player_data *pdata, char c)
+static void	set_dir_vector(t_ray_data *rdata, char c)
 {
 	if (c == 'E')
 	{
-		pdata->dir_x = 1;
-		pdata->dir_y = 0;
+		rdata->dir_x = 1;
+		rdata->dir_y = 0;
 	}
 	else if (c == 'W')
 	{
-		pdata->dir_x = -1;
-		pdata->dir_y = 0;
+		rdata->dir_x = -1;
+		rdata->dir_y = 0;
 	}
 	else if (c == 'S')
 	{
-		pdata->dir_x = 0;
-		pdata->dir_y = 1;
+		rdata->dir_x = 0;
+		rdata->dir_y = 1;
 	}
 	else if (c == 'N')
 	{
-		pdata->dir_x = 0;
-		pdata->dir_y = -1;
+		rdata->dir_x = 0;
+		rdata->dir_y = -1;
 	}
 }
 
-static void	init_player_data(t_player_data *pdata, t_map_data *map_data)
+static void	init_ray_data(t_ray_data *rdata, t_map_data *map_data)
 {
-	ft_memset(pdata, 0, sizeof(t_player_data));
-	pdata->pos_x = map_data->spawn[SPAWN_X];
-	pdata->pos_y = map_data->spawn[SPAWN_Y];
-	set_dir_vector(pdata, map_data->spawn[SPAWN_D]);
-	pdata->plane_x = (-1) * pdata->dir_y * 0.66;
-	pdata->plane_y = pdata->dir_x * 0.66;
+	ft_memset(rdata, 0, sizeof(t_ray_data));
+	rdata->pos_x = map_data->spawn[SPAWN_X];
+	rdata->pos_y = map_data->spawn[SPAWN_Y];
+	set_dir_vector(rdata, map_data->spawn[SPAWN_D]);
+	rdata->plane_x = (-1) * rdata->dir_y * 0.66;
+	rdata->plane_y = rdata->dir_x * 0.66;
 }
 
 void	play_start(t_map_data *map_data, t_mlx_vars *mlx_vars)
 {
-	t_loop_hook_param	loop_hook_param;
-	t_player_data		pdata;
+	t_raycast_param	raycast_param;
+	t_ray_data	rdata;
 
-	init_player_data(&pdata, map_data);
-	loop_hook_param.pdata = &pdata;
-	loop_hook_param.map_data = map_data;
+	init_ray_data(&rdata, map_data);
+	raycast_param.rdata = &rdata;
+	raycast_param.map_data = map_data;
+	raycast_param.mlx_vars = mlx_vars;
 	init_mlx_and_img(mlx_vars);
-	mlx_key_hook(mlx_vars->win, key_hook_handler, mlx_vars);
-	mlx_loop_hook(mlx_vars->mlx, raycast, &loop_hook_param);
+	mlx_key_hook(mlx_vars->win, key_hook_handler, &raycast_param);
+	mlx_loop_hook(mlx_vars->mlx, raycast, &raycast_param);
 	mlx_loop(mlx_vars->mlx);
 }

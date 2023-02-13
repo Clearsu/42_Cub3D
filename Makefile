@@ -6,7 +6,7 @@
 #    By: jincpark <jincpark@student.42seoul.kr>     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/02/08 18:00:49 by jincpark          #+#    #+#              #
-#    Updated: 2023/02/11 21:43:43 by jincpark         ###   ########.fr        #
+#    Updated: 2023/02/13 22:49:19 by jincpark         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -55,6 +55,7 @@ SRCS		=	$(SRCDIR)/main.c \
 				$(SRCDIR)/$(RCASTDIR)/raycast.c \
 				$(SRCDIR)/$(RCASTDIR)/mlx_util.c \
 				$(SRCDIR)/$(RCASTDIR)/key_hook.c \
+				$(SRCDIR)/$(RCASTDIR)/move.c \
 				$(SRCDIR)/$(UTILDIR)/print_err_and_exit.c
 
 ifdef IF_DEBUG

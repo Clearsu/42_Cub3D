@@ -6,7 +6,7 @@
 /*   By: jincpark <jincpark@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/08 17:20:25 by jincpark          #+#    #+#             */
-/*   Updated: 2023/02/10 23:32:44 by jincpark         ###   ########.fr       */
+/*   Updated: 2023/02/13 22:38:49 by jincpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,6 +39,11 @@
 
 # define TOTAL_STATES 11
 
+# define EAST_COLOR 0x00ff0000
+# define WEST_COLOR 0x0000ff00
+# define SOUTH_COLOR 0x000000ff
+# define NORTH_COLOR 0x00900e00
+
 typedef enum e_state
 {
 	START,
@@ -63,5 +68,9 @@ typedef enum e_err_type
 }	t_err_type;
 
 # define ESC 53
+# define LEFT 123
+# define RIGHT 124
+# define DOWN 125
+# define UP 126
 
 #endif

@@ -6,7 +6,7 @@
 /*   By: jincpark <jincpark@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/10 22:56:57 by jincpark          #+#    #+#             */
-/*   Updated: 2023/02/11 20:44:54 by jincpark         ###   ########.fr       */
+/*   Updated: 2023/02/13 22:02:41 by jincpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,11 +32,4 @@ void	my_mlx_pixel_put(t_img_data *img_data,
 	dest = img_data->addr 
 		+ (y * img_data->line_length + x * (img_data->bits_per_pixel / 8));
 	*(unsigned int *)dest = color;
-}
-
-int	key_hook_handler(int keycode, t_mlx_vars *mlx_vars)
-{
-	if (keycode == ESC)
-		close_win_and_exit(mlx_vars);
-	return (0);
 }
