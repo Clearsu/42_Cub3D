@@ -6,12 +6,15 @@
 /*   By: jincpark <jincpark@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/08 17:20:25 by jincpark          #+#    #+#             */
-/*   Updated: 2023/02/13 22:38:49 by jincpark         ###   ########.fr       */
+/*   Updated: 2023/02/14 21:26:35 by jincpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef DEFINE_H
 # define DEFINE_H
+
+# define ROTSPEED 0.075
+# define MOVSPEED 0.125
 
 # define WIDTH 1080
 # define HEIGHT 720
@@ -68,9 +71,11 @@ typedef enum e_err_type
 }	t_err_type;
 
 # define ESC 53
-# define LEFT 123
-# define RIGHT 124
-# define DOWN 125
-# define UP 126
+# define R_LEFT 123
+# define R_RIGHT 124
+# define UP 13
+# define LEFT 0
+# define RIGHT 2
+# define DOWN 1
 
 #endif

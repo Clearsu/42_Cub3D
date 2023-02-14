@@ -6,7 +6,7 @@
 /*   By: jincpark <jincpark@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/08 19:14:11 by jincpark          #+#    #+#             */
-/*   Updated: 2023/02/13 23:27:57 by jincpark         ###   ########.fr       */
+/*   Updated: 2023/02/14 21:33:03 by jincpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,8 +63,6 @@ typedef struct s_ray_data
 	double			dir_y;
 	double			plane_x;
 	double			plane_y;
-	double			time_curr;
-	double			time_old;
 	double			camera_x;
 	double			ray_dir_x;
 	double			ray_dir_y;

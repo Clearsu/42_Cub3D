@@ -6,7 +6,7 @@
 /*   By: jincpark <jincpark@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/08 18:36:24 by jincpark          #+#    #+#             */
-/*   Updated: 2023/02/10 23:18:18 by jincpark         ###   ########.fr       */
+/*   Updated: 2023/02/14 17:10:37 by jincpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,27 +64,6 @@ static void	make_token_list(t_parse_data *parse_data)
 	while (state != FINISH)
 		state_fp[state](&state, parse_data);
 }
-/*
-#include <stdio.h>
-void	print_token_list(t_list *token_list)
-{
-	t_token *token;
-
-	while (token_list)
-	{
-		token = (t_token *)token_list->content;
-		if (token->type == EMPTY)
-			printf("type: EMPTY, value: null\n");
-		else if (token->type == T_EAST || token->type == T_WEST
-			|| token->type == T_SOUTH || token->type == T_NORTH)
-			printf("type: TEXTURE, value: %s\n", (char *)token->value);
-		else if (token->type == C_FLOOR || token->type == C_CEILING)
-			printf("type: COLOR, value: %s\n", (char *)token->value);
-		else if (token->type == MAP)
-			printf("type: MAP, value: %s\n", (char *)token->value);
-		token_list = token_list->next;
-	}
-}*/
 
 void	parse(t_map_data *map_data, t_parse_data *parse_data, char *fname)
 {
@@ -96,7 +75,6 @@ void	parse(t_map_data *map_data, t_parse_data *parse_data, char *fname)
 	parse_data->buff_list = put_lines_into_buff_list(fd);
 	check_invalid_char(parse_data->buff_list);
 	make_token_list(parse_data);
-//	print_token_list(parse_data->token_list);
 	check_map_configuration(parse_data->token_list);
 	check_map_order(parse_data->token_list);
 	parse_texture(map_data->texture, parse_data->token_list);
