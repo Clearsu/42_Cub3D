@@ -6,7 +6,7 @@
 /*   By: jincpark <jincpark@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/08 19:14:11 by jincpark          #+#    #+#             */
-/*   Updated: 2023/02/18 22:44:38 by jincpark         ###   ########.fr       */
+/*   Updated: 2023/02/19 00:12:31 by jincpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -89,7 +89,7 @@ typedef struct s_key_state
 	int	move_left;
 	int	move_right;
 	int	turn_left;
-	int	rutn_right;
+	int	turn_right;
 }	t_key_state;
 
 typedef struct s_raycast_param

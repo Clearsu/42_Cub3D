@@ -6,7 +6,7 @@
 /*   By: jincpark <jincpark@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/10 22:54:29 by jincpark          #+#    #+#             */
-/*   Updated: 2023/02/18 23:21:15 by jincpark         ###   ########.fr       */
+/*   Updated: 2023/02/19 00:08:20 by jincpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,8 +67,8 @@ void	play_start(t_map_data *map_data, t_mlx_vars *mlx_vars)
 	raycast_param.mlx_vars = mlx_vars;
 	ft_memset(&raycast_param.key_state, 0, sizeof(t_key_state));
 	init_mlx_and_img(mlx_vars);
-	mlx_hook(mlx_vars->win, KEY_PRESS, 0, press_key, &info);
-	mlx_hook(mlx_vars->win, KEY_RELEASE, 0, release_key, &info);
+	mlx_hook(mlx_vars->win, KEY_PRESS, 0, press_key, &raycast_param);
+	mlx_hook(mlx_vars->win, KEY_RELEASE, 0, release_key, &raycast_param);
 	mlx_loop_hook(mlx_vars->mlx, loop, &raycast_param);
 	mlx_loop(mlx_vars->mlx);
 }
