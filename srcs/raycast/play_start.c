@@ -6,7 +6,7 @@
 /*   By: jincpark <jincpark@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/10 22:54:29 by jincpark          #+#    #+#             */
-/*   Updated: 2023/02/18 22:41:21 by jincpark         ###   ########.fr       */
+/*   Updated: 2023/02/18 23:21:15 by jincpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,10 +49,11 @@ static void	init_ray_data(t_ray_data *rdata, t_map_data *map_data)
 	rdata->plane_y = rdata->dir_x * 0.66;
 }
 
-static void	loop(t_raycast_param *raycast_param)
+static int	loop(t_raycast_param *raycast_param)
 {
-	raycast(raycast_param);
 	move_player(raycast_param);
+	raycast(raycast_param);
+	return (0);
 }
 
 void	play_start(t_map_data *map_data, t_mlx_vars *mlx_vars)
@@ -64,8 +65,8 @@ void	play_start(t_map_data *map_data, t_mlx_vars *mlx_vars)
 	raycast_param.rdata = &rdata;
 	raycast_param.map_data = map_data;
 	raycast_param.mlx_vars = mlx_vars;
+	ft_memset(&raycast_param.key_state, 0, sizeof(t_key_state));
 	init_mlx_and_img(mlx_vars);
-	mlx_hook(mlx_vars->win, 17, 0, close_win_and_exit, &info);
 	mlx_hook(mlx_vars->win, KEY_PRESS, 0, press_key, &info);
 	mlx_hook(mlx_vars->win, KEY_RELEASE, 0, release_key, &info);
 	mlx_loop_hook(mlx_vars->mlx, loop, &raycast_param);
