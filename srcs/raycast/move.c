@@ -6,21 +6,28 @@
 /*   By: jincpark <jincpark@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/13 22:41:59 by jincpark          #+#    #+#             */
-/*   Updated: 2023/02/19 00:18:34 by jincpark         ###   ########.fr       */
+/*   Updated: 2023/02/19 00:26:32 by jincpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include <math.h>
 #include "raycast.h"
 
 // ㅋㅓㄴ센서스 베이비로션향
 
 void	turn_left(t_ray_data *rdata)
 {
-	
+	rdata->dir_x = rdata->dir_x * cos(ROTSPEED) - rdata->dir_y * sin(ROTSPEED);
+	rdata->dir_y = rdata->dir_x * sin(ROTSPEED) + rdata->dir_y * cos(ROTSPEED);
 }
 
 void	turn_right(t_ray_data *rdata)
 {
+	double	rotspeed;
+
+	rotspeed = (-1) * ROTSPEED;
+	rdata->dir_x = rdata->dir_x * cos(rotspeed) - rdata->dir_y * sin(rotspeed);
+	rdata->dir_y = rdata->dir_x * sin(rotspeed) + rdata->dir_y * cos(rotspeed);
 }
 
 void	move_left(t_ray_data *rdata, char **map)
