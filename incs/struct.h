@@ -6,7 +6,7 @@
 /*   By: jincpark <jincpark@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/08 19:14:11 by jincpark          #+#    #+#             */
-/*   Updated: 2023/02/14 21:33:03 by jincpark         ###   ########.fr       */
+/*   Updated: 2023/02/18 22:44:38 by jincpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -82,11 +82,22 @@ typedef struct s_ray_data
 	unsigned int	color;
 }	t_ray_data;
 
+typedef struct s_key_state
+{
+	int	move_forward;
+	int	move_backward;
+	int	move_left;
+	int	move_right;
+	int	turn_left;
+	int	rutn_right;
+}	t_key_state;
+
 typedef struct s_raycast_param
 {
 	t_ray_data	*rdata;
 	t_map_data	*map_data;
 	t_mlx_vars	*mlx_vars;
+	t_key_state	key_state;
 }	t_raycast_param;
 
 typedef void	(*t_state_fp)(t_state *state, t_parse_data *parse_data);
