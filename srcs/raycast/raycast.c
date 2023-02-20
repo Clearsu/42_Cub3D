@@ -6,7 +6,7 @@
 /*   By: jincpark <jincpark@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/11 21:43:14 by jincpark          #+#    #+#             */
-/*   Updated: 2023/02/14 21:07:50 by jincpark         ###   ########.fr       */
+/*   Updated: 2023/02/20 19:56:39 by jincpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -162,7 +162,7 @@ static void	get_wall_color(t_ray_data *rdata, t_map_data *map_data)
 		}
 	}
 	if (rdata->side == 1)
-		rdata->color = rdata->color / 2;
+		rdata->color /= 2;
 }
 
 static void	draw_vertical_line(size_t x, t_ray_data *rdata, t_map_data *map_data, t_mlx_vars *mlx_vars)

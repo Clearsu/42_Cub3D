@@ -6,13 +6,14 @@
 /*   By: jincpark <jincpark@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/10 22:56:57 by jincpark          #+#    #+#             */
-/*   Updated: 2023/02/13 22:02:41 by jincpark         ###   ########.fr       */
+/*   Updated: 2023/02/20 23:08:36 by jincpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "struct.h"
 #include "mlx.h"
 #include "raycast.h"
+#include "define.h"
 
 void	init_mlx_and_img(t_mlx_vars *mlx_vars)
 {
