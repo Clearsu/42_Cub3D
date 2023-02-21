@@ -6,7 +6,7 @@
 /*   By: jincpark <jincpark@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/10 22:49:36 by jincpark          #+#    #+#             */
-/*   Updated: 2023/02/19 00:14:32 by jincpark         ###   ########.fr       */
+/*   Updated: 2023/02/21 20:06:39 by jincpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,7 @@ void	move_backward(t_ray_data *rdata, char **map);
 void	turn_right(t_ray_data *rdata);
 void	turn_left(t_ray_data *rdata);
 void	close_win_and_exit(t_mlx_vars *mlx_vars);
+void	make_texture_img(t_map_data *map_data, t_mlx_vars *mlx_vars);
 void	my_mlx_pixel_put(t_img_data *img_data,
 		size_t x, size_t y, unsigned int color);
 

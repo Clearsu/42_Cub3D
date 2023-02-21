@@ -7,3 +7,4 @@ cub3d
 *.a
 *.swiftdoc
 *.swiftmodule
+.DS_Store

@@ -6,7 +6,7 @@
 /*   By: jincpark <jincpark@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/08 19:14:11 by jincpark          #+#    #+#             */
-/*   Updated: 2023/02/21 18:03:50 by jincpark         ###   ########.fr       */
+/*   Updated: 2023/02/21 21:19:05 by jincpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,16 +29,6 @@ typedef struct s_parse_data
 	t_list	*buff_now;
 }	t_parse_data;
 
-typedef struct s_map_data
-{
-	char			*texture[4];
-	unsigned int	color[2];
-	char			**map;
-	size_t			width;
-	size_t			height;
-	size_t			spawn[3];
-}	t_map_data;
-
 typedef struct s_img_data
 {
 	void	*img;
@@ -46,7 +36,20 @@ typedef struct s_img_data
 	int		bits_per_pixel;
 	int		line_length;
 	int		endian;
+	int		width;
+	int		height;
 }	t_img_data;
+
+typedef struct s_map_data
+{
+	char			*texture[4];
+	t_img_data		tex_img_data[4];
+	unsigned int	color[2];
+	char			**map;
+	size_t			width;
+	size_t			height;
+	size_t			spawn[3];
+}	t_map_data;
 
 typedef struct s_mlx_vars
 {
@@ -57,29 +60,29 @@ typedef struct s_mlx_vars
 
 typedef struct s_ray_data
 {
-	double			pos_x;
-	double			pos_y;
-	double			dir_x;
-	double			dir_y;
-	double			plane_x;
-	double			plane_y;
-	double			camera_x;
-	double			ray_dir_x;
-	double			ray_dir_y;
-	double			side_dist_x;
-	double			side_dist_y;
-	double			delta_dist_x;
-	double			delta_dist_y;
-	double			perp_wall_dist;
-	int				map_x;
-	int				map_y;
-	int				step_x;
-	int				step_y;
-	int				hit;
-	int				side;
-	int				draw_start;
-	int				draw_end;
-	unsigned int	color;
+	double		pos_x;
+	double		pos_y;
+	double		dir_x;
+	double		dir_y;
+	double		plane_x;
+	double		plane_y;
+	double		camera_x;
+	double		ray_dir_x;
+	double		ray_dir_y;
+	double		side_dist_x;
+	double		side_dist_y;
+	double		delta_dist_x;
+	double		delta_dist_y;
+	double		perp_wall_dist;
+	int			map_x;
+	int			map_y;
+	int			step_x;
+	int			step_y;
+	int			hit;
+	int			side;
+	int			draw_start;
+	int			draw_end;
+	t_img_data	*texture;
 }	t_ray_data;
 
 typedef struct s_key_state

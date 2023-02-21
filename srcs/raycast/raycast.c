@@ -6,7 +6,7 @@
 /*   By: jincpark <jincpark@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/11 21:43:14 by jincpark          #+#    #+#             */
-/*   Updated: 2023/02/21 18:03:44 by jincpark         ###   ########.fr       */
+/*   Updated: 2023/02/21 19:42:41 by jincpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -118,7 +118,7 @@ static void	get_draw_start_end(t_ray_data *rdata, t_map_data *map_data)
 		rdata->draw_end = HEIGHT - 1;
 }
 
-static void	get_wall_color(t_ray_data *rdata, t_map_data *map_data)
+static void	get_wall_texture(t_ray_data *rdata, t_map_data *map_data)
 {
 	char	**map;
 	int		map_x;
@@ -130,16 +130,16 @@ static void	get_wall_color(t_ray_data *rdata, t_map_data *map_data)
 	if (rdata->side == 1)
 	{
 		if ((int)rdata->pos_y < map_y)
-			rdata->color = SOUTH_COLOR;
+			rdata->texture = &map_data->tex_img_data[SOUTH];
 		else
-			rdata->color = NORTH_COLOR;
+			rdata->texture = &map_data->tex_img_data[NORTH];
 	}
 	else
 	{
 		if ((int)rdata->pos_x < map_x)
-			rdata->color = EAST_COLOR;
+			rdata->texture = &map_data->tex_img_data[EAST];
 		else
-			rdata->color = WEST_COLOR;
+			rdata->texture = &map_data->tex_img_data[WEST];
 	}
 }
 
@@ -155,7 +155,7 @@ static void	draw_vertical_line(size_t x, t_ray_data *rdata, t_map_data *map_data
 	while (y < start)
 		my_mlx_pixel_put(&mlx_vars->img_data, x, y++, map_data->color[CEILING]);
 	while (y < end)
-		my_mlx_pixel_put(&mlx_vars->img_data, x, y++, rdata->color);
+		my_mlx_pixel_put(&mlx_vars->img_data, x, y++, 0x00ff00ff);
 	while (y < HEIGHT)
 		my_mlx_pixel_put(&mlx_vars->img_data, x, y++, map_data->color[FLOOR]);
 }
@@ -181,7 +181,7 @@ int	raycast(t_raycast_param *raycast_param)
 		perform_dda(rdata, map_data);
 		get_dist_of_perp_ray(rdata);
 		get_draw_start_end(rdata, map_data);
-		get_wall_color(rdata, map_data);
+		get_wall_texture(rdata, map_data);
 		draw_vertical_line(x++, rdata, map_data, mlx_vars);
 	}
 	mlx_put_image_to_window(mlx_vars->mlx, mlx_vars->win, mlx_vars->img_data.img, 0, 0);

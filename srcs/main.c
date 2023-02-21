@@ -6,7 +6,7 @@
 /*   By: jincpark <jincpark@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/08 17:15:46 by jincpark          #+#    #+#             */
-/*   Updated: 2023/02/11 20:44:34 by jincpark         ###   ########.fr       */
+/*   Updated: 2023/02/21 19:39:45 by jincpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,6 +52,7 @@ static void	init_structs(t_parse_data *parse_data,
 {
 	ft_memset(parse_data, 0, sizeof(t_parse_data));
 	ft_memset(&map_data->texture, 0, sizeof(char *) * 4);
+	ft_memset(&map_data->tex_img_data, 0, sizeof(t_img_data) * 4);
 	ft_memset(&map_data->color, 0, sizeof(unsigned int) * 2);
 	ft_memset(&map_data->spawn, 0, sizeof(size_t) * 2);
 	ft_memset(&mlx_vars->img_data, 0, sizeof(t_img_data));
