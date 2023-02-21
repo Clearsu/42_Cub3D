@@ -6,14 +6,12 @@
 /*   By: jincpark <jincpark@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/13 22:41:59 by jincpark          #+#    #+#             */
-/*   Updated: 2023/02/20 22:55:46 by jincpark         ###   ########.fr       */
+/*   Updated: 2023/02/21 14:47:40 by jincpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <math.h>
 #include "raycast.h"
-
-// ㅋㅓㄴ센서스 베이비로션향
 
 void	turn_right(t_ray_data *rdata)
 {

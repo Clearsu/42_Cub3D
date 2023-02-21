@@ -6,7 +6,7 @@
 /*   By: jincpark <jincpark@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/11 21:43:14 by jincpark          #+#    #+#             */
-/*   Updated: 2023/02/20 19:56:39 by jincpark         ###   ########.fr       */
+/*   Updated: 2023/02/21 18:03:44 by jincpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -121,48 +121,26 @@ static void	get_draw_start_end(t_ray_data *rdata, t_map_data *map_data)
 static void	get_wall_color(t_ray_data *rdata, t_map_data *map_data)
 {
 	char	**map;
-	int		x;
-	int		y;
+	int		map_x;
+	int		map_y;
 
 	map = map_data->map;
-	x = rdata->map_x;
-	y = rdata->map_y;
-	if (rdata->ray_dir_y >= 0)
+	map_x = rdata->map_x;
+	map_y = rdata->map_y;
+	if (rdata->side == 1)
 	{
-		if (rdata->ray_dir_x >= 0)
-		{
-			if (map[y - 1][x] == 0)
-				rdata->color = SOUTH_COLOR;
-			else if (map[y][x - 1] == 0)
-				rdata->color = EAST_COLOR;
-		}
+		if ((int)rdata->pos_y < map_y)
+			rdata->color = SOUTH_COLOR;
 		else
-		{
-			if (map[y - 1][x] == 0)
-				rdata->color = SOUTH_COLOR;
-			else if (map[y][x + 1] == 0)
-				rdata->color = WEST_COLOR;
-		}
+			rdata->color = NORTH_COLOR;
 	}
 	else
 	{
-		if (rdata->ray_dir_x >= 0)
-		{
-			if (map[y + 1][x] == 0)
-				rdata->color = NORTH_COLOR;
-			else if (map[y][x - 1] == 0)
-				rdata->color = EAST_COLOR;
-		}
+		if ((int)rdata->pos_x < map_x)
+			rdata->color = EAST_COLOR;
 		else
-		{
-			if (map[y + 1][x] == 0)
-				rdata->color = NORTH_COLOR;
-			else if (map[y][x + 1] == 0)
-				rdata->color = WEST_COLOR;
-		}
+			rdata->color = WEST_COLOR;
 	}
-	if (rdata->side == 1)
-		rdata->color /= 2;
 }
 
 static void	draw_vertical_line(size_t x, t_ray_data *rdata, t_map_data *map_data, t_mlx_vars *mlx_vars)

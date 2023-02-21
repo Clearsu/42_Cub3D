@@ -6,7 +6,7 @@
 /*   By: jincpark <jincpark@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/09 23:05:12 by jincpark          #+#    #+#             */
-/*   Updated: 2023/02/10 23:18:34 by jincpark         ###   ########.fr       */
+/*   Updated: 2023/02/21 18:04:03 by jincpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -95,7 +95,7 @@ void	parse_map(t_map_data *map_data, t_list *token_list)
 {
 	get_width(&map_data->width, token_list);
 	get_height(&map_data->height, token_list);
-	map_data->map = alloc_2d_char_arr(map_data->width, map_data->height);
+	map_data->map = calloc_2d_char_arr(map_data->width, map_data->height);
 	put_map_element(map_data, token_list);
 	basic_wall_check(map_data);
 	is_map_fully_closed(map_data);
