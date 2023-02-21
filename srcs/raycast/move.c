@@ -6,7 +6,7 @@
 /*   By: jincpark <jincpark@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/13 22:41:59 by jincpark          #+#    #+#             */
-/*   Updated: 2023/02/21 14:47:40 by jincpark         ###   ########.fr       */
+/*   Updated: 2023/02/21 18:10:12 by jincpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,11 +29,13 @@ void	turn_right(t_ray_data *rdata)
 void	turn_left(t_ray_data *rdata)
 {
 	double	rotspeed;
+	double	dir_x_cp;
 	double	plane_x_cp;
 
 	rotspeed = (-1) * ROTSPEED;
+	dir_x_cp = rdata->dir_x;
 	rdata->dir_x = rdata->dir_x * cos(rotspeed) - rdata->dir_y * sin(rotspeed);
-	rdata->dir_y = rdata->dir_x * sin(rotspeed) + rdata->dir_y * cos(rotspeed);
+	rdata->dir_y = dir_x_cp * sin(rotspeed) + rdata->dir_y * cos(rotspeed);
 	plane_x_cp = rdata->plane_x;
 	rdata->plane_x = rdata->plane_x * cos(rotspeed) - rdata->plane_y * sin(rotspeed);
 	rdata->plane_y = plane_x_cp * sin(rotspeed) + rdata->plane_y * cos(rotspeed);
