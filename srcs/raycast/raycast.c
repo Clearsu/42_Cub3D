@@ -6,7 +6,7 @@
 /*   By: jincpark <jincpark@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/11 21:43:14 by jincpark          #+#    #+#             */
-/*   Updated: 2023/02/22 15:19:25 by jincpark         ###   ########.fr       */
+/*   Updated: 2023/02/22 19:57:29 by jincpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -107,57 +107,88 @@ static void	get_dist_of_perp_ray(t_ray_data *rdata)
 
 static void	get_draw_start_end(t_ray_data *rdata, t_map_data *map_data)
 {
-	int	line_height;
-
-	line_height = (int)(HEIGHT / rdata->perp_wall_dist);
-	rdata->draw_start = HEIGHT / 2 - line_height / 2;
+	rdata->line_height = (int)(HEIGHT / rdata->perp_wall_dist);
+	rdata->draw_start = HEIGHT / 2 - rdata->line_height / 2;
 	if (rdata->draw_start < 0)
 		rdata->draw_start = 0;
-	rdata->draw_end = HEIGHT / 2 + line_height / 2;
+	rdata->draw_end = HEIGHT / 2 + rdata->line_height / 2;
 	if (rdata->draw_end >= HEIGHT)
 		rdata->draw_end = HEIGHT - 1;
 }
 
 static void	get_wall_texture(t_ray_data *rdata, t_map_data *map_data)
 {
-	char	**map;
-	int		map_x;
-	int		map_y;
-
-	map = map_data->map;
-	map_x = rdata->map_x;
-	map_y = rdata->map_y;
 	if (rdata->side == 1)
 	{
-		if ((int)rdata->pos_y < map_y)
-			rdata->texture = &map_data->tex_img_data[SOUTH];
+		if ((int)rdata->pos_y < rdata->map_y)
+			rdata->tex_idx = SOUTH;
 		else
-			rdata->texture = &map_data->tex_img_data[NORTH];
+			rdata->tex_idx = NORTH;
 	}
 	else
 	{
-		if ((int)rdata->pos_x < map_x)
-			rdata->texture = &map_data->tex_img_data[EAST];
+		if ((int)rdata->pos_x < rdata->map_x)
+			rdata->tex_idx = EAST;
 		else
-			rdata->texture = &map_data->tex_img_data[WEST];
+			rdata->tex_idx = WEST;
 	}
 }
 
-static void	draw_vertical_line(size_t x, t_ray_data *rdata, t_map_data *map_data, t_mlx_vars *mlx_vars)
+static int get_tex_x(t_ray_data *rdata, int tex_width)
 {
-	int	y;
-	int	start;
-	int	end;
+	double	wall_x;
+
+	if (rdata->side == 0)
+		wall_x = rdata->pos_y + rdata->perp_wall_dist * rdata->ray_dir_y;
+	else
+		wall_x = rdata->pos_x + rdata->perp_wall_dist * rdata->ray_dir_x;
+	wall_x = wall_x - (int)wall_x;
+	return ((int)(wall_x * (double)(tex_width)));
+}
+
+static void	draw_texture_line(t_img_data *img_data,
+		int x, int y, t_raycast_param *raycast_param)
+{
+	t_ray_data		*rdata;
+	unsigned int	color;
+	int				tex_width;
+	int				tex_height;
+
+	tex_width = raycast_param->tex_data[raycast_param->rdata->tex_idx].width;
+	tex_height = raycast_param->tex_data[raycast_param->rdata->tex_idx].height;
+	rdata = raycast_param->rdata;
+	rdata->tex_x = get_tex_x(rdata, tex_width);
+	if ((rdata->side == 0 && rdata->ray_dir_x > 0) || (rdata->side == 1 && rdata->ray_dir_y < 0))
+		rdata->tex_x = tex_width - rdata->tex_x - 1;
+	rdata->tex_step = 1.0 * tex_height / rdata->line_height;
+    rdata->tex_pos = (rdata->draw_start - HEIGHT / 2 + rdata->line_height / 2) * rdata->tex_step;
+	while (y < rdata->draw_end)
+	{
+		rdata->tex_y = (int)rdata->tex_pos & (tex_height - 1);
+		rdata->tex_pos += rdata->tex_step;
+		color = raycast_param->tex_data[rdata->tex_idx].texture[tex_height * rdata->tex_y
+			+ rdata->tex_x];
+		my_mlx_pixel_put(img_data, x, y, color);
+		y++;
+	}
+}
+
+static void	draw_line(t_raycast_param *raycast_param, t_img_data *img_data,
+		unsigned int *color, int x)
+{
+	int				y;
+	int				start;
+	unsigned int	tex_color;
+	
 
 	y = 0;
-	start = rdata->draw_start;
-	end = rdata->draw_end;
+	start = raycast_param->rdata->draw_start;
 	while (y < start)
-		my_mlx_pixel_put(&mlx_vars->img_data, x, y++, map_data->color[CEILING]);
-	while (y < end)
-		my_mlx_pixel_put(&mlx_vars->img_data, x, y++, 0x00ff00ff);
+		my_mlx_pixel_put(img_data, x, y++, color[CEILING]);
+	draw_texture_line(img_data, x, y, raycast_param);
+	y = raycast_param->rdata->draw_end;
 	while (y < HEIGHT)
-		my_mlx_pixel_put(&mlx_vars->img_data, x, y++, map_data->color[FLOOR]);
+		my_mlx_pixel_put(img_data, x, y++, color[FLOOR]);
 }
 
 int	raycast(t_raycast_param *raycast_param)
@@ -165,7 +196,7 @@ int	raycast(t_raycast_param *raycast_param)
 	t_ray_data	*rdata;
 	t_map_data	*map_data;
 	t_mlx_vars	*mlx_vars;
-	size_t		x;
+	int			x;
 
 	rdata = raycast_param->rdata;
 	map_data = raycast_param->map_data;
@@ -182,7 +213,7 @@ int	raycast(t_raycast_param *raycast_param)
 		get_dist_of_perp_ray(rdata);
 		get_draw_start_end(rdata, map_data);
 		get_wall_texture(rdata, map_data);
-		draw_vertical_line(x++, rdata, map_data, mlx_vars);
+		draw_line(raycast_param, &mlx_vars->img_data, map_data->color, x++);
 	}
 	mlx_put_image_to_window(mlx_vars->mlx, mlx_vars->win, mlx_vars->img_data.img, 0, 0);
 	return (0);

@@ -6,7 +6,7 @@
 /*   By: jincpark <jincpark@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/10 22:54:29 by jincpark          #+#    #+#             */
-/*   Updated: 2023/02/22 15:16:32 by jincpark         ###   ########.fr       */
+/*   Updated: 2023/02/22 17:32:28 by jincpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,8 +43,6 @@ static void	set_dir_vector(t_ray_data *rdata, char c)
 static void	init_ray_data(t_ray_data *rdata, t_map_data *map_data,
 		t_raycast_param *raycast_param)
 {
-	int	i;
-
 	ft_memset(rdata, 0, sizeof(t_ray_data));
 	rdata->pos_x = map_data->spawn[SPAWN_X];
 	rdata->pos_y = map_data->spawn[SPAWN_Y];
@@ -52,18 +50,7 @@ static void	init_ray_data(t_ray_data *rdata, t_map_data *map_data,
 	rdata->plane_x = (-1) * rdata->dir_y * 0.66;
 	rdata->plane_y = rdata->dir_x * 0.66;
 	ft_memset(&raycast_param->key_state, 0, sizeof(t_key_state));
-	i = 0;
-	while (i < 4)
-	{
-		raycast_param->texture[i] = ft_calloc(TEX_WIDTH * TEX_HEIGHT, sizeof(unsigned int));
-		if (raycast_param->texture[i] == NULL)
-		{
-			while (--i >= 0)
-				free(raycast_param->texture[i]);
-			print_err_and_exit(E_SYS);
-		}
-		i++;
-	}
+	ft_memset(raycast_param->tex_data, 0, 4 * sizeof(t_tex_data *));
 }
 
 static int	loop(t_raycast_param *raycast_param)

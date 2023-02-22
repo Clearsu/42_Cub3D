@@ -6,7 +6,7 @@
 /*   By: jincpark <jincpark@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/08 19:14:11 by jincpark          #+#    #+#             */
-/*   Updated: 2023/02/22 14:57:11 by jincpark         ###   ########.fr       */
+/*   Updated: 2023/02/22 19:49:34 by jincpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,15 +73,20 @@ typedef struct s_ray_data
 	double		delta_dist_x;
 	double		delta_dist_y;
 	double		perp_wall_dist;
+	double		tex_step;
+	double		tex_pos;
 	int			map_x;
 	int			map_y;
 	int			step_x;
 	int			step_y;
 	int			hit;
 	int			side;
+	int			line_height;
 	int			draw_start;
 	int			draw_end;
-	t_img_data	*texture;
+	int			tex_idx;
+	int			tex_x;
+	int			tex_y;
 }	t_ray_data;
 
 typedef struct s_key_state
@@ -94,14 +99,20 @@ typedef struct s_key_state
 	int	turn_right;
 }	t_key_state;
 
+typedef struct s_texture_data
+{
+	unsigned int 	*texture;
+	int				width;
+	int				height;
+}	t_tex_data;
+
 typedef struct s_raycast_param
 {
 	t_ray_data		*rdata;
 	t_map_data		*map_data;
 	t_mlx_vars		*mlx_vars;
 	t_key_state		key_state;
-	unsigned int	*texture[4];
-	unsigned int	screen[HEIGHT][WIDTH];
+	t_tex_data		tex_data[4];
 }	t_raycast_param;
 
 typedef void	(*t_state_fp)(t_state *state, t_parse_data *parse_data);
