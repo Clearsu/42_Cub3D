@@ -6,7 +6,7 @@
 /*   By: jincpark <jincpark@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/10 22:54:29 by jincpark          #+#    #+#             */
-/*   Updated: 2023/02/22 17:32:28 by jincpark         ###   ########.fr       */
+/*   Updated: 2023/02/22 20:21:30 by jincpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,8 +44,8 @@ static void	init_ray_data(t_ray_data *rdata, t_map_data *map_data,
 		t_raycast_param *raycast_param)
 {
 	ft_memset(rdata, 0, sizeof(t_ray_data));
-	rdata->pos_x = map_data->spawn[SPAWN_X];
-	rdata->pos_y = map_data->spawn[SPAWN_Y];
+	rdata->pos_x = (double)map_data->spawn[SPAWN_X] + 0.5;
+	rdata->pos_y = (double)map_data->spawn[SPAWN_Y] + 0.5;
 	set_dir_vector(rdata, map_data->spawn[SPAWN_D]);
 	rdata->plane_x = (-1) * rdata->dir_y * 0.66;
 	rdata->plane_y = rdata->dir_x * 0.66;

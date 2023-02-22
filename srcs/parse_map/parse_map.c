@@ -6,17 +6,17 @@
 /*   By: jincpark <jincpark@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/09 23:05:12 by jincpark          #+#    #+#             */
-/*   Updated: 2023/02/21 18:04:03 by jincpark         ###   ########.fr       */
+/*   Updated: 2023/02/22 20:17:43 by jincpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "parse.h"
 
-static void	get_width(size_t *width, t_list *token_list)
+static void	get_width(int *width, t_list *token_list)
 {
 	t_token	*token;
-	size_t	longest;
-	size_t	curr_len;
+	int		longest;
+	int		curr_len;
 
 	longest = 0;
 	curr_len = 0;
@@ -34,10 +34,10 @@ static void	get_width(size_t *width, t_list *token_list)
 	*width = longest;
 }
 
-static void	get_height(size_t *height, t_list *token_list)
+static void	get_height(int *height, t_list *token_list)
 {
 	t_token	*token;
-	size_t	len;
+	int		len;
 
 	len = 0;
 	while (token_list)

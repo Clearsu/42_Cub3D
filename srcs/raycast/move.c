@@ -6,13 +6,14 @@
 /*   By: jincpark <jincpark@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/13 22:41:59 by jincpark          #+#    #+#             */
-/*   Updated: 2023/02/21 18:10:12 by jincpark         ###   ########.fr       */
+/*   Updated: 2023/02/22 20:30:30 by jincpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <math.h>
 #include "raycast.h"
 
+#include <stdio.h>
 void	turn_right(t_ray_data *rdata)
 {
 	double	dir_x_cp;
@@ -48,9 +49,9 @@ void	move_left(t_ray_data *rdata, char **map)
 
 	new_pos_x = rdata->pos_x + rdata->dir_y * MOVSPEED;
 	new_pos_y = rdata->pos_y + (-1) * rdata->dir_x * MOVSPEED;
-	if (map[(int)new_pos_x][(int)rdata->pos_y] == INSIDE)
+	if (map[(int)new_pos_y][(int)rdata->pos_x] == INSIDE)
 		rdata->pos_x = new_pos_x;
-	if (map[(int)new_pos_x][(int)new_pos_y] == INSIDE)
+	if (map[(int)new_pos_y][(int)new_pos_x] == INSIDE)
 		rdata->pos_y = new_pos_y;
 }
 
@@ -61,9 +62,9 @@ void	move_right(t_ray_data *rdata, char **map)
 
 	new_pos_x = rdata->pos_x + (-1) * rdata->dir_y * MOVSPEED;
 	new_pos_y = rdata->pos_y + rdata->dir_x * MOVSPEED;
-	if (map[(int)new_pos_x][(int)rdata->pos_y] == INSIDE)
+	if (map[(int)new_pos_y][(int)rdata->pos_x] == INSIDE)
 		rdata->pos_x = new_pos_x;
-	if (map[(int)new_pos_x][(int)new_pos_y] == INSIDE)
+	if (map[(int)new_pos_y][(int)new_pos_x] == INSIDE)
 		rdata->pos_y = new_pos_y;
 }
 
@@ -74,9 +75,13 @@ void	move_forward(t_ray_data *rdata, char **map)
 
 	new_pos_x = rdata->pos_x + rdata->dir_x * MOVSPEED;
 	new_pos_y = rdata->pos_y + rdata->dir_y * MOVSPEED;
-	if (map[(int)new_pos_x][(int)rdata->pos_y] == INSIDE)
+	printf("current pox_x: %f, current pos_y: %f\n", rdata->pos_x, rdata->pos_y);
+	printf("current pos value: %d\n", map[(int)rdata->pos_x][(int)rdata->pos_y]);
+	printf("new pox_x: %f, new pos_y: %f\n", new_pos_x, new_pos_y);
+	printf("new_pos_value: %d\n", map[(int)new_pos_x][(int)new_pos_y]);
+	if (map[(int)new_pos_y][(int)rdata->pos_x] == INSIDE)
 		rdata->pos_x = new_pos_x;
-	if (map[(int)new_pos_x][(int)new_pos_y] == INSIDE)
+	if (map[(int)new_pos_y][(int)new_pos_x] == INSIDE)
 		rdata->pos_y = new_pos_y;
 }
 
@@ -87,9 +92,9 @@ void	move_backward(t_ray_data *rdata, char **map)
 
 	new_pos_x = rdata->pos_x - rdata->dir_x * MOVSPEED;
 	new_pos_y = rdata->pos_y - rdata->dir_y * MOVSPEED;
-	if (map[(int)new_pos_x][(int)rdata->pos_y] == INSIDE)
+	if (map[(int)new_pos_y][(int)rdata->pos_x] == INSIDE)
 		rdata->pos_x = new_pos_x;
-	if (map[(int)new_pos_x][(int)new_pos_y] == INSIDE)
+	if (map[(int)new_pos_y][(int)new_pos_x] == INSIDE)
 		rdata->pos_y = new_pos_y;
 }
 

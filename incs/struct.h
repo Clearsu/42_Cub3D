@@ -6,7 +6,7 @@
 /*   By: jincpark <jincpark@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/08 19:14:11 by jincpark          #+#    #+#             */
-/*   Updated: 2023/02/22 19:49:34 by jincpark         ###   ########.fr       */
+/*   Updated: 2023/02/22 20:16:49 by jincpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,9 +45,9 @@ typedef struct s_map_data
 	char			*tex_fname[4];
 	unsigned int	color[2];
 	char			**map;
-	size_t			width;
-	size_t			height;
-	size_t			spawn[3];
+	int				width;
+	int				height;
+	int				spawn[3];
 }	t_map_data;
 
 typedef struct s_mlx_vars
