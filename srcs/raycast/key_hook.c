@@ -6,16 +6,22 @@
 /*   By: jincpark <jincpark@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/10 23:27:18 by jincpark          #+#    #+#             */
-/*   Updated: 2023/02/19 00:13:45 by jincpark         ###   ########.fr       */
+/*   Updated: 2023/02/22 22:27:14 by jincpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "raycast.h"
 #include "mlx.h"
 
-void	close_win_and_exit(t_mlx_vars *mlx_vars)
+void	close_win_and_exit(t_raycast_param *raycast_param)
 {
-	mlx_destroy_window(mlx_vars->mlx, mlx_vars->win);
+	int	i;
+
+	mlx_destroy_window(raycast_param->mlx_vars->mlx,
+			raycast_param->mlx_vars->win);
+	i = 0;
+	while (i < 4)
+		free(raycast_param->tex_data[i++].texture);
 	exit(0);
 }
 
@@ -25,7 +31,7 @@ int	press_key(int keycode, t_raycast_param *raycast_param)
 
 	key_state = &raycast_param->key_state;
 	if (keycode == ESC)
-		close_win_and_exit(raycast_param->mlx_vars);
+		close_win_and_exit(raycast_param);
 	else if (keycode == LEFT)
 		key_state->move_left = TRUE;
 	else if (keycode == RIGHT)

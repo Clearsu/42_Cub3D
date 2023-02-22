@@ -6,7 +6,7 @@
 /*   By: jincpark <jincpark@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/11 21:43:14 by jincpark          #+#    #+#             */
-/*   Updated: 2023/02/22 20:00:06 by jincpark         ###   ########.fr       */
+/*   Updated: 2023/02/22 22:09:59 by jincpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -168,8 +168,19 @@ static void	draw_texture_line(t_img_data *img_data,
 		rdata->tex_pos += rdata->tex_step;
 		color = raycast_param->tex_data[rdata->tex_idx].texture[tex_height * rdata->tex_y
 			+ rdata->tex_x];
-		my_mlx_pixel_put(img_data, x, y, color);
-		y++;
+		my_mlx_pixel_put(img_data, x, y++, color);
+	}
+}
+
+void	test_draw(t_raycast_param *raycast_param)
+{
+	for (int y = 0; y < 640; y++)
+	{
+		for (int x = 0; x < 640; x++)
+		{
+			unsigned int color = raycast_param->tex_data[0].texture[y * 640 + x];	
+			my_mlx_pixel_put(&raycast_param->mlx_vars->img_data, x, y, color);
+		}
 	}
 }
 
@@ -215,6 +226,7 @@ int	raycast(t_raycast_param *raycast_param)
 		get_wall_texture(rdata, map_data);
 		draw_line(raycast_param, &mlx_vars->img_data, map_data->color, x++);
 	}
+	test_draw(raycast_param);
 	mlx_put_image_to_window(mlx_vars->mlx, mlx_vars->win, mlx_vars->img_data.img, 0, 0);
 	return (0);
 }

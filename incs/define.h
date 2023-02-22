@@ -6,15 +6,15 @@
 /*   By: jincpark <jincpark@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/08 17:20:25 by jincpark          #+#    #+#             */
-/*   Updated: 2023/02/22 20:47:39 by jincpark         ###   ########.fr       */
+/*   Updated: 2023/02/22 21:49:15 by jincpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef DEFINE_H
 # define DEFINE_H
 
-# define ROTSPEED 0.04
-# define MOVSPEED 0.05
+# define ROTSPEED 0.02
+# define MOVSPEED 0.03
 
 # define WIDTH 1080
 # define HEIGHT 720
