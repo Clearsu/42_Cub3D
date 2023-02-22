@@ -6,7 +6,7 @@
 /*   By: jincpark <jincpark@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/10 22:54:29 by jincpark          #+#    #+#             */
-/*   Updated: 2023/02/21 20:06:12 by jincpark         ###   ########.fr       */
+/*   Updated: 2023/02/22 15:16:32 by jincpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 #include "mlx.h"
 #include "raycast.h"
 #include "define.h"
+#include "error.h"
 
 static void	set_dir_vector(t_ray_data *rdata, char c)
 {
@@ -39,14 +40,30 @@ static void	set_dir_vector(t_ray_data *rdata, char c)
 	}
 }
 
-static void	init_ray_data(t_ray_data *rdata, t_map_data *map_data)
+static void	init_ray_data(t_ray_data *rdata, t_map_data *map_data,
+		t_raycast_param *raycast_param)
 {
+	int	i;
+
 	ft_memset(rdata, 0, sizeof(t_ray_data));
 	rdata->pos_x = map_data->spawn[SPAWN_X];
 	rdata->pos_y = map_data->spawn[SPAWN_Y];
 	set_dir_vector(rdata, map_data->spawn[SPAWN_D]);
 	rdata->plane_x = (-1) * rdata->dir_y * 0.66;
 	rdata->plane_y = rdata->dir_x * 0.66;
+	ft_memset(&raycast_param->key_state, 0, sizeof(t_key_state));
+	i = 0;
+	while (i < 4)
+	{
+		raycast_param->texture[i] = ft_calloc(TEX_WIDTH * TEX_HEIGHT, sizeof(unsigned int));
+		if (raycast_param->texture[i] == NULL)
+		{
+			while (--i >= 0)
+				free(raycast_param->texture[i]);
+			print_err_and_exit(E_SYS);
+		}
+		i++;
+	}
 }
 
 static int	loop(t_raycast_param *raycast_param)
@@ -61,13 +78,12 @@ void	play_start(t_map_data *map_data, t_mlx_vars *mlx_vars)
 	t_raycast_param	raycast_param;
 	t_ray_data		rdata;
 
-	init_ray_data(&rdata, map_data);
+	init_ray_data(&rdata, map_data, &raycast_param);
 	raycast_param.rdata = &rdata;
 	raycast_param.map_data = map_data;
 	raycast_param.mlx_vars = mlx_vars;
-	ft_memset(&raycast_param.key_state, 0, sizeof(t_key_state));
 	init_mlx_and_img(mlx_vars);
-	make_texture_img(map_data, mlx_vars);
+	get_texture_info(&raycast_param);
 	mlx_hook(mlx_vars->win, KEY_PRESS, 0, press_key, &raycast_param);
 	mlx_hook(mlx_vars->win, KEY_RELEASE, 0, release_key, &raycast_param);
 	mlx_loop_hook(mlx_vars->mlx, loop, &raycast_param);

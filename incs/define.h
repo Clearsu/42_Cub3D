@@ -6,7 +6,7 @@
 /*   By: jincpark <jincpark@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/08 17:20:25 by jincpark          #+#    #+#             */
-/*   Updated: 2023/02/21 19:49:26 by jincpark         ###   ########.fr       */
+/*   Updated: 2023/02/22 14:53:52 by jincpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,8 @@
 # define WIDTH 1080
 # define HEIGHT 720
 
-# define TEX_WIDTH 300
+# define TEX_WIDTH 640
+# define TEX_HEIGHT 640
 
 # define TRUE 1
 # define FALSE 0

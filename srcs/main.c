@@ -6,7 +6,7 @@
 /*   By: jincpark <jincpark@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/08 17:15:46 by jincpark          #+#    #+#             */
-/*   Updated: 2023/02/21 19:39:45 by jincpark         ###   ########.fr       */
+/*   Updated: 2023/02/22 14:58:40 by jincpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,8 +51,7 @@ static void	init_structs(t_parse_data *parse_data,
 		t_map_data *map_data, t_mlx_vars *mlx_vars)
 {
 	ft_memset(parse_data, 0, sizeof(t_parse_data));
-	ft_memset(&map_data->texture, 0, sizeof(char *) * 4);
-	ft_memset(&map_data->tex_img_data, 0, sizeof(t_img_data) * 4);
+	ft_memset(&map_data->tex_fname, 0, sizeof(char *) * 4);
 	ft_memset(&map_data->color, 0, sizeof(unsigned int) * 2);
 	ft_memset(&map_data->spawn, 0, sizeof(size_t) * 2);
 	ft_memset(&mlx_vars->img_data, 0, sizeof(t_img_data));
@@ -65,11 +64,11 @@ static void	init_structs(t_parse_data *parse_data,
 
 void	print_map_data(t_map_data *map_data)
 {
-	printf("TEXTURE\n");
-	printf("EAST: %s\n", map_data->texture[0]);
-	printf("WEST: %s\n", map_data->texture[1]);
-	printf("SOUTH: %s\n", map_data->texture[2]);
-	printf("NORTH: %s\n", map_data->texture[3]);
+	printf("tex_fname\n");
+	printf("EAST: %s\n", map_data->tex_fname[0]);
+	printf("WEST: %s\n", map_data->tex_fname[1]);
+	printf("SOUTH: %s\n", map_data->tex_fname[2]);
+	printf("NORTH: %s\n", map_data->tex_fname[3]);
 	printf("\n");
 	printf("COLOR\n");
 	printf("FLOOR: %u\n", map_data->color[0]);

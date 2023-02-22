@@ -6,7 +6,7 @@
 #    By: jincpark <jincpark@student.42seoul.kr>     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/02/08 18:00:49 by jincpark          #+#    #+#              #
-#    Updated: 2023/02/21 20:07:05 by jincpark         ###   ########.fr        #
+#    Updated: 2023/02/22 15:13:56 by jincpark         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -52,7 +52,7 @@ SRCS		=	$(SRCDIR)/main.c \
 				$(SRCDIR)/$(PARSEDIR)/state_color.c \
 				$(SRCDIR)/$(PARSEDIR)/state_map.c \
 				$(SRCDIR)/$(RCASTDIR)/play_start.c \
-				$(SRCDIR)/$(RCASTDIR)/make_texture_img.c \
+				$(SRCDIR)/$(RCASTDIR)/get_texture_info.c \
 				$(SRCDIR)/$(RCASTDIR)/raycast.c \
 				$(SRCDIR)/$(RCASTDIR)/mlx_util.c \
 				$(SRCDIR)/$(RCASTDIR)/key_hook.c \
