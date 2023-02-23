@@ -6,7 +6,7 @@
 /*   By: jincpark <jincpark@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/11 21:43:14 by jincpark          #+#    #+#             */
-/*   Updated: 2023/02/22 22:53:09 by jincpark         ###   ########.fr       */
+/*   Updated: 2023/02/23 17:56:30 by jincpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -137,37 +137,42 @@ static void	get_wall_texture(t_ray_data *rdata, t_map_data *map_data)
 static int get_tex_x(t_ray_data *rdata, int tex_width)
 {
 	double	wall_x;
+	int		tex_x;
 
 	if (rdata->side == 0)
 		wall_x = rdata->pos_y + rdata->perp_wall_dist * rdata->ray_dir_y;
 	else
 		wall_x = rdata->pos_x + rdata->perp_wall_dist * rdata->ray_dir_x;
 	wall_x = wall_x - (int)wall_x;
-	return ((int)(wall_x * (double)(tex_width)));
+	tex_x = (int)(wall_x * (double)(tex_width));
+	if ((rdata->side == 0 && rdata->ray_dir_x > 0)
+			|| (rdata->side == 1 && rdata->ray_dir_y < 0))
+		tex_x = tex_width - tex_x - 1;
+	return (tex_x);
 }
 
 static void	draw_texture_line(t_img_data *img_data,
 		int x, int y, t_raycast_param *raycast_param)
 {
 	t_ray_data		*rdata;
-	unsigned int	color;
+	unsigned int	*texture;
 	int				tex_width;
 	int				tex_height;
+	unsigned int	color;
 
+	rdata = raycast_param->rdata;
 	tex_width = raycast_param->tex_data[raycast_param->rdata->tex_idx].width;
 	tex_height = raycast_param->tex_data[raycast_param->rdata->tex_idx].height;
-	rdata = raycast_param->rdata;
 	rdata->tex_x = get_tex_x(rdata, tex_width);
-	if ((rdata->side == 0 && rdata->ray_dir_x > 0) || (rdata->side == 1 && rdata->ray_dir_y < 0))
-		rdata->tex_x = tex_width - rdata->tex_x - 1;
 	rdata->tex_step = 1.0 * tex_height / rdata->line_height;
-    rdata->tex_pos = (rdata->draw_start - HEIGHT / 2 + rdata->line_height / 2) * rdata->tex_step;
+    rdata->tex_pos = (rdata->draw_start - HEIGHT / 2 + rdata->line_height / 2)
+		* rdata->tex_step;
+	texture = raycast_param->tex_data[rdata->tex_idx].texture;
 	while (y < rdata->draw_end)
 	{
 		rdata->tex_y = (int)rdata->tex_pos & (tex_height - 1);
 		rdata->tex_pos += rdata->tex_step;
-		color = raycast_param->tex_data[rdata->tex_idx].texture[tex_width * rdata->tex_y
-			+ rdata->tex_x];
+		color = texture[tex_width * rdata->tex_y + rdata->tex_x];
 		my_mlx_pixel_put(img_data, x, y++, color);
 	}
 }

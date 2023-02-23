@@ -6,7 +6,7 @@
 /*   By: jincpark <jincpark@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/21 19:47:29 by jincpark          #+#    #+#             */
-/*   Updated: 2023/02/22 22:52:59 by jincpark         ###   ########.fr       */
+/*   Updated: 2023/02/23 15:27:44 by jincpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,8 @@ static void	copy_image(t_tex_data *tex_data, t_img_data *img_data)
 		x = 0;
 		while (x < img_data->width)
 		{
-			tex_data->texture[y * img_data->width + x] = addr[y * img_data->width + x];
+			tex_data->texture[y * img_data->width + x] = \
+				addr[y * img_data->width + x];
 			x++;
 		}
 		y++;
