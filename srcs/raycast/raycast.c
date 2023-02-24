@@ -6,7 +6,7 @@
 /*   By: jincpark <jincpark@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/11 21:43:14 by jincpark          #+#    #+#             */
-/*   Updated: 2023/02/23 17:56:30 by jincpark         ###   ########.fr       */
+/*   Updated: 2023/02/24 15:51:32 by jincpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -170,7 +170,7 @@ static void	draw_texture_line(t_img_data *img_data,
 	texture = raycast_param->tex_data[rdata->tex_idx].texture;
 	while (y < rdata->draw_end)
 	{
-		rdata->tex_y = (int)rdata->tex_pos & (tex_height - 1);
+		rdata->tex_y = (int)rdata->tex_pos;
 		rdata->tex_pos += rdata->tex_step;
 		color = texture[tex_width * rdata->tex_y + rdata->tex_x];
 		my_mlx_pixel_put(img_data, x, y++, color);
