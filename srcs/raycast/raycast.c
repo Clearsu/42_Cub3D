@@ -6,7 +6,7 @@
 /*   By: jincpark <jincpark@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/11 21:43:14 by jincpark          #+#    #+#             */
-/*   Updated: 2023/02/24 16:37:30 by jincpark         ###   ########.fr       */
+/*   Updated: 2023/02/24 18:30:47 by jincpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,7 +76,7 @@ static void	get_step_and_initial_sidedist(t_ray_data *rdata)
 	}
 }
 
-static void	perform_dda(t_ray_data *rdata, t_map_data *map_data)
+static void	dda(t_ray_data *rdata, t_map_data *map_data)
 {
 	while (rdata->hit == 0)
 	{
@@ -213,7 +213,7 @@ int	raycast(t_raycast_param *raycast_param)
 		get_map_x_y(rdata);
 		get_delta_dist(rdata);
 		get_step_and_initial_sidedist(rdata);
-		perform_dda(rdata, map_data);
+		dda(rdata, map_data);
 		get_dist_of_perp_ray(rdata);
 		get_draw_start_end(rdata, map_data);
 		get_wall_texture(rdata, map_data);
