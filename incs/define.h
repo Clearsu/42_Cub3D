@@ -6,7 +6,7 @@
 /*   By: jincpark <jincpark@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/08 17:20:25 by jincpark          #+#    #+#             */
-/*   Updated: 2023/02/23 15:29:33 by jincpark         ###   ########.fr       */
+/*   Updated: 2023/02/24 16:14:36 by jincpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,6 +70,9 @@ typedef enum e_err_type
 	E_SYS
 }	t_err_type;
 
+# define KEY_PRESS 2
+# define KEY_RELEASE 3
+
 # define ESC 53
 # define R_LEFT 123
 # define R_RIGHT 124
@@ -78,7 +81,6 @@ typedef enum e_err_type
 # define RIGHT 2
 # define DOWN 1
 
-# define KEY_PRESS 2
-# define KEY_RELEASE 3
+# define CLOSE_WINDOW_BUTTON 17
 
 #endif

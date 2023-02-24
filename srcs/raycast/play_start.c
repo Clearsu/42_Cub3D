@@ -6,7 +6,7 @@
 /*   By: jincpark <jincpark@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/10 22:54:29 by jincpark          #+#    #+#             */
-/*   Updated: 2023/02/22 20:21:30 by jincpark         ###   ########.fr       */
+/*   Updated: 2023/02/24 16:21:06 by jincpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,6 +71,8 @@ void	play_start(t_map_data *map_data, t_mlx_vars *mlx_vars)
 	raycast_param.mlx_vars = mlx_vars;
 	init_mlx_and_img(mlx_vars);
 	get_texture_info(&raycast_param);
+	mlx_hook(mlx_vars->win, CLOSE_WINDOW_BUTTON, 0,
+			close_win_and_exit, &raycast_param);
 	mlx_hook(mlx_vars->win, KEY_PRESS, 0, press_key, &raycast_param);
 	mlx_hook(mlx_vars->win, KEY_RELEASE, 0, release_key, &raycast_param);
 	mlx_loop_hook(mlx_vars->mlx, loop, &raycast_param);
