@@ -6,7 +6,7 @@
 /*   By: jincpark <jincpark@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/11 21:43:14 by jincpark          #+#    #+#             */
-/*   Updated: 2023/02/26 15:46:06 by jincpark         ###   ########.fr       */
+/*   Updated: 2023/02/26 17:40:11 by jincpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,7 @@ static void	dda(t_ray_data *rdata, t_map_data *map_data)
 	}
 }
 
-static void	get_dist_of_perp_ray(t_ray_data *rdata)
+static void	get_perp_wall_dist(t_ray_data *rdata)
 {
 	if (rdata->side == 0)
 		rdata->perp_wall_dist = rdata->side_dist_x - rdata->delta_dist_x;
@@ -53,8 +53,8 @@ int	raycast(t_raycast_param *raycast_param)
 	rdata = raycast_param->rdata;
 	map_data = raycast_param->map_data;
 	mlx_vars = raycast_param->mlx_vars;
-	x = 0;
-	while (x < WIDTH)
+	x = -1;
+	while (++x < WIDTH)
 	{
 		rdata->hit = 0;
 		get_camerax_and_ray_dir(rdata, x);
@@ -62,10 +62,10 @@ int	raycast(t_raycast_param *raycast_param)
 		get_delta_dist(rdata);
 		get_step_and_initial_sidedist(rdata);
 		dda(rdata, map_data);
-		get_dist_of_perp_ray(rdata);
+		get_perp_wall_dist(rdata);
 		get_draw_start_end(rdata);
 		get_wall_texture(rdata);
-		draw_line(raycast_param, &mlx_vars->img_data, map_data->color, x++);
+		draw_line(raycast_param, &mlx_vars->img_data, map_data->color, x);
 	}
 	mlx_put_image_to_window(mlx_vars->mlx, mlx_vars->win, \
 			mlx_vars->img_data.img, 0, 0);

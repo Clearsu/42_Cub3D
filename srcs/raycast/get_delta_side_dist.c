@@ -6,7 +6,7 @@
 /*   By: jincpark <jincpark@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/26 15:01:49 by jincpark          #+#    #+#             */
-/*   Updated: 2023/02/26 15:46:19 by jincpark         ###   ########.fr       */
+/*   Updated: 2023/02/26 17:07:27 by jincpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,11 +36,11 @@ void	get_map_x_y(t_ray_data *rdata)
 void	get_delta_dist(t_ray_data *rdata)
 {
 	if (rdata->ray_dir_x == 0)
-		rdata->delta_dist_x = 1e30;
+		rdata->delta_dist_x = 1.7e308;
 	else
 		rdata->delta_dist_x = d_abs(1 / rdata->ray_dir_x);
 	if (rdata->ray_dir_y == 0)
-		rdata->delta_dist_y = 1e30;
+		rdata->delta_dist_y = 1.7e308;
 	else
 		rdata->delta_dist_y = d_abs(1 / rdata->ray_dir_y);
 }
