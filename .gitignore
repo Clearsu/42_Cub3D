@@ -2,7 +2,6 @@
 *.swp
 cub3d
 *.dYSM
-*.cub
 *.dylib
 *.a
 *.swiftdoc
