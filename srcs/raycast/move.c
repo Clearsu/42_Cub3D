@@ -6,7 +6,7 @@
 /*   By: jincpark <jincpark@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/13 22:41:59 by jincpark          #+#    #+#             */
-/*   Updated: 2023/02/24 16:53:43 by jincpark         ###   ########.fr       */
+/*   Updated: 2023/02/26 14:22:36 by jincpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,7 +50,7 @@ void	move_left(t_ray_data *rdata, char **map)
 	new_pos_y = rdata->pos_y + (-1) * rdata->dir_x * MOVSPEED;
 	if (map[(int)rdata->pos_y][(int)new_pos_x] != WALL)
 		rdata->pos_x = new_pos_x;
-	if (map[(int)new_pos_y][(int)new_pos_x] != WALL)
+	if (map[(int)new_pos_y][(int)rdata->pos_x] != WALL)
 		rdata->pos_y = new_pos_y;
 }
 
@@ -63,7 +63,7 @@ void	move_right(t_ray_data *rdata, char **map)
 	new_pos_y = rdata->pos_y + rdata->dir_x * MOVSPEED;
 	if (map[(int)rdata->pos_y][(int)new_pos_x] != WALL)
 		rdata->pos_x = new_pos_x;
-	if (map[(int)new_pos_y][(int)new_pos_x] != WALL)
+	if (map[(int)new_pos_y][(int)rdata->pos_x] != WALL)
 		rdata->pos_y = new_pos_y;
 }
 
@@ -76,7 +76,7 @@ void	move_forward(t_ray_data *rdata, char **map)
 	new_pos_y = rdata->pos_y + rdata->dir_y * MOVSPEED;
 	if (map[(int)rdata->pos_y][(int)new_pos_x] != WALL)
 		rdata->pos_x = new_pos_x;
-	if (map[(int)new_pos_y][(int)new_pos_x] != WALL)
+	if (map[(int)new_pos_y][(int)rdata->pos_x] != WALL)
 		rdata->pos_y = new_pos_y;
 }
 
@@ -89,7 +89,7 @@ void	move_backward(t_ray_data *rdata, char **map)
 	new_pos_y = rdata->pos_y - rdata->dir_y * MOVSPEED;
 	if (map[(int)rdata->pos_y][(int)new_pos_x] != WALL)
 		rdata->pos_x = new_pos_x;
-	if (map[(int)new_pos_y][(int)new_pos_x] != WALL)
+	if (map[(int)new_pos_y][(int)rdata->pos_x] != WALL)
 		rdata->pos_y = new_pos_y;
 }
 
