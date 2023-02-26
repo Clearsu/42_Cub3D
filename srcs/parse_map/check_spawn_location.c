@@ -6,7 +6,7 @@
 /*   By: jincpark <jincpark@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/10 20:14:55 by jincpark          #+#    #+#             */
-/*   Updated: 2023/02/22 20:16:20 by jincpark         ###   ########.fr       */
+/*   Updated: 2023/02/26 15:21:02 by jincpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,9 +22,9 @@ static int	is_direction(char c)
 
 void	check_spawn_location(t_map_data *map_data)
 {
-	size_t	x;
-	size_t	y;
-	size_t	cnt;
+	int	x;
+	int	y;
+	int	cnt;
 
 	cnt = 0;
 	y = 0;

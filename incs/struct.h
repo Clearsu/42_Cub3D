@@ -6,7 +6,7 @@
 /*   By: jincpark <jincpark@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/08 19:14:11 by jincpark          #+#    #+#             */
-/*   Updated: 2023/02/22 20:16:49 by jincpark         ###   ########.fr       */
+/*   Updated: 2023/02/26 15:47:52 by jincpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -101,7 +101,7 @@ typedef struct s_key_state
 
 typedef struct s_texture_data
 {
-	unsigned int 	*texture;
+	unsigned int	*texture;
 	int				width;
 	int				height;
 }	t_tex_data;

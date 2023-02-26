@@ -6,7 +6,7 @@
 /*   By: jincpark <jincpark@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/10 19:59:07 by jincpark          #+#    #+#             */
-/*   Updated: 2023/02/10 23:18:01 by jincpark         ###   ########.fr       */
+/*   Updated: 2023/02/26 15:20:47 by jincpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,8 +22,8 @@ static void	is_facing_outside(char **map, size_t x, size_t y)
 
 void	is_map_fully_closed(t_map_data *map_data)
 {
-	size_t	x;
-	size_t	y;
+	int	x;
+	int	y;
 
 	y = 0;
 	while (y < map_data->height)
@@ -33,8 +33,8 @@ void	is_map_fully_closed(t_map_data *map_data)
 		{
 			if (map_data->map[y][x] == INSIDE)
 				is_facing_outside(map_data->map, x, y);
-			x++;
+			++x;
 		}
-		y++;
+		++y;
 	}
 }

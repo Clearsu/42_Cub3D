@@ -6,7 +6,7 @@
 #    By: jincpark <jincpark@student.42seoul.kr>     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/02/08 18:00:49 by jincpark          #+#    #+#              #
-#    Updated: 2023/02/22 15:13:56 by jincpark         ###   ########.fr        #
+#    Updated: 2023/02/26 15:08:55 by jincpark         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -19,7 +19,7 @@ RM			=	rm -f
 LIBC		=	ar rcs
 
 #FLAGS
-CFLAGS		=	#-Wall -Wextra -Werror
+CFLAGS		=	-Wall -Wextra -Werror
 DFLAGS		=	-g3 -fsanitize=address
 MLXFLAGS 	= 	-lmlx -L. -framework OpenGL -framework Appkit
 
@@ -32,6 +32,7 @@ UTILDIR		=	util
 INCDIR		=	incs
 MLXDIR 		= 	minilibx
 RCASTDIR	=	raycast
+EVENTDIR	=	event
 
 #FILES
 MLXLIB		=	libmlx.dylib
@@ -54,9 +55,12 @@ SRCS		=	$(SRCDIR)/main.c \
 				$(SRCDIR)/$(RCASTDIR)/play_start.c \
 				$(SRCDIR)/$(RCASTDIR)/get_texture_info.c \
 				$(SRCDIR)/$(RCASTDIR)/raycast.c \
+				$(SRCDIR)/$(RCASTDIR)/draw_line.c \
+				$(SRCDIR)/$(RCASTDIR)/get_delta_side_dist.c \
 				$(SRCDIR)/$(RCASTDIR)/mlx_util.c \
-				$(SRCDIR)/$(RCASTDIR)/key_hook.c \
-				$(SRCDIR)/$(RCASTDIR)/move.c \
+				$(SRCDIR)/$(EVENTDIR)/key_hook.c \
+				$(SRCDIR)/$(EVENTDIR)/move.c \
+				$(SRCDIR)/$(EVENTDIR)/rotate.c \
 				$(SRCDIR)/$(UTILDIR)/print_err_and_exit.c
 
 ifdef IF_DEBUG
@@ -66,7 +70,7 @@ endif
 all : $(NAME)
 
 %.o : %.c
-	@$(CC) $(CFLAGS) -c $< -o $@ $(INCS)
+	$(CC) $(CFLAGS) -c $< -o $@ $(INCS)
 
 OBJS		=	${SRCS:.c=.o}
 

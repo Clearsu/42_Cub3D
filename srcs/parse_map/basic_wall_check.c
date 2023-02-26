@@ -6,7 +6,7 @@
 /*   By: jincpark <jincpark@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/10 19:14:27 by jincpark          #+#    #+#             */
-/*   Updated: 2023/02/10 23:17:44 by jincpark         ###   ########.fr       */
+/*   Updated: 2023/02/26 15:20:21 by jincpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,18 +15,18 @@
 
 static void	check_left_wall(t_map_data *map_data)
 {
-	size_t	x;
-	size_t	y;
+	int	x;
+	int	y;
 
 	y = 0;
 	while (y < map_data->height)
 	{
 		x = 0;
 		while (map_data->map[y][x] == OUTSIDE)
-			x++;
+			++x;
 		if (map_data->map[y][x] == WALL)
 		{
-			y++;
+			++y;
 			continue ;
 		}
 		else
@@ -36,18 +36,18 @@ static void	check_left_wall(t_map_data *map_data)
 
 static void	check_right_wall(t_map_data *map_data)
 {
-	size_t	x;
-	size_t	y;
+	int	x;
+	int	y;
 
 	y = 0;
 	while (y < map_data->height)
 	{
 		x = map_data->width - 1;
 		while (map_data->map[y][x] == OUTSIDE)
-			x--;
+			--x;
 		if (map_data->map[y][x] == WALL)
 		{
-			y++;
+			++y;
 			continue ;
 		}
 		else
@@ -57,18 +57,18 @@ static void	check_right_wall(t_map_data *map_data)
 
 static void	check_top_wall(t_map_data *map_data)
 {
-	size_t	x;
-	size_t	y;
+	int	x;
+	int	y;
 
 	x = 0;
 	while (x < map_data->width)
 	{
 		y = 0;
 		while (map_data->map[y][x] == OUTSIDE)
-			y++;
+			++y;
 		if (map_data->map[y][x] == WALL)
 		{
-			x++;
+			++x;
 			continue ;
 		}
 		else
@@ -78,18 +78,18 @@ static void	check_top_wall(t_map_data *map_data)
 
 static void	check_bottom_wall(t_map_data *map_data)
 {
-	size_t	x;
-	size_t	y;
+	int	x;
+	int	y;
 
 	x = 0;
 	while (x < map_data->width)
 	{
 		y = map_data->height - 1;
 		while (map_data->map[y][x] == OUTSIDE)
-			y--;
+			--y;
 		if (map_data->map[y][x] == WALL)
 		{
-			x++;
+			++x;
 			continue ;
 		}
 		else

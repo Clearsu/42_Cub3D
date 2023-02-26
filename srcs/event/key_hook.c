@@ -6,20 +6,20 @@
 /*   By: jincpark <jincpark@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/10 23:27:18 by jincpark          #+#    #+#             */
-/*   Updated: 2023/02/24 16:13:20 by jincpark         ###   ########.fr       */
+/*   Updated: 2023/02/26 14:43:50 by jincpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "raycast.h"
 #include "mlx.h"
+#include "raycast.h"
 
 int	close_win_and_exit(t_raycast_param *raycast_param)
 {
 	int	i;
 
-	mlx_destroy_image(raycast_param->mlx_vars->mlx,
+	mlx_destroy_image(raycast_param->mlx_vars->mlx, \
 			raycast_param->mlx_vars->img_data.img);
-	mlx_destroy_window(raycast_param->mlx_vars->mlx,
+	mlx_destroy_window(raycast_param->mlx_vars->mlx, \
 			raycast_param->mlx_vars->win);
 	i = 0;
 	while (i < 4)
