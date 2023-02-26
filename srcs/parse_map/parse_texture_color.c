@@ -6,12 +6,18 @@
 /*   By: jincpark <jincpark@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/09 21:29:02 by jincpark          #+#    #+#             */
-/*   Updated: 2023/02/21 19:47:00 by jincpark         ###   ########.fr       */
+/*   Updated: 2023/02/26 16:34:28 by jincpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "struct.h"
 #include "error.h"
+
+static void	skip_spaces(char **str)
+{
+	while (**str == ' ')
+		(*str)++;
+}
 
 void	parse_texture(char *texture[4], t_list *token_list)
 {
@@ -38,14 +44,19 @@ static int	is_right_color_form(char *str)
 {
 	while (ft_isdigit(*str))
 		str++;
+	skip_spaces(&str);
 	if (*str == ',')
 		str++;
+	skip_spaces(&str);
 	while (ft_isdigit(*str))
 		str++;
+	skip_spaces(&str);
 	if (*str == ',')
 		str++;
+	skip_spaces(&str);
 	while (ft_isdigit(*str))
 		str++;
+	skip_spaces(&str);
 	if (*str != '\0')
 		return (FALSE);
 	return (TRUE);
@@ -77,6 +88,8 @@ static unsigned int	get_color_value(char *str)
 		i++;
 	}
 	ft_free2((void **)str_split);
+	if (i != 3)
+		print_err_and_exit(E_MAP);
 	return (cval);
 }
 

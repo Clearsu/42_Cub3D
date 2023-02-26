@@ -6,7 +6,7 @@
 /*   By: jincpark <jincpark@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/09 01:45:28 by jincpark          #+#    #+#             */
-/*   Updated: 2023/02/10 23:19:01 by jincpark         ###   ########.fr       */
+/*   Updated: 2023/02/26 16:24:16 by jincpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,10 +25,10 @@ static t_token	*init_token_and_get_color_value(char *str)
 
 	idx = 2;
 	while (str[idx] == ' ')
-		idx++;
+		++idx;
 	start = idx;
-	while (str[idx] != ' ' && str[idx] != '\0' && str[idx] != '\n')
-		idx++;
+	while (str[idx] != '\n')
+		++idx;
 	finish = idx;
 	if (start == finish - 1)
 		print_err_and_exit(E_MAP);
