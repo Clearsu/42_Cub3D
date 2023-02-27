@@ -6,7 +6,7 @@
 #    By: jincpark <jincpark@student.42seoul.kr>     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/02/08 18:00:49 by jincpark          #+#    #+#              #
-#    Updated: 2023/02/27 19:55:25 by jincpark         ###   ########.fr        #
+#    Updated: 2023/02/27 20:54:39 by jincpark         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -108,7 +108,7 @@ endif
 all : $(NAME)
 
 %.o : %.c
-	$(CC) $(CFLAGS) -c $< -o $@ $(INCS)
+	@$(CC) $(CFLAGS) -c $< -o $@ $(INCS)
 
 MAN_OBJS	=	${MAN_SRCS:.c=.o}
 BNS_OBJS	=	${BNS_SRCS:.c=.o}
