@@ -6,7 +6,7 @@
 /*   By: jincpark <jincpark@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/10 22:54:29 by jincpark          #+#    #+#             */
-/*   Updated: 2023/02/27 19:46:34 by jincpark         ###   ########.fr       */
+/*   Updated: 2023/02/27 21:04:19 by jincpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,7 +54,8 @@ static void	init_ray_data(t_ray_data *rdata, t_map_data *map_data,
 static int	loop(t_raycast_param *raycast_param)
 {
 	move_player(raycast_param);
-	raycast(raycast_param);
+	raycast(raycast_param, raycast_param->rdata,
+			raycast_param->map_data, raycast_param->mlx_vars);
 	return (0);
 }
 

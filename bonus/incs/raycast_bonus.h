@@ -6,7 +6,7 @@
 /*   By: jincpark <jincpark@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/10 22:49:36 by jincpark          #+#    #+#             */
-/*   Updated: 2023/02/27 19:41:42 by jincpark         ###   ########.fr       */
+/*   Updated: 2023/02/27 21:04:48 by jincpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,8 @@
 # include "struct_bonus.h"
 
 void	play_start(t_map_data *map_data, t_mlx_vars *mlx_vars);
-int		raycast(t_raycast_param *raycast_param);
+int		raycast(t_raycast_param *raycast_param, t_ray_data *rdata,
+		t_map_data *map_data, t_mlx_vars *mlx_vars);
 void	get_map_x_y(t_ray_data *rdata);
 void	get_delta_dist(t_ray_data *rdata);
 void	get_step_and_initial_sidedist(t_ray_data *rdata);

@@ -6,7 +6,7 @@
 /*   By: jincpark <jincpark@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/11 21:43:14 by jincpark          #+#    #+#             */
-/*   Updated: 2023/02/27 19:46:38 by jincpark         ###   ########.fr       */
+/*   Updated: 2023/02/27 21:03:44 by jincpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,16 +44,11 @@ static void	get_perp_wall_dist(t_ray_data *rdata)
 				/ 2 - rdata->pos_y) / rdata->ray_dir_y;
 }
 
-int	raycast(t_raycast_param *raycast_param)
+int	raycast(t_raycast_param *raycast_param, t_ray_data *rdata,
+		t_map_data *map_data, t_mlx_vars *mlx_vars)
 {
-	t_ray_data	*rdata;
-	t_map_data	*map_data;
-	t_mlx_vars	*mlx_vars;
-	int			x;
+	int	x;
 
-	rdata = raycast_param->rdata;
-	map_data = raycast_param->map_data;
-	mlx_vars = raycast_param->mlx_vars;
 	x = -1;
 	while (++x < WIDTH)
 	{
