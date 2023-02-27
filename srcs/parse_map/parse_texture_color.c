@@ -6,7 +6,7 @@
 /*   By: jincpark <jincpark@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/09 21:29:02 by jincpark          #+#    #+#             */
-/*   Updated: 2023/02/26 16:34:28 by jincpark         ###   ########.fr       */
+/*   Updated: 2023/02/27 18:34:01 by jincpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,12 +62,11 @@ static int	is_right_color_form(char *str)
 	return (TRUE);
 }
 
-static unsigned int	get_color_value(char *str)
+static unsigned int	get_color_value(char *str, int i)
 {
 	char			**str_split;
 	unsigned int	cval;
 	int				temp;
-	size_t			i;
 
 	if (!is_right_color_form(str))
 		print_err_and_exit(E_MAP);
@@ -75,8 +74,7 @@ static unsigned int	get_color_value(char *str)
 	if (!str_split)
 		print_err_and_exit(E_SYS);
 	cval = 0;
-	i = 0;
-	while (str_split[i])
+	while (str_split[++i])
 	{
 		temp = ft_atoi(str_split[i]);
 		if (temp > 255)
@@ -85,7 +83,6 @@ static unsigned int	get_color_value(char *str)
 			print_err_and_exit(E_MAP);
 		}
 		cval = (cval << 8) + temp;
-		i++;
 	}
 	ft_free2((void **)str_split);
 	if (i != 3)
@@ -101,9 +98,9 @@ void	parse_color(unsigned int color[2], t_list *token_list)
 	{
 		token = (t_token *)token_list->content;
 		if (token->type == C_FLOOR)
-			color[FLOOR] = get_color_value((char *)token->value);
+			color[FLOOR] = get_color_value((char *)token->value, -1);
 		else if (token->type == C_CEILING)
-			color[CEILING] = get_color_value((char *)token->value);
+			color[CEILING] = get_color_value((char *)token->value, -1);
 		token_list = token_list->next;
 	}
 }
