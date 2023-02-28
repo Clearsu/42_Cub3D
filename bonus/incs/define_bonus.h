@@ -6,7 +6,7 @@
 /*   By: jincpark <jincpark@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/08 17:20:25 by jincpark          #+#    #+#             */
-/*   Updated: 2023/02/28 18:47:37 by jincpark         ###   ########.fr       */
+/*   Updated: 2023/02/28 22:11:06 by jincpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,11 +19,13 @@
 # define WIDTH 1080
 # define HEIGHT 720
 
-# define MINI_WIDTH 100
-# define MINI_HEIGHT 100
-# define MINI_WALL_COLOR 0x00ffffff
-# define MINI_BACKGROUND_COLOR 0x00000000
-# define MINI_SIDE_COLOR 0x00ffffff
+# define MINI_WIDTH 170
+# define MINI_HEIGHT 170
+# define MINI_WALL_COLOR 0x00777777
+# define MINI_BACKGROUND_COLOR 0x88000000
+# define MINI_PLAYER_COLOR 0x0000ff00
+# define MINI_OFFSET 10
+# define MINI_PLAYER_SIZE 7
 
 # define TRUE 1
 # define FALSE 0
@@ -47,11 +49,6 @@
 # define SPAWN_D 2
 
 # define TOTAL_STATES 11
-
-# define EAST_COLOR 0x00ff0000
-# define WEST_COLOR 0x0000ff00
-# define SOUTH_COLOR 0x000000ff
-# define NORTH_COLOR 0x00800080
 
 typedef enum e_state
 {
