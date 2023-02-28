@@ -6,7 +6,7 @@
 /*   By: jincpark <jincpark@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/08 17:20:25 by jincpark          #+#    #+#             */
-/*   Updated: 2023/02/27 19:40:18 by jincpark         ###   ########.fr       */
+/*   Updated: 2023/02/28 18:47:37 by jincpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,12 @@
 
 # define WIDTH 1080
 # define HEIGHT 720
+
+# define MINI_WIDTH 100
+# define MINI_HEIGHT 100
+# define MINI_WALL_COLOR 0x00ffffff
+# define MINI_BACKGROUND_COLOR 0x00000000
+# define MINI_SIDE_COLOR 0x00ffffff
 
 # define TRUE 1
 # define FALSE 0

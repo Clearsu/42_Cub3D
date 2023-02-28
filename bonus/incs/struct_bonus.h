@@ -6,7 +6,7 @@
 /*   By: jincpark <jincpark@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/08 19:14:11 by jincpark          #+#    #+#             */
-/*   Updated: 2023/02/27 19:41:29 by jincpark         ###   ########.fr       */
+/*   Updated: 2023/02/28 18:38:36 by jincpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -113,6 +113,7 @@ typedef struct s_raycast_param
 	t_mlx_vars		*mlx_vars;
 	t_key_state		key_state;
 	t_tex_data		tex_data[4];
+	t_img_data		minimap_img;
 }	t_raycast_param;
 
 typedef void	(*t_state_fp)(t_state *state, t_parse_data *parse_data);
