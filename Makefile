@@ -6,7 +6,7 @@
 #    By: jincpark <jincpark@student.42seoul.kr>     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/02/08 18:00:49 by jincpark          #+#    #+#              #
-#    Updated: 2023/03/01 01:59:38 by jincpark         ###   ########.fr        #
+#    Updated: 2023/03/01 02:34:54 by jincpark         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -43,6 +43,7 @@ INCS		=	-I $(LFTDIR) -I $(MLXDIR)
 
 MAN_INCS	=	-I $(MAN_DIR)/$(INCDIR)
 MAN_SRCS	=	$(MAN_DIR)/$(SRCDIR)/main.c \
+				$(MAN_DIR)/$(SRCDIR)/play_start.c \
 				$(MAN_DIR)/$(SRCDIR)/$(PARSEDIR)/parse.c \
 				$(MAN_DIR)/$(SRCDIR)/$(PARSEDIR)/parse_map.c \
 				$(MAN_DIR)/$(SRCDIR)/$(PARSEDIR)/parse_texture_color.c \
@@ -56,7 +57,6 @@ MAN_SRCS	=	$(MAN_DIR)/$(SRCDIR)/main.c \
 				$(MAN_DIR)/$(SRCDIR)/$(PARSEDIR)/state_empty.c \
 				$(MAN_DIR)/$(SRCDIR)/$(PARSEDIR)/state_color.c \
 				$(MAN_DIR)/$(SRCDIR)/$(PARSEDIR)/state_map.c \
-				$(MAN_DIR)/$(SRCDIR)/$(RCASTDIR)/play_start.c \
 				$(MAN_DIR)/$(SRCDIR)/$(RCASTDIR)/get_texture_info.c \
 				$(MAN_DIR)/$(SRCDIR)/$(RCASTDIR)/raycast.c \
 				$(MAN_DIR)/$(SRCDIR)/$(RCASTDIR)/draw_line.c \
@@ -69,6 +69,8 @@ MAN_SRCS	=	$(MAN_DIR)/$(SRCDIR)/main.c \
 
 BNS_INCS	=	-I $(BNS_DIR)/$(INCDIR)
 BNS_SRCS	=	$(BNS_DIR)/$(SRCDIR)/main_bonus.c \
+				$(BNS_DIR)/$(SRCDIR)/play_start_bonus.c \
+				$(BNS_DIR)/$(SRCDIR)/minimap_bonus.c \
 				$(BNS_DIR)/$(SRCDIR)/$(PARSEDIR)/parse_bonus.c \
 				$(BNS_DIR)/$(SRCDIR)/$(PARSEDIR)/parse_map_bonus.c \
 				$(BNS_DIR)/$(SRCDIR)/$(PARSEDIR)/parse_texture_color_bonus.c \
@@ -82,7 +84,6 @@ BNS_SRCS	=	$(BNS_DIR)/$(SRCDIR)/main_bonus.c \
 				$(BNS_DIR)/$(SRCDIR)/$(PARSEDIR)/state_empty_bonus.c \
 				$(BNS_DIR)/$(SRCDIR)/$(PARSEDIR)/state_color_bonus.c \
 				$(BNS_DIR)/$(SRCDIR)/$(PARSEDIR)/state_map_bonus.c \
-				$(BNS_DIR)/$(SRCDIR)/$(RCASTDIR)/play_start_bonus.c \
 				$(BNS_DIR)/$(SRCDIR)/$(RCASTDIR)/get_texture_info_bonus.c \
 				$(BNS_DIR)/$(SRCDIR)/$(RCASTDIR)/raycast_bonus.c \
 				$(BNS_DIR)/$(SRCDIR)/$(RCASTDIR)/draw_line_bonus.c \
@@ -91,8 +92,8 @@ BNS_SRCS	=	$(BNS_DIR)/$(SRCDIR)/main_bonus.c \
 				$(BNS_DIR)/$(SRCDIR)/$(EVENTDIR)/key_hook_bonus.c \
 				$(BNS_DIR)/$(SRCDIR)/$(EVENTDIR)/move_bonus.c \
 				$(BNS_DIR)/$(SRCDIR)/$(EVENTDIR)/rotate_bonus.c \
-				$(BNS_DIR)/$(SRCDIR)/$(UTILDIR)/print_err_and_exit_bonus.c \
-				$(BNS_DIR)/$(SRCDIR)/minimap_bonus.c
+				$(BNS_DIR)/$(SRCDIR)/$(EVENTDIR)/mouse_hook_bonus.c \
+				$(BNS_DIR)/$(SRCDIR)/$(UTILDIR)/print_err_and_exit_bonus.c
 
 ifdef IF_DEBUG
 	CFLAGS += $(DFLAGS)
