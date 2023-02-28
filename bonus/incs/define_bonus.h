@@ -6,7 +6,7 @@
 /*   By: jincpark <jincpark@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/08 17:20:25 by jincpark          #+#    #+#             */
-/*   Updated: 2023/02/28 22:11:06 by jincpark         ###   ########.fr       */
+/*   Updated: 2023/03/01 01:41:43 by jincpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@
 # define MINI_BACKGROUND_COLOR 0x88000000
 # define MINI_PLAYER_COLOR 0x0000ff00
 # define MINI_OFFSET 10
-# define MINI_PLAYER_SIZE 7
+# define MINI_PLAYER_SIZE 10
 
 # define TRUE 1
 # define FALSE 0

@@ -6,7 +6,7 @@
 /*   By: jincpark <jincpark@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/28 18:35:13 by jincpark          #+#    #+#             */
-/*   Updated: 2023/02/28 22:13:30 by jincpark         ###   ########.fr       */
+/*   Updated: 2023/03/01 01:43:12 by jincpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,19 +31,19 @@ static void	draw_minimap(t_img_data *minimap_img, t_ray_data *rdata,
 	int	y;
 	double	draw_start_x;
 	double	draw_start_y;
-	int		draw_y;
-	int		draw_x;
+	int	draw_y;
+	int	draw_x;
 
-	draw_start_x = rdata->pos_x - MINI_OFFSET / 2;
-	draw_start_y = rdata->pos_y - MINI_OFFSET / 2;
+	draw_start_x = rdata->pos_x - (double)MINI_OFFSET / 2;
+	draw_start_y = rdata->pos_y - (double)MINI_OFFSET / 2;
 	y = -1;
 	while (++y < MINI_HEIGHT)
 	{
 		x = -1;
-		draw_y = draw_start_y + MINI_OFFSET * y / MINI_HEIGHT;
+		draw_y = (int)(draw_start_y + MINI_OFFSET * y / (double)MINI_HEIGHT);
 		while (++x < MINI_WIDTH)
 		{
-			draw_x = draw_start_x + MINI_OFFSET * x / MINI_WIDTH;
+			draw_x = (int)(draw_start_x + MINI_OFFSET * x / (double)MINI_WIDTH);
 			if (draw_y < 0 || draw_y >= map_data->height
 					|| draw_x < 0 || draw_x >= map_data->width
 					|| map_data->map[draw_y][draw_x] == OUTSIDE
@@ -62,13 +62,13 @@ static void	draw_player(t_img_data *minimap_img)
 	int	p_draw_end_x;
 	int	p_draw_end_y;
 
-	x = MINI_WIDTH / 2 - MINI_PLAYER_SIZE / 2 + 10;
+	x = MINI_WIDTH / 2 - MINI_PLAYER_SIZE / 2;
 	y = MINI_HEIGHT / 2 - MINI_PLAYER_SIZE / 2;
 	p_draw_end_x = x + MINI_PLAYER_SIZE;
 	p_draw_end_y = x + MINI_PLAYER_SIZE;
 	while (++y <= p_draw_end_y)
 	{
-		x = MINI_WIDTH / 2 - 3;
+		x = MINI_WIDTH / 2 - MINI_PLAYER_SIZE / 2;
 		while (++x < p_draw_end_x)
 			my_mlx_pixel_put(minimap_img, x, y, MINI_PLAYER_COLOR);
 	}
