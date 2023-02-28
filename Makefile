@@ -6,7 +6,7 @@
 #    By: jincpark <jincpark@student.42seoul.kr>     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/02/08 18:00:49 by jincpark          #+#    #+#              #
-#    Updated: 2023/02/27 20:54:39 by jincpark         ###   ########.fr        #
+#    Updated: 2023/02/28 18:26:54 by jincpark         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -123,7 +123,7 @@ clean :
 	@$(MAKE) -C $(MLXDIR) clean
 	@$(RM) $(MLXLIB)
 	@$(MAKE) -C $(LFTDIR) fclean
-	$(RM) $(OBJS)
+	$(RM) $(MAN_OBJS) $(BNS_OBJS)
 
 fclean : clean
 	$(RM) $(NAME)

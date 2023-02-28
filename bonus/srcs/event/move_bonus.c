@@ -6,12 +6,12 @@
 /*   By: jincpark <jincpark@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/13 22:41:59 by jincpark          #+#    #+#             */
-/*   Updated: 2023/02/27 19:35:23 by jincpark         ###   ########.fr       */
+/*   Updated: 2023/02/27 21:23:59 by jincpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <math.h>
-#include "raycast_bonus.h"
+#include "event_bonus.h"
 
 void	move_left(t_ray_data *rdata, char **map)
 {

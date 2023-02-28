@@ -6,12 +6,13 @@
 /*   By: jincpark <jincpark@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/10 23:27:18 by jincpark          #+#    #+#             */
-/*   Updated: 2023/02/27 19:34:55 by jincpark         ###   ########.fr       */
+/*   Updated: 2023/02/28 18:29:49 by jincpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "mlx.h"
-#include "raycast_bonus.h"
+#include "event_bonus.h"
+#include "struct_bonus.h"
 
 int	close_win_and_exit(t_raycast_param *raycast_param)
 {

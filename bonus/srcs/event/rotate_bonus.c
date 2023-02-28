@@ -6,12 +6,12 @@
 /*   By: jincpark <jincpark@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/26 14:38:45 by jincpark          #+#    #+#             */
-/*   Updated: 2023/02/27 19:35:28 by jincpark         ###   ########.fr       */
+/*   Updated: 2023/02/27 21:24:08 by jincpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <math.h>
-#include "raycast_bonus.h"
+#include "event_bonus.h"
 
 void	turn_right(t_ray_data *rdata)
 {

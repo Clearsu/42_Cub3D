@@ -6,12 +6,13 @@
 /*   By: jincpark <jincpark@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/10 22:54:29 by jincpark          #+#    #+#             */
-/*   Updated: 2023/02/27 21:04:19 by jincpark         ###   ########.fr       */
+/*   Updated: 2023/02/28 18:29:07 by jincpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "mlx.h"
 #include "raycast_bonus.h"
+#include "event_bonus.h"
 #include "error_bonus.h"
 
 static void	set_dir_vector(t_ray_data *rdata, char c)
