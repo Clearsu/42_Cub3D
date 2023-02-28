@@ -6,7 +6,7 @@
 /*   By: jincpark <jincpark@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/08 17:20:25 by jincpark          #+#    #+#             */
-/*   Updated: 2023/03/01 01:41:43 by jincpark         ###   ########.fr       */
+/*   Updated: 2023/03/01 02:28:37 by jincpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,6 +75,7 @@ typedef enum e_err_type
 
 # define KEY_PRESS 2
 # define KEY_RELEASE 3
+# define MOTIONNOTIFY 6
 
 # define ESC 53
 # define R_LEFT 123
