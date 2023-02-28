@@ -6,7 +6,7 @@
 /*   By: jincpark <jincpark@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/26 14:50:14 by jincpark          #+#    #+#             */
-/*   Updated: 2023/02/27 19:05:16 by jincpark         ###   ########.fr       */
+/*   Updated: 2023/02/28 22:33:20 by jincpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,8 @@
 void	get_draw_start_end(t_ray_data *rdata)
 {
 	rdata->line_height = (int)(HEIGHT / rdata->perp_wall_dist);
+	if (rdata->line_height < 0)
+		rdata->line_height = 23999;
 	rdata->draw_start = HEIGHT / 2 - rdata->line_height / 2;
 	if (rdata->draw_start < 0)
 		rdata->draw_start = 0;
