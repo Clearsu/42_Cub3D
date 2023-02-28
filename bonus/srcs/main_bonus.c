@@ -6,7 +6,7 @@
 /*   By: jincpark <jincpark@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/08 17:15:46 by jincpark          #+#    #+#             */
-/*   Updated: 2023/02/27 19:46:55 by jincpark         ###   ########.fr       */
+/*   Updated: 2023/03/01 01:55:01 by jincpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,27 +58,6 @@ static void	init_structs(t_parse_data *parse_data,
 	mlx_vars->mlx = NULL;
 	mlx_vars->win = NULL;
 }
-/*
-void	print_map_data(t_map_data *map_data)
-{
-	printf("tex_fname\n");
-	printf("EAST: %s\n", map_data->tex_fname[0]);
-	printf("WEST: %s\n", map_data->tex_fname[1]);
-	printf("SOUTH: %s\n", map_data->tex_fname[2]);
-	printf("NORTH: %s\n", map_data->tex_fname[3]);
-	printf("\n");
-	printf("COLOR\n");
-	printf("FLOOR: %u\n", map_data->color[0]);
-	printf("CEILING: %u\n", map_data->color[1]);
-	printf("\n");
-	printf("MAP\n");
-	for (int i = 0; i < map_data->height; i++)
-	{
-		for (int j = 0; j < map_data->width; j++)
-			printf("%d", map_data->map[i][j]);
-		printf("\n");
-	}
-}*/
 
 int	main(int argc, char **argv)
 {
@@ -89,7 +68,6 @@ int	main(int argc, char **argv)
 	check_arg(argc, argv);
 	init_structs(&parse_data, &map_data, &mlx_vars);
 	parse(&map_data, &parse_data, argv[1]);
-//	print_map_data(&map_data);
 	play_start(&map_data, &mlx_vars);
 	return (0);
 }
