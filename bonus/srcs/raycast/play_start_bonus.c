@@ -6,7 +6,7 @@
 /*   By: jincpark <jincpark@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/10 22:54:29 by jincpark          #+#    #+#             */
-/*   Updated: 2023/02/28 18:29:07 by jincpark         ###   ########.fr       */
+/*   Updated: 2023/02/28 22:02:57 by jincpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 #include "raycast_bonus.h"
 #include "event_bonus.h"
 #include "error_bonus.h"
+#include "minimap_bonus.h"
 
 static void	set_dir_vector(t_ray_data *rdata, char c)
 {
@@ -57,6 +58,8 @@ static int	loop(t_raycast_param *raycast_param)
 	move_player(raycast_param);
 	raycast(raycast_param, raycast_param->rdata,
 			raycast_param->map_data, raycast_param->mlx_vars);
+	put_minimap(raycast_param->mlx_vars, &raycast_param->minimap_img,
+			raycast_param->rdata, raycast_param->map_data);
 	return (0);
 }
 
@@ -70,6 +73,7 @@ void	play_start(t_map_data *map_data, t_mlx_vars *mlx_vars)
 	raycast_param.map_data = map_data;
 	raycast_param.mlx_vars = mlx_vars;
 	init_mlx_and_img(mlx_vars);
+	init_minimap_img(mlx_vars->mlx, &raycast_param.minimap_img);
 	get_texture_info(&raycast_param);
 	mlx_hook(mlx_vars->win, CLOSE_WINDOW_BUTTON, 0, \
 			close_win_and_exit, &raycast_param);
