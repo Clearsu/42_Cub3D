@@ -6,7 +6,7 @@
 #    By: jincpark <jincpark@student.42seoul.kr>     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/02/08 18:00:49 by jincpark          #+#    #+#              #
-#    Updated: 2023/02/28 18:26:54 by jincpark         ###   ########.fr        #
+#    Updated: 2023/02/28 22:14:48 by jincpark         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -35,6 +35,7 @@ INCDIR		=	incs
 MLXDIR 		= 	minilibx
 RCASTDIR	=	raycast
 EVENTDIR	=	event
+MINIMAPDIR	=	minimap
 
 #FILES
 MLXLIB		=	libmlx.dylib
@@ -91,7 +92,8 @@ BNS_SRCS	=	$(BNS_DIR)/$(SRCDIR)/main_bonus.c \
 				$(BNS_DIR)/$(SRCDIR)/$(EVENTDIR)/key_hook_bonus.c \
 				$(BNS_DIR)/$(SRCDIR)/$(EVENTDIR)/move_bonus.c \
 				$(BNS_DIR)/$(SRCDIR)/$(EVENTDIR)/rotate_bonus.c \
-				$(BNS_DIR)/$(SRCDIR)/$(UTILDIR)/print_err_and_exit_bonus.c
+				$(BNS_DIR)/$(SRCDIR)/$(UTILDIR)/print_err_and_exit_bonus.c \
+				$(BNS_DIR)/$(SRCDIR)/$(MINIMAPDIR)/minimap_bonus.c
 
 ifdef IF_DEBUG
 	CFLAGS += $(DFLAGS)
@@ -139,4 +141,11 @@ rebug :
 bonus :
 	$(MAKE) IF_BONUS=1 all
 
-.PHONY : all clean fclean re bonus
+bdebug :
+	$(MAKE) IF_BONUS=1 IF_DEBUG=1 all
+
+brebug :
+	$(MAKE) fclean
+	$(MAKE) IF_BONUS=1 IF_DEBUG=1 all
+
+.PHONY : all clean fclean re bonus bdebug brebug
