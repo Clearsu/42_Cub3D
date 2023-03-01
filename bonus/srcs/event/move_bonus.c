@@ -6,7 +6,7 @@
 /*   By: jincpark <jincpark@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/13 22:41:59 by jincpark          #+#    #+#             */
-/*   Updated: 2023/02/27 21:23:59 by jincpark         ###   ########.fr       */
+/*   Updated: 2023/03/01 18:22:56 by jincpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,7 +79,7 @@ void	move_player(t_raycast_param *raycast_param)
 	if (key_state->move_right == TRUE)
 		move_right(raycast_param->rdata, raycast_param->map_data->map);
 	if (key_state->turn_left == TRUE)
-		turn_left(raycast_param->rdata);
+		turn_left(raycast_param->rdata, ROTSPEED);
 	if (key_state->turn_right == TRUE)
-		turn_right(raycast_param->rdata);
+		turn_right(raycast_param->rdata, ROTSPEED);
 }

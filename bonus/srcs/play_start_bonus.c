@@ -6,7 +6,7 @@
 /*   By: jincpark <jincpark@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/10 22:54:29 by jincpark          #+#    #+#             */
-/*   Updated: 2023/03/01 18:17:07 by jincpark         ###   ########.fr       */
+/*   Updated: 2023/03/01 18:26:51 by jincpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,9 +61,9 @@ static void	update_mouse(t_raycast_param *raycast_param)
 
 	mlx_mouse_get_pos(raycast_param->mlx_vars->win, &x, &y);
 	if (x < WIDTH / 2)
-		turn_left(raycast_param->rdata);
+		turn_left(raycast_param->rdata, ROTSPEED * 2);
 	else if (x > WIDTH / 2)
-		turn_right(raycast_param->rdata);
+		turn_right(raycast_param->rdata, ROTSPEED * 2);
 	mlx_mouse_move(raycast_param->mlx_vars->win, WIDTH / 2, HEIGHT / 2);
 }
 
