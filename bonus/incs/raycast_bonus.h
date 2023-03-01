@@ -6,7 +6,7 @@
 /*   By: jincpark <jincpark@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/10 22:49:36 by jincpark          #+#    #+#             */
-/*   Updated: 2023/03/01 21:51:06 by jincpark         ###   ########.fr       */
+/*   Updated: 2023/03/01 22:21:06 by jincpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,5 +30,6 @@ void	draw_line(t_raycast_param *raycast_param, t_img_data *img_data, \
 void	get_camerax_and_ray_dir(t_ray_data *rdata, size_t x);
 void	my_mlx_pixel_put(t_img_data *img_data, \
 		size_t x, size_t y, unsigned int color);
+void	draw_crosshair(t_img_data *img_data);
 
 #endif

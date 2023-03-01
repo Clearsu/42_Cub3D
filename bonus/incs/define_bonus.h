@@ -6,7 +6,7 @@
 /*   By: jincpark <jincpark@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/08 17:20:25 by jincpark          #+#    #+#             */
-/*   Updated: 2023/03/01 21:20:26 by jincpark         ###   ########.fr       */
+/*   Updated: 2023/03/01 22:12:08 by jincpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,9 @@
 # define MINI_DOOR_COLOR 0x00ffffff
 # define MINI_OFFSET 10
 # define MINI_PLAYER_SIZE 10
+
+# define CROSSHAIR_SIZE 20
+# define CROSSHAIR_COLOR 0x00ffffff
 
 # define DOOR_TEXTURE_PATH "./textures/door.png"
 
