@@ -6,7 +6,7 @@
 /*   By: jincpark <jincpark@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/26 14:50:14 by jincpark          #+#    #+#             */
-/*   Updated: 2023/03/01 21:16:05 by jincpark         ###   ########.fr       */
+/*   Updated: 2023/03/01 21:52:14 by jincpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,16 +25,17 @@ void	get_draw_start_end(t_ray_data *rdata)
 		rdata->draw_end = HEIGHT - 1;
 }
 
-void	get_wall_texture(t_ray_data *rdata, char **map)
+void	get_wall_texture(t_ray_data *rdata, t_map_data *map_data)
 {
-	if (map[rdata->map_y][rdata->map_x] == DOOR_CLOSED)
+	if (map_data->map[rdata->map_y][rdata->map_x] == DOOR_CLOSED)
 	{
 		rdata->tex_idx = DOOR;
 		return ;
 	}
 	if (rdata->side == 1)
 	{
-		if (map[rdata->map_y + 1][rdata->map_x] == DOOR_OPENED)
+		if (rdata->map_y < map_data->height - 1 \
+			&& map_data->map[rdata->map_y + 1][rdata->map_x] == DOOR_OPENED)
 			rdata->tex_idx = DOOR;
 		else if ((int)rdata->pos_y < rdata->map_y)
 			rdata->tex_idx = SOUTH;
@@ -43,7 +44,8 @@ void	get_wall_texture(t_ray_data *rdata, char **map)
 	}
 	else
 	{
-		if (map[rdata->map_y][rdata->map_x + 1] == DOOR_OPENED)
+		if (rdata->map_x < map_data->width - 1 \
+			&& map_data->map[rdata->map_y][rdata->map_x + 1] == DOOR_OPENED)
 			rdata->tex_idx = DOOR;
 		else if ((int)rdata->pos_x < rdata->map_x)
 			rdata->tex_idx = EAST;

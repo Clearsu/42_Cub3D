@@ -6,7 +6,7 @@
 /*   By: jincpark <jincpark@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/11 21:43:14 by jincpark          #+#    #+#             */
-/*   Updated: 2023/03/01 21:10:58 by jincpark         ###   ########.fr       */
+/*   Updated: 2023/03/01 21:49:20 by jincpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,7 +61,7 @@ int	raycast(t_raycast_param *raycast_param, t_ray_data *rdata,
 		dda(rdata, map_data->map);
 		get_perp_wall_dist(rdata);
 		get_draw_start_end(rdata);
-		get_wall_texture(rdata, map_data->map);
+		get_wall_texture(rdata, map_data);
 		draw_line(raycast_param, &mlx_vars->img_data, map_data->color, x);
 	}
 	mlx_put_image_to_window(mlx_vars->mlx, mlx_vars->win, \
