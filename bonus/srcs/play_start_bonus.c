@@ -6,7 +6,7 @@
 /*   By: jincpark <jincpark@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/10 22:54:29 by jincpark          #+#    #+#             */
-/*   Updated: 2023/03/01 18:26:51 by jincpark         ###   ########.fr       */
+/*   Updated: 2023/03/01 21:00:19 by jincpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,6 +59,7 @@ static void	update_mouse(t_raycast_param *raycast_param)
 	int	x;
 	int	y;
 
+	mlx_mouse_hide();
 	mlx_mouse_get_pos(raycast_param->mlx_vars->win, &x, &y);
 	if (x < WIDTH / 2)
 		turn_left(raycast_param->rdata, ROTSPEED * 2);
@@ -69,7 +70,6 @@ static void	update_mouse(t_raycast_param *raycast_param)
 
 static int	loop(t_raycast_param *raycast_param)
 {
-	mlx_mouse_hide();
 	update_mouse(raycast_param);
 	move_player(raycast_param);
 	raycast(raycast_param, raycast_param->rdata, \
@@ -91,8 +91,6 @@ void	play_start(t_map_data *map_data, t_mlx_vars *mlx_vars)
 	init_mlx_and_img(mlx_vars);
 	init_minimap_img(mlx_vars->mlx, &raycast_param.minimap_img);
 	get_texture_info(&raycast_param);
-	mlx_hook(mlx_vars->win, CLOSE_WINDOW_BUTTON, 0, \
-			close_win_and_exit, &raycast_param);
 	mlx_hook(mlx_vars->win, KEY_PRESS, 0, press_key, &raycast_param);
 	mlx_hook(mlx_vars->win, KEY_RELEASE, 0, release_key, &raycast_param);
 	mlx_loop_hook(mlx_vars->mlx, loop, &raycast_param);

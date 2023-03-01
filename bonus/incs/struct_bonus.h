@@ -6,7 +6,7 @@
 /*   By: jincpark <jincpark@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/08 19:14:11 by jincpark          #+#    #+#             */
-/*   Updated: 2023/03/01 17:37:51 by jincpark         ###   ########.fr       */
+/*   Updated: 2023/03/01 19:30:20 by jincpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,7 @@ typedef struct s_img_data
 
 typedef struct s_map_data
 {
-	char			*tex_fname[4];
+	char			*tex_fname[5];
 	unsigned int	color[2];
 	char			**map;
 	int				width;
@@ -118,7 +118,7 @@ typedef struct s_raycast_param
 	t_map_data		*map_data;
 	t_mlx_vars		*mlx_vars;
 	t_key_state		key_state;
-	t_tex_data		tex_data[4];
+	t_tex_data		tex_data[5];
 	t_img_data		minimap_img;
 	t_mouse			mouse;
 }	t_raycast_param;

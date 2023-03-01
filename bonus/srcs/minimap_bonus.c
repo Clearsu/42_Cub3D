@@ -6,7 +6,7 @@
 /*   By: jincpark <jincpark@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/28 18:35:13 by jincpark          #+#    #+#             */
-/*   Updated: 2023/03/01 01:57:19 by jincpark         ###   ########.fr       */
+/*   Updated: 2023/03/01 21:19:00 by jincpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,6 +45,8 @@ static void	draw_minimap_vertical_line(t_img_data *minimap_img, \
 				|| map_data->map[draw_y][draw_x] == OUTSIDE
 				|| map_data->map[draw_y][draw_x] == WALL)
 			my_mlx_pixel_put(minimap_img, x, y, MINI_WALL_COLOR);
+		else if (map_data->map[draw_y][draw_x] == DOOR_CLOSED)
+			my_mlx_pixel_put(minimap_img, x, y, MINI_DOOR_COLOR);
 		else
 			my_mlx_pixel_put(minimap_img, x, y, MINI_BACKGROUND_COLOR);
 	}

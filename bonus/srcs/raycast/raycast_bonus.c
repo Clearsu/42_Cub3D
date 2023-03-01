@@ -6,14 +6,14 @@
 /*   By: jincpark <jincpark@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/11 21:43:14 by jincpark          #+#    #+#             */
-/*   Updated: 2023/02/27 21:03:44 by jincpark         ###   ########.fr       */
+/*   Updated: 2023/03/01 21:10:58 by jincpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "mlx.h"
 #include "raycast_bonus.h"
 
-static void	dda(t_ray_data *rdata, t_map_data *map_data)
+static void	dda(t_ray_data *rdata, char **map)
 {
 	while (rdata->hit == 0)
 	{
@@ -29,7 +29,8 @@ static void	dda(t_ray_data *rdata, t_map_data *map_data)
 			rdata->map_y += rdata->step_y;
 			rdata->side = 1;
 		}
-		if (map_data->map[rdata->map_y][rdata->map_x] == WALL)
+		if (map[rdata->map_y][rdata->map_x] == WALL || \
+				map[rdata->map_y][rdata->map_x] == DOOR_CLOSED)
 			rdata->hit = 1;
 	}
 }
@@ -57,10 +58,10 @@ int	raycast(t_raycast_param *raycast_param, t_ray_data *rdata,
 		get_map_x_y(rdata);
 		get_delta_dist(rdata);
 		get_step_and_initial_sidedist(rdata);
-		dda(rdata, map_data);
+		dda(rdata, map_data->map);
 		get_perp_wall_dist(rdata);
 		get_draw_start_end(rdata);
-		get_wall_texture(rdata);
+		get_wall_texture(rdata, map_data->map);
 		draw_line(raycast_param, &mlx_vars->img_data, map_data->color, x);
 	}
 	mlx_put_image_to_window(mlx_vars->mlx, mlx_vars->win, \

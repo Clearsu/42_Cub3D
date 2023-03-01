@@ -6,14 +6,14 @@
 /*   By: jincpark <jincpark@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/10 23:27:18 by jincpark          #+#    #+#             */
-/*   Updated: 2023/02/28 18:33:14 by jincpark         ###   ########.fr       */
+/*   Updated: 2023/03/01 21:02:20 by jincpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "mlx.h"
 #include "event_bonus.h"
 
-int	close_win_and_exit(t_raycast_param *raycast_param)
+static void	close_win_and_exit(t_raycast_param *raycast_param)
 {
 	int	i;
 
@@ -25,7 +25,6 @@ int	close_win_and_exit(t_raycast_param *raycast_param)
 	while (i < 4)
 		free(raycast_param->tex_data[i++].texture);
 	exit(0);
-	return (0);
 }
 
 int	press_key(int keycode, t_raycast_param *raycast_param)
@@ -47,6 +46,8 @@ int	press_key(int keycode, t_raycast_param *raycast_param)
 		key_state->turn_right = TRUE;
 	else if (keycode == R_LEFT)
 		key_state->turn_left = TRUE;
+	else if (keycode == SPACEBAR)
+		door(raycast_param);
 	return (0);
 }
 

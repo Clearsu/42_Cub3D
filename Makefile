@@ -6,7 +6,7 @@
 #    By: jincpark <jincpark@student.42seoul.kr>     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/02/08 18:00:49 by jincpark          #+#    #+#              #
-#    Updated: 2023/03/01 18:25:22 by jincpark         ###   ########.fr        #
+#    Updated: 2023/03/01 20:31:34 by jincpark         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -92,6 +92,7 @@ BNS_SRCS	=	$(BNS_DIR)/$(SRCDIR)/main_bonus.c \
 				$(BNS_DIR)/$(SRCDIR)/$(EVENTDIR)/key_hook_bonus.c \
 				$(BNS_DIR)/$(SRCDIR)/$(EVENTDIR)/move_bonus.c \
 				$(BNS_DIR)/$(SRCDIR)/$(EVENTDIR)/rotate_bonus.c \
+				$(BNS_DIR)/$(SRCDIR)/$(EVENTDIR)/door_bonus.c \
 				$(BNS_DIR)/$(SRCDIR)/$(UTILDIR)/print_err_and_exit_bonus.c
 
 ifdef IF_DEBUG

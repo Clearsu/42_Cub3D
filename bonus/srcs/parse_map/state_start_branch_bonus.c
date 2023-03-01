@@ -6,7 +6,7 @@
 /*   By: jincpark <jincpark@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/09 00:26:05 by jincpark          #+#    #+#             */
-/*   Updated: 2023/02/27 19:45:53 by jincpark         ###   ########.fr       */
+/*   Updated: 2023/03/01 19:40:38 by jincpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ void	start(t_state *state, t_parse_data *parse_data)
 
 int	is_only_map_char(char *str)
 {
-	while (*str != '\0' && (*str == '1' || *str == '0' || \
+	while (*str != '\0' && (*str == '1' || *str == '0' || *str == '3' || \
 		*str == 'E' || *str == 'W' || *str == 'S' || *str == 'N' || \
 		*str == ' '))
 		str++;

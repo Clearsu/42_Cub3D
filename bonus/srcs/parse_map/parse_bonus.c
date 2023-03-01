@@ -6,7 +6,7 @@
 /*   By: jincpark <jincpark@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/08 18:36:24 by jincpark          #+#    #+#             */
-/*   Updated: 2023/02/27 19:45:03 by jincpark         ###   ########.fr       */
+/*   Updated: 2023/03/01 19:29:25 by jincpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,7 +74,8 @@ void	parse(t_map_data *map_data, t_parse_data *parse_data, char *fname)
 	make_token_list(parse_data);
 	check_map_configuration(parse_data->token_list);
 	check_map_order(parse_data->token_list);
-	parse_texture(map_data->tex_fname, parse_data->token_list);
+	parse_tex_fname(map_data->tex_fname, parse_data->token_list, 0);
+	map_data->tex_fname[DOOR] = DOOR_TEXTURE_PATH;
 	parse_color(map_data->color, parse_data->token_list);
 	parse_map(map_data, parse_data->token_list);
 }

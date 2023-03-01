@@ -6,7 +6,7 @@
 /*   By: jincpark <jincpark@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/08 17:20:25 by jincpark          #+#    #+#             */
-/*   Updated: 2023/03/01 02:28:37 by jincpark         ###   ########.fr       */
+/*   Updated: 2023/03/01 21:20:26 by jincpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,8 +24,11 @@
 # define MINI_WALL_COLOR 0x00777777
 # define MINI_BACKGROUND_COLOR 0x88000000
 # define MINI_PLAYER_COLOR 0x0000ff00
+# define MINI_DOOR_COLOR 0x00ffffff
 # define MINI_OFFSET 10
 # define MINI_PLAYER_SIZE 10
+
+# define DOOR_TEXTURE_PATH "./textures/door.png"
 
 # define TRUE 1
 # define FALSE 0
@@ -36,6 +39,7 @@
 # define WEST 1
 # define SOUTH 2
 # define NORTH 3
+# define DOOR 4
 
 # define FLOOR 0
 # define CEILING 1
@@ -43,6 +47,8 @@
 # define INSIDE 0
 # define WALL 1
 # define OUTSIDE 2
+# define DOOR_CLOSED 5
+# define DOOR_OPENED 6
 
 # define SPAWN_X 0
 # define SPAWN_Y 1
@@ -75,7 +81,6 @@ typedef enum e_err_type
 
 # define KEY_PRESS 2
 # define KEY_RELEASE 3
-# define MOTIONNOTIFY 6
 
 # define ESC 53
 # define R_LEFT 123
@@ -84,7 +89,6 @@ typedef enum e_err_type
 # define LEFT 0
 # define RIGHT 2
 # define DOWN 1
-
-# define CLOSE_WINDOW_BUTTON 17
+# define SPACEBAR 49
 
 #endif

@@ -6,7 +6,7 @@
 /*   By: jincpark <jincpark@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/21 19:47:29 by jincpark          #+#    #+#             */
-/*   Updated: 2023/02/27 19:38:53 by jincpark         ###   ########.fr       */
+/*   Updated: 2023/03/01 19:05:24 by jincpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,7 @@ void	get_texture_info(t_raycast_param *raycast_param)
 	int			i;
 
 	i = 0;
-	while (i < 4)
+	while (i < 5)
 	{
 		img_data.img = mlx_png_file_to_image(raycast_param->mlx_vars->mlx,
 				raycast_param->map_data->tex_fname[i],

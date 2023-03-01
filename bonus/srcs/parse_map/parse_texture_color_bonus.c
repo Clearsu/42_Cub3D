@@ -6,7 +6,7 @@
 /*   By: jincpark <jincpark@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/09 21:29:02 by jincpark          #+#    #+#             */
-/*   Updated: 2023/02/27 19:37:05 by jincpark         ###   ########.fr       */
+/*   Updated: 2023/03/01 19:28:50 by jincpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ static void	skip_spaces(char **str)
 		(*str)++;
 }
 
-void	parse_texture(char *texture[4], t_list *token_list)
+void	parse_tex_fname(char *tex_fname[5], t_list *token_list, int i)
 {
 	t_token	*token;
 
@@ -27,17 +27,24 @@ void	parse_texture(char *texture[4], t_list *token_list)
 	{
 		token = (t_token *)token_list->content;
 		if (token->type == T_EAST)
-			texture[EAST] = ft_strdup((char *)token->value);
+			tex_fname[EAST] = ft_strdup((char *)token->value);
 		else if (token->type == T_WEST)
-			texture[WEST] = ft_strdup((char *)token->value);
+			tex_fname[WEST] = ft_strdup((char *)token->value);
 		else if (token->type == T_SOUTH)
-			texture[SOUTH] = ft_strdup((char *)token->value);
+			tex_fname[SOUTH] = ft_strdup((char *)token->value);
 		else if (token->type == T_NORTH)
-			texture[NORTH] = ft_strdup((char *)token->value);
+			tex_fname[NORTH] = ft_strdup((char *)token->value);
 		token_list = token_list->next;
 	}
-	if (!texture[EAST] || !texture[WEST] || !texture[SOUTH] || !texture[NORTH])
+	if (!tex_fname[EAST] || !tex_fname[WEST] || !tex_fname[SOUTH] || !tex_fname[NORTH])
+	{
+		while (i < 4)
+		{
+			if (tex_fname[i])
+				free(tex_fname[i++]);
+		}
 		print_err_and_exit(E_SYS);
+	}
 }
 
 static int	is_right_color_form(char *str)
