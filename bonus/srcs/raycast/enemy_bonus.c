@@ -6,8 +6,11 @@
 /*   By: jincpark <jincpark@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/02 18:03:26 by jincpark          #+#    #+#             */
-/*   Updated: 2023/03/02 18:17:52 by jincpark         ###   ########.fr       */
+/*   Updated: 2023/03/02 20:50:34 by jincpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-
+void	raycast_enemy(t_raycast_param *raycast_param)
+{
+	
+}
