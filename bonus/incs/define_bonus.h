@@ -6,7 +6,7 @@
 /*   By: jincpark <jincpark@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/08 17:20:25 by jincpark          #+#    #+#             */
-/*   Updated: 2023/03/01 22:12:08 by jincpark         ###   ########.fr       */
+/*   Updated: 2023/03/02 16:22:42 by jincpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,10 +28,12 @@
 # define MINI_OFFSET 10
 # define MINI_PLAYER_SIZE 10
 
-# define CROSSHAIR_SIZE 20
+# define CROSSHAIR_SIZE 15
 # define CROSSHAIR_COLOR 0x00ffffff
 
 # define DOOR_TEXTURE_PATH "./textures/door.png"
+# define ENEMY_TEXTURE_1 "./sprites/sealion1.png"
+# define ENEMY_TEXTURE_2 "./sprites/sealion2.png"
 
 # define TRUE 1
 # define FALSE 0
