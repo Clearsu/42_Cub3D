@@ -6,7 +6,7 @@
 /*   By: jincpark <jincpark@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/09 23:05:12 by jincpark          #+#    #+#             */
-/*   Updated: 2023/03/01 21:33:56 by jincpark         ###   ########.fr       */
+/*   Updated: 2023/03/02 17:15:30 by jincpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,6 +60,8 @@ static char	select_value(char c)
 		return (INSIDE);
 	if (c == '3')
 		return (DOOR_CLOSED);
+	if (c == '4')
+		return (ENEMY);
 	else
 		return (c);
 }
