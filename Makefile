@@ -6,7 +6,7 @@
 #    By: jincpark <jincpark@student.42seoul.kr>     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/02/08 18:00:49 by jincpark          #+#    #+#              #
-#    Updated: 2023/03/01 22:12:40 by jincpark         ###   ########.fr        #
+#    Updated: 2023/03/02 16:38:05 by jincpark         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -72,6 +72,7 @@ BNS_SRCS	=	$(BNS_DIR)/$(SRCDIR)/main_bonus.c \
 				$(BNS_DIR)/$(SRCDIR)/play_start_bonus.c \
 				$(BNS_DIR)/$(SRCDIR)/minimap_bonus.c \
 				$(BNS_DIR)/$(SRCDIR)/crosshair_bonus.c \
+				$(BNS_DIR)/$(SRCDIR)/get_png_info_bonus.c \
 				$(BNS_DIR)/$(SRCDIR)/$(PARSEDIR)/parse_bonus.c \
 				$(BNS_DIR)/$(SRCDIR)/$(PARSEDIR)/parse_map_bonus.c \
 				$(BNS_DIR)/$(SRCDIR)/$(PARSEDIR)/parse_texture_color_bonus.c \
@@ -85,7 +86,6 @@ BNS_SRCS	=	$(BNS_DIR)/$(SRCDIR)/main_bonus.c \
 				$(BNS_DIR)/$(SRCDIR)/$(PARSEDIR)/state_empty_bonus.c \
 				$(BNS_DIR)/$(SRCDIR)/$(PARSEDIR)/state_color_bonus.c \
 				$(BNS_DIR)/$(SRCDIR)/$(PARSEDIR)/state_map_bonus.c \
-				$(BNS_DIR)/$(SRCDIR)/$(RCASTDIR)/get_texture_info_bonus.c \
 				$(BNS_DIR)/$(SRCDIR)/$(RCASTDIR)/raycast_bonus.c \
 				$(BNS_DIR)/$(SRCDIR)/$(RCASTDIR)/draw_line_bonus.c \
 				$(BNS_DIR)/$(SRCDIR)/$(RCASTDIR)/get_delta_side_dist_bonus.c \

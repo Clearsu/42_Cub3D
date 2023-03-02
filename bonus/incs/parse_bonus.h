@@ -6,7 +6,7 @@
 /*   By: jincpark <jincpark@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/08 22:21:54 by jincpark          #+#    #+#             */
-/*   Updated: 2023/03/01 19:28:20 by jincpark         ###   ########.fr       */
+/*   Updated: 2023/03/02 17:09:32 by jincpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,5 +28,6 @@ void	basic_wall_check(t_map_data *map_data);
 void	is_map_fully_closed(t_map_data *map_data);
 void	check_spawn_location(t_map_data *map_data);
 char	**calloc_2d_char_arr(size_t width, size_t height);
+void	get_png_info(t_raycast_param *raycast_param);
 
 #endif

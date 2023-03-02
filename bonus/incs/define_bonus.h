@@ -6,7 +6,7 @@
 /*   By: jincpark <jincpark@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/08 17:20:25 by jincpark          #+#    #+#             */
-/*   Updated: 2023/03/02 16:22:42 by jincpark         ###   ########.fr       */
+/*   Updated: 2023/03/02 17:15:06 by jincpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,6 +54,7 @@
 # define OUTSIDE 2
 # define DOOR_CLOSED 5
 # define DOOR_OPENED 6
+# define ENEMY 7
 
 # define SPAWN_X 0
 # define SPAWN_Y 1

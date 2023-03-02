@@ -6,7 +6,7 @@
 /*   By: jincpark <jincpark@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/08 19:14:11 by jincpark          #+#    #+#             */
-/*   Updated: 2023/03/02 16:14:31 by jincpark         ###   ########.fr       */
+/*   Updated: 2023/03/02 17:19:04 by jincpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,6 +48,7 @@ typedef struct s_map_data
 	int				width;
 	int				height;
 	int				spawn[3];
+	int				enemy_spawn[2];
 }	t_map_data;
 
 typedef struct s_mlx_vars
@@ -114,7 +115,7 @@ typedef struct s_mouse
 
 typedef struct s_enemy
 {
-	t_tex_data	tex_data;
+	t_tex_data	tex_data[2];
 	double		pos_x;
 	double		pos_y;
 	double		dir_x;
