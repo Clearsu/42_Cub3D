@@ -6,7 +6,7 @@
 /*   By: jincpark <jincpark@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/10 22:54:29 by jincpark          #+#    #+#             */
-/*   Updated: 2023/03/02 17:27:11 by jincpark         ###   ########.fr       */
+/*   Updated: 2023/03/02 20:51:49 by jincpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,7 +56,6 @@ static void	init_raycast_param(t_ray_data *rdata, t_map_data *map_data,
 	rdata->plane_y = rdata->dir_x * 0.66;
 	ft_memset(&raycast_param->key_state, 0, sizeof(t_key_state));
 	ft_memset(raycast_param->tex_data, 0, 4 * sizeof(t_tex_data *));
-	ft_memset(&raycast_param->mouse, 0, sizeof(t_mouse));
 }
 
 static void	update_mouse(t_raycast_param *raycast_param)
