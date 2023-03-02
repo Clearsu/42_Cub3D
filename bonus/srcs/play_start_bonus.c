@@ -6,7 +6,7 @@
 /*   By: jincpark <jincpark@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/10 22:54:29 by jincpark          #+#    #+#             */
-/*   Updated: 2023/03/02 20:51:49 by jincpark         ###   ########.fr       */
+/*   Updated: 2023/03/02 21:37:21 by jincpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,8 +49,6 @@ static void	init_raycast_param(t_ray_data *rdata, t_map_data *map_data,
 	rdata->pos_y = (double)map_data->spawn[SPAWN_Y] + 0.5;
 	raycast_param->enemy.pos_x = (double)map_data->enemy_spawn[SPAWN_X] + 0.5;
 	raycast_param->enemy.pos_y = (double)map_data->enemy_spawn[SPAWN_Y] + 0.5;
-	raycast_param->enemy.dir_x = 1;
-	raycast_param->enemy.dir_y = 1;
 	set_dir_vector(rdata, map_data->spawn[SPAWN_D]);
 	rdata->plane_x = (-1) * rdata->dir_y * 0.66;
 	rdata->plane_y = rdata->dir_x * 0.66;

@@ -6,7 +6,7 @@
 /*   By: jincpark <jincpark@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/08 19:14:11 by jincpark          #+#    #+#             */
-/*   Updated: 2023/03/02 20:51:36 by jincpark         ###   ########.fr       */
+/*   Updated: 2023/03/02 22:12:13 by jincpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -107,13 +107,21 @@ typedef struct s_texture_data
 	int				height;
 }	t_tex_data;
 
+		#define uDiv 1
+		#define vDiv 1
+		#define vMove 0.0
 typedef struct s_enemy
 {
 	t_tex_data	tex_data[2];
+	double		perp_wall_dist[WIDTH];
 	double		pos_x;
 	double		pos_y;
-	double		dir_x;
-	double		dir_y;
+	double		inverse_x;
+	double		inverse_y;
+	int			draw_start_x;
+	int			draw_start_y;
+	int			draw_end_x;
+	int			draw_end_y;
 }	t_enemy;
 
 typedef struct s_raycast_param
