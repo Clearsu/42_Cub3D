@@ -6,7 +6,7 @@
 /*   By: jincpark <jincpark@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/08 19:14:11 by jincpark          #+#    #+#             */
-/*   Updated: 2023/03/02 17:19:04 by jincpark         ###   ########.fr       */
+/*   Updated: 2023/03/02 20:51:36 by jincpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -107,12 +107,6 @@ typedef struct s_texture_data
 	int				height;
 }	t_tex_data;
 
-typedef struct s_mouse
-{
-	int	old_x;
-	int	x;
-}	t_mouse;
-
 typedef struct s_enemy
 {
 	t_tex_data	tex_data[2];
@@ -130,7 +124,6 @@ typedef struct s_raycast_param
 	t_key_state	key_state;
 	t_tex_data	tex_data[5];
 	t_img_data	minimap_img;
-	t_mouse		mouse;
 	t_enemy		enemy;
 }	t_raycast_param;
 
