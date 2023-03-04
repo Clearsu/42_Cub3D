@@ -6,7 +6,7 @@
 #    By: jincpark <jincpark@student.42seoul.kr>     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/02/08 18:00:49 by jincpark          #+#    #+#              #
-#    Updated: 2023/03/04 17:17:51 by jincpark         ###   ########.fr        #
+#    Updated: 2023/03/04 19:00:20 by jincpark         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -90,7 +90,7 @@ BNS_SRCS	=	$(BNS_DIR)/$(SRCDIR)/main_bonus.c \
 				$(BNS_DIR)/$(SRCDIR)/$(RCASTDIR)/draw_line_bonus.c \
 				$(BNS_DIR)/$(SRCDIR)/$(RCASTDIR)/get_delta_side_dist_bonus.c \
 				$(BNS_DIR)/$(SRCDIR)/$(RCASTDIR)/sprite_bonus.c \
-				$(BNS_DIR)/$(SRCDIR)/$(RCASTDIR)/mlx_util_bonus.c \
+				$(BNS_DIR)/$(SRCDIR)/$(RCASTDIR)/raycast_util_bonus.c \
 				$(BNS_DIR)/$(SRCDIR)/$(EVENTDIR)/key_hook_bonus.c \
 				$(BNS_DIR)/$(SRCDIR)/$(EVENTDIR)/move_bonus.c \
 				$(BNS_DIR)/$(SRCDIR)/$(EVENTDIR)/rotate_bonus.c \
