@@ -6,7 +6,7 @@
 #    By: jincpark <jincpark@student.42seoul.kr>     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/02/08 18:00:49 by jincpark          #+#    #+#              #
-#    Updated: 2023/03/04 19:00:20 by jincpark         ###   ########.fr        #
+#    Updated: 2023/03/04 19:56:26 by jincpark         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -30,7 +30,6 @@ MAN_DIR		=	mandatory
 BNS_DIR		=	bonus
 SRCDIR		=	srcs
 PARSEDIR	=	parse_map
-UTILDIR		=	util
 INCDIR		=	incs
 MLXDIR 		= 	minilibx
 RCASTDIR	=	raycast
@@ -44,6 +43,7 @@ INCS		=	-I $(LFTDIR) -I $(MLXDIR)
 MAN_INCS	=	-I $(MAN_DIR)/$(INCDIR)
 MAN_SRCS	=	$(MAN_DIR)/$(SRCDIR)/main.c \
 				$(MAN_DIR)/$(SRCDIR)/play_start.c \
+				$(MAN_DIR)/$(SRCDIR)/print_err_and_exit.c \
 				$(MAN_DIR)/$(SRCDIR)/$(PARSEDIR)/parse.c \
 				$(MAN_DIR)/$(SRCDIR)/$(PARSEDIR)/parse_map.c \
 				$(MAN_DIR)/$(SRCDIR)/$(PARSEDIR)/parse_texture_color.c \
@@ -65,7 +65,6 @@ MAN_SRCS	=	$(MAN_DIR)/$(SRCDIR)/main.c \
 				$(MAN_DIR)/$(SRCDIR)/$(EVENTDIR)/key_hook.c \
 				$(MAN_DIR)/$(SRCDIR)/$(EVENTDIR)/move.c \
 				$(MAN_DIR)/$(SRCDIR)/$(EVENTDIR)/rotate.c \
-				$(MAN_DIR)/$(SRCDIR)/$(UTILDIR)/print_err_and_exit.c
 
 BNS_INCS	=	-I $(BNS_DIR)/$(INCDIR)
 BNS_SRCS	=	$(BNS_DIR)/$(SRCDIR)/main_bonus.c \
@@ -73,6 +72,7 @@ BNS_SRCS	=	$(BNS_DIR)/$(SRCDIR)/main_bonus.c \
 				$(BNS_DIR)/$(SRCDIR)/minimap_bonus.c \
 				$(BNS_DIR)/$(SRCDIR)/crosshair_bonus.c \
 				$(BNS_DIR)/$(SRCDIR)/get_png_info_bonus.c \
+				$(BNS_DIR)/$(SRCDIR)/print_err_and_exit_bonus.c \
 				$(BNS_DIR)/$(SRCDIR)/$(PARSEDIR)/parse_bonus.c \
 				$(BNS_DIR)/$(SRCDIR)/$(PARSEDIR)/parse_map_bonus.c \
 				$(BNS_DIR)/$(SRCDIR)/$(PARSEDIR)/parse_texture_color_bonus.c \
@@ -95,7 +95,6 @@ BNS_SRCS	=	$(BNS_DIR)/$(SRCDIR)/main_bonus.c \
 				$(BNS_DIR)/$(SRCDIR)/$(EVENTDIR)/move_bonus.c \
 				$(BNS_DIR)/$(SRCDIR)/$(EVENTDIR)/rotate_bonus.c \
 				$(BNS_DIR)/$(SRCDIR)/$(EVENTDIR)/door_bonus.c \
-				$(BNS_DIR)/$(SRCDIR)/$(UTILDIR)/print_err_and_exit_bonus.c
 
 ifdef IF_DEBUG
 	CFLAGS += $(DFLAGS)
