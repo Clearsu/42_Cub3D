@@ -6,7 +6,7 @@
 /*   By: jincpark <jincpark@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/08 19:14:11 by jincpark          #+#    #+#             */
-/*   Updated: 2023/03/02 22:12:13 by jincpark         ###   ########.fr       */
+/*   Updated: 2023/03/04 16:44:24 by jincpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -122,6 +122,10 @@ typedef struct s_enemy
 	int			draw_start_y;
 	int			draw_end_x;
 	int			draw_end_y;
+	int			v_move_screen;
+	int			sprite_height;
+	int			sprite_width;
+	int			sprite_screen_x;
 }	t_enemy;
 
 typedef struct s_raycast_param

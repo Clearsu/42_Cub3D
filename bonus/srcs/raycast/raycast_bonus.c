@@ -6,7 +6,7 @@
 /*   By: jincpark <jincpark@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/11 21:43:14 by jincpark          #+#    #+#             */
-/*   Updated: 2023/03/02 21:36:51 by jincpark         ###   ########.fr       */
+/*   Updated: 2023/03/04 16:58:56 by jincpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,6 +66,12 @@ int	raycast(t_raycast_param *raycast_param, t_ray_data *rdata,
 		draw_line(raycast_param, &mlx_vars->img_data, map_data->color, x);
 	}
 	draw_crosshair(&raycast_param->mlx_vars->img_data);
+	// sprite
+	get_inverse_x_y(rdata, &raycast_param->enemy);
+	get_draw_y(&raycast_param->enemy);
+	get_draw_x(&raycast_param->enemy);
+	draw_sprite(raycast_param);
+	// put image
 	mlx_put_image_to_window(mlx_vars->mlx, mlx_vars->win, \
 			mlx_vars->img_data.img, 0, 0);
 	return (0);

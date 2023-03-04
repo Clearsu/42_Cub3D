@@ -6,7 +6,7 @@
 /*   By: jincpark <jincpark@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/08 17:22:53 by jincpark          #+#    #+#             */
-/*   Updated: 2023/02/27 19:39:42 by jincpark         ###   ########.fr       */
+/*   Updated: 2023/03/04 17:01:47 by jincpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,4 +27,11 @@ void	print_err_and_exit(t_err_type type)
 	else
 		perror("cub3d");
 	exit(1);
+}
+
+double	d_abs(double n)
+{
+	if (n >= 0)
+		return (n);
+	return (n * (-1));
 }

@@ -6,18 +6,11 @@
 /*   By: jincpark <jincpark@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/26 15:01:49 by jincpark          #+#    #+#             */
-/*   Updated: 2023/02/27 19:46:08 by jincpark         ###   ########.fr       */
+/*   Updated: 2023/03/04 17:02:41 by jincpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "raycast_bonus.h"
-
-static double	d_abs(double n)
-{
-	if (n >= 0)
-		return (n);
-	return (n * (-1));
-}
 
 void	get_camerax_and_ray_dir(t_ray_data *rdata, size_t x)
 {
