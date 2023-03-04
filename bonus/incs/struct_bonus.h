@@ -6,7 +6,7 @@
 /*   By: jincpark <jincpark@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/08 19:14:11 by jincpark          #+#    #+#             */
-/*   Updated: 2023/03/04 19:15:53 by jincpark         ###   ########.fr       */
+/*   Updated: 2023/03/04 19:53:08 by jincpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,7 +48,7 @@ typedef struct s_map_data
 	int				width;
 	int				height;
 	int				spawn[3];
-	int				enemy_spawn[2];
+	int				sprite_pos[2];
 }	t_map_data;
 
 typedef struct s_mlx_vars

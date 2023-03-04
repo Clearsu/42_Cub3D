@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   exit_bonus.c                                       :+:      :+:    :+:   */
+/*   print_err_and_exit_bonus.c                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jincpark <jincpark@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/08 17:22:53 by jincpark          #+#    #+#             */
-/*   Updated: 2023/03/04 19:46:51 by jincpark         ###   ########.fr       */
+/*   Updated: 2023/03/04 19:56:53 by jincpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,9 +27,4 @@ void	print_err_and_exit(t_err_type type)
 	else
 		perror("cub3d");
 	exit(1);
-}
-
-void	free_all(t_raycast_param *raycast_param)
-{
-	
 }
