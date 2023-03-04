@@ -6,7 +6,7 @@
 /*   By: jincpark <jincpark@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/21 19:47:29 by jincpark          #+#    #+#             */
-/*   Updated: 2023/03/02 17:13:08 by jincpark         ###   ########.fr       */
+/*   Updated: 2023/03/04 17:19:47 by jincpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,7 +74,7 @@ static void	get_texture_image_info(t_raycast_param *raycast_param)
 	}
 }
 
-static void	get_enemy_image_info(t_raycast_param *raycast_param)
+static void	get_sprite_image_info(t_raycast_param *raycast_param)
 {
 	t_img_data	img_data;
 	int			i;
@@ -88,16 +88,16 @@ static void	get_enemy_image_info(t_raycast_param *raycast_param)
 				tex_path, &img_data.width, &img_data.height);
 		if (img_data.img == NULL)
 			destroy_image_and_free_array_and_exit(NULL, NULL, \
-					raycast_param->enemy.tex_data, i);
+					raycast_param->sprite.tex_data, i);
 		img_data.addr = mlx_get_data_addr(img_data.img,
 				&img_data.bits_per_pixel, &img_data.line_length,
 				&img_data.endian);
-		raycast_param->enemy.tex_data[i].texture = \
+		raycast_param->sprite.tex_data[i].texture = \
 			ft_calloc(img_data.width * img_data.height, sizeof(unsigned int));
-		if (!raycast_param->enemy.tex_data[i].texture)
+		if (!raycast_param->sprite.tex_data[i].texture)
 			destroy_image_and_free_array_and_exit(raycast_param->mlx_vars->mlx, \
-					img_data.img, raycast_param->enemy.tex_data, i);
-		copy_image(&raycast_param->enemy.tex_data[i++], &img_data);
+					img_data.img, raycast_param->sprite.tex_data, i);
+		copy_image(&raycast_param->sprite.tex_data[i++], &img_data);
 		mlx_destroy_image(raycast_param->mlx_vars->mlx, img_data.img);
 		tex_path = ENEMY_TEXTURE_2;
 	}
@@ -105,6 +105,6 @@ static void	get_enemy_image_info(t_raycast_param *raycast_param)
 
 void	get_png_info(t_raycast_param *raycast_param)
 {
-	get_enemy_image_info(raycast_param);
+	get_sprite_image_info(raycast_param);
 	get_texture_image_info(raycast_param);
 }

@@ -6,7 +6,7 @@
 /*   By: jincpark <jincpark@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/10 22:49:36 by jincpark          #+#    #+#             */
-/*   Updated: 2023/03/04 17:02:24 by jincpark         ###   ########.fr       */
+/*   Updated: 2023/03/04 17:37:19 by jincpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,13 +31,8 @@ void	my_mlx_pixel_put(t_img_data *img_data, \
 		size_t x, size_t y, unsigned int color);
 void	draw_crosshair(t_img_data *img_data);
 
-// sprite
-void	get_inverse_x_y(t_ray_data *rdata, t_enemy *enemy);
-void	get_draw_y(t_enemy *enemy);
-void	get_draw_x(t_enemy *enemy);
-void	draw_sprite(t_raycast_param *raycast_param);
+void	draw_sprite(t_ray_data *rdata, t_sprite *sprite, t_img_data *img_data);
 
-// util
 double	d_abs(double n);
 
 #endif

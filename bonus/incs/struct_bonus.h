@@ -6,7 +6,7 @@
 /*   By: jincpark <jincpark@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/08 19:14:11 by jincpark          #+#    #+#             */
-/*   Updated: 2023/03/04 16:44:24 by jincpark         ###   ########.fr       */
+/*   Updated: 2023/03/04 17:40:57 by jincpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -110,7 +110,7 @@ typedef struct s_texture_data
 		#define uDiv 1
 		#define vDiv 1
 		#define vMove 0.0
-typedef struct s_enemy
+typedef struct s_sprite
 {
 	t_tex_data	tex_data[2];
 	double		perp_wall_dist[WIDTH];
@@ -126,7 +126,8 @@ typedef struct s_enemy
 	int			sprite_height;
 	int			sprite_width;
 	int			sprite_screen_x;
-}	t_enemy;
+	int			tex_idx;
+}	t_sprite;
 
 typedef struct s_raycast_param
 {
@@ -136,7 +137,7 @@ typedef struct s_raycast_param
 	t_key_state	key_state;
 	t_tex_data	tex_data[5];
 	t_img_data	minimap_img;
-	t_enemy		enemy;
+	t_sprite	sprite;
 }	t_raycast_param;
 
 typedef void	(*t_state_fp)(t_state *state, t_parse_data *parse_data);
