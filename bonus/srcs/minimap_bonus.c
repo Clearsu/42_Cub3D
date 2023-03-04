@@ -6,13 +6,12 @@
 /*   By: jincpark <jincpark@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/28 18:35:13 by jincpark          #+#    #+#             */
-/*   Updated: 2023/03/01 21:19:00 by jincpark         ###   ########.fr       */
+/*   Updated: 2023/03/04 19:40:13 by jincpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "mlx.h"
 #include "raycast_bonus.h"
-#include "struct_bonus.h"
 
 void	init_minimap_img(void *mlx, t_img_data *minimap_img)
 {

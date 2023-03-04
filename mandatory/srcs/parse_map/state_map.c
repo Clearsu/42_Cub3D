@@ -6,15 +6,12 @@
 /*   By: jincpark <jincpark@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/09 01:54:32 by jincpark          #+#    #+#             */
-/*   Updated: 2023/02/10 23:19:23 by jincpark         ###   ########.fr       */
+/*   Updated: 2023/03/04 19:38:47 by jincpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
-#include "define.h"
-#include "struct.h"
-#include "error.h"
 #include "parse.h"
+#include "error.h"
 
 void	make_map_token(t_state *state, t_parse_data *parse_data)
 {

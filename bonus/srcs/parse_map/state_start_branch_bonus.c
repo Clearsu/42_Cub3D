@@ -6,13 +6,12 @@
 /*   By: jincpark <jincpark@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/09 00:26:05 by jincpark          #+#    #+#             */
-/*   Updated: 2023/03/02 17:30:40 by jincpark         ###   ########.fr       */
+/*   Updated: 2023/03/04 19:41:25 by jincpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdlib.h>
 #include "parse_bonus.h"
-#include "define_bonus.h"
 #include "error_bonus.h"
 
 void	start(t_state *state, t_parse_data *parse_data)

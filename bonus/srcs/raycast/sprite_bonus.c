@@ -6,7 +6,7 @@
 /*   By: jincpark <jincpark@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/02 18:03:26 by jincpark          #+#    #+#             */
-/*   Updated: 2023/03/04 19:26:49 by jincpark         ###   ########.fr       */
+/*   Updated: 2023/03/04 19:33:02 by jincpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,7 +61,6 @@ static void	get_draw_x(t_sprite *sprite)
 		sprite->draw_end_x = WIDTH - 1;
 }
 
-#include <stdio.h>
 static void	draw_sprite_ver_line(t_sprite *sprite, \
 		t_img_data *img_data, int x, int tex_x)
 {

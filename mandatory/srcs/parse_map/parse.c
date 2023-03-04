@@ -6,16 +6,13 @@
 /*   By: jincpark <jincpark@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/08 18:36:24 by jincpark          #+#    #+#             */
-/*   Updated: 2023/02/22 14:59:01 by jincpark         ###   ########.fr       */
+/*   Updated: 2023/03/04 19:37:55 by jincpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <fcntl.h>
-#include <sys/types.h>
 #include <unistd.h>
 #include <stdlib.h>
-#include "libft.h"
-#include "define.h"
 #include "struct.h"
 #include "state.h"
 #include "parse.h"

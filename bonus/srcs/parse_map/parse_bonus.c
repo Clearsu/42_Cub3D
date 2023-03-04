@@ -6,12 +6,11 @@
 /*   By: jincpark <jincpark@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/08 18:36:24 by jincpark          #+#    #+#             */
-/*   Updated: 2023/03/01 19:29:25 by jincpark         ###   ########.fr       */
+/*   Updated: 2023/03/04 19:41:00 by jincpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <fcntl.h>
-#include <sys/types.h>
 #include <unistd.h>
 #include <stdlib.h>
 #include "parse_bonus.h"

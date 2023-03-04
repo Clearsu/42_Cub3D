@@ -6,13 +6,12 @@
 /*   By: jincpark <jincpark@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/09 00:26:05 by jincpark          #+#    #+#             */
-/*   Updated: 2023/02/10 23:19:31 by jincpark         ###   ########.fr       */
+/*   Updated: 2023/03/04 19:39:04 by jincpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdlib.h>
 #include "parse.h"
-#include "define.h"
 #include "error.h"
 
 void	start(t_state *state, t_parse_data *parse_data)

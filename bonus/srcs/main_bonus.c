@@ -6,11 +6,10 @@
 /*   By: jincpark <jincpark@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/08 17:15:46 by jincpark          #+#    #+#             */
-/*   Updated: 2023/03/01 19:15:42 by jincpark         ###   ########.fr       */
+/*   Updated: 2023/03/04 19:39:58 by jincpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdio.h>
 #include <fcntl.h>
 #include <unistd.h>
 #include <string.h>
