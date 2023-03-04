@@ -6,7 +6,7 @@
 /*   By: jincpark <jincpark@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/10 22:56:57 by jincpark          #+#    #+#             */
-/*   Updated: 2023/02/27 19:46:27 by jincpark         ###   ########.fr       */
+/*   Updated: 2023/03/04 18:59:46 by jincpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,4 +31,11 @@ void	my_mlx_pixel_put(t_img_data *img_data, \
 	dest = img_data->addr
 		+ (y * img_data->line_length + x * (img_data->bits_per_pixel / 8));
 	*(unsigned int *)dest = color;
+}
+
+double	d_abs(double n)
+{
+	if (n >= 0)
+		return (n);
+	return (n * (-1));
 }

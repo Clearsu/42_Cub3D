@@ -6,7 +6,7 @@
 /*   By: jincpark <jincpark@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/11 21:43:14 by jincpark          #+#    #+#             */
-/*   Updated: 2023/03/04 17:36:39 by jincpark         ###   ########.fr       */
+/*   Updated: 2023/03/04 19:13:20 by jincpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,7 +51,6 @@ int	raycast(t_raycast_param *raycast_param, t_ray_data *rdata,
 	int	x;
 
 	x = -1;
-	// wall raycasting
 	while (++x < WIDTH)
 	{
 		rdata->hit = 0;

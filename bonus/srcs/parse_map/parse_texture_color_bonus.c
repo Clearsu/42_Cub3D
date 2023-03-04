@@ -6,7 +6,7 @@
 /*   By: jincpark <jincpark@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/09 21:29:02 by jincpark          #+#    #+#             */
-/*   Updated: 2023/03/01 19:28:50 by jincpark         ###   ########.fr       */
+/*   Updated: 2023/03/04 19:14:36 by jincpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,8 @@ void	parse_tex_fname(char *tex_fname[5], t_list *token_list, int i)
 			tex_fname[NORTH] = ft_strdup((char *)token->value);
 		token_list = token_list->next;
 	}
-	if (!tex_fname[EAST] || !tex_fname[WEST] || !tex_fname[SOUTH] || !tex_fname[NORTH])
+	if (!tex_fname[EAST] || !tex_fname[WEST] \
+			|| !tex_fname[SOUTH] || !tex_fname[NORTH])
 	{
 		while (i < 4)
 		{
