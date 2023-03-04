@@ -6,7 +6,7 @@
 /*   By: jincpark <jincpark@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/10 23:27:18 by jincpark          #+#    #+#             */
-/*   Updated: 2023/03/01 21:02:20 by jincpark         ###   ########.fr       */
+/*   Updated: 2023/03/04 19:49:05 by jincpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,8 @@ static void	close_win_and_exit(t_raycast_param *raycast_param)
 	i = 0;
 	while (i < 4)
 		free(raycast_param->tex_data[i++].texture);
+	free(raycast_param->sprite.tex_data[0].texture);
+	free(raycast_param->sprite.tex_data[1].texture);
 	exit(0);
 }
 
