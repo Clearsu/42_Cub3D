@@ -6,7 +6,7 @@
 /*   By: jincpark <jincpark@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/26 14:50:14 by jincpark          #+#    #+#             */
-/*   Updated: 2023/03/01 21:52:14 by jincpark         ###   ########.fr       */
+/*   Updated: 2023/03/06 20:43:46 by jincpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -100,8 +100,8 @@ static void	draw_texture_line(t_img_data *img_data,
 void	draw_line(t_raycast_param *raycast_param, t_img_data *img_data,
 		unsigned int *color, int x)
 {
-	int				y;
-	int				start;
+	int	y;
+	int	start;
 
 	y = -1;
 	start = raycast_param->rdata->draw_start;
