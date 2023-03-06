@@ -1,10 +1,10 @@
-NO ./textures/brick-texture-png-23885.png
-SO ./textures/brick-texture-png-23868.png
-WE ./textures/brick-texture-png-23873.png
-EA ./textures/brick-texture-png-23887.png
+NO ./textures/ice_north.png
+SO ./textures/ice_south.png
+WE ./textures/ice_west.png
+EA ./textures/ice_east.png
 
 C 115,215,225
-F 40,100,22
+F 200,233,233
 
         1111111111111111111111111
         1000000000110000000000001
