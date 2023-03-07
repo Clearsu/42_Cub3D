@@ -6,7 +6,7 @@
 /*   By: jincpark <jincpark@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/08 18:36:24 by jincpark          #+#    #+#             */
-/*   Updated: 2023/03/04 19:37:55 by jincpark         ###   ########.fr       */
+/*   Updated: 2023/03/07 16:44:10 by jincpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,8 +44,8 @@ static t_list	*put_lines_into_buff_list(int fd)
 
 static void	make_token_list(t_parse_data *parse_data)
 {
-	t_state					state;
-	static const t_state_fp	state_fp[TOTAL_STATES - 1] = {
+	t_state				state;
+	static t_state_fp	state_fp[TOTAL_STATES - 1] = {
 		start, branch,
 		make_empty_token,
 		make_east_texture_token,

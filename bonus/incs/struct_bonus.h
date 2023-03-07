@@ -6,7 +6,7 @@
 /*   By: jincpark <jincpark@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/08 19:14:11 by jincpark          #+#    #+#             */
-/*   Updated: 2023/03/04 19:53:08 by jincpark         ###   ########.fr       */
+/*   Updated: 2023/03/07 19:22:47 by jincpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -117,8 +117,8 @@ typedef struct s_sprite
 	double		perp_wall_dist[WIDTH];
 	double		pos_x;
 	double		pos_y;
-	double		inverse_x;
-	double		inverse_y;
+	double		trans_x;
+	double		trans_y;
 	int			draw_start_x;
 	int			draw_start_y;
 	int			draw_end_x;

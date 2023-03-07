@@ -6,7 +6,7 @@
 /*   By: jincpark <jincpark@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/13 22:41:59 by jincpark          #+#    #+#             */
-/*   Updated: 2023/03/01 20:08:30 by jincpark         ###   ########.fr       */
+/*   Updated: 2023/03/07 17:06:34 by jincpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,18 +76,22 @@ void	move_backward(t_ray_data *rdata, char **map)
 void	move_player(t_raycast_param *raycast_param)
 {
 	t_key_state	*key_state;
+	t_ray_data	*rdata;
+	char		**map;
 
 	key_state = &raycast_param->key_state;
+	rdata = raycast_param->rdata;
+	map = raycast_param->map_data->map;
 	if (key_state->move_forward == TRUE)
-		move_forward(raycast_param->rdata, raycast_param->map_data->map);
+		move_forward(rdata, map);
 	if (key_state->move_backward == TRUE)
-		move_backward(raycast_param->rdata, raycast_param->map_data->map);
+		move_backward(rdata, map);
 	if (key_state->move_left == TRUE)
-		move_left(raycast_param->rdata, raycast_param->map_data->map);
+		move_left(rdata, map);
 	if (key_state->move_right == TRUE)
-		move_right(raycast_param->rdata, raycast_param->map_data->map);
+		move_right(rdata, map);
 	if (key_state->turn_left == TRUE)
-		turn_left(raycast_param->rdata, ROTSPEED);
+		turn_left(rdata, ROTSPEED);
 	if (key_state->turn_right == TRUE)
-		turn_right(raycast_param->rdata, ROTSPEED);
+		turn_right(rdata, ROTSPEED);
 }

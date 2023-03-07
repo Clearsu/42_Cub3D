@@ -6,7 +6,7 @@
 /*   By: jincpark <jincpark@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/01 20:15:05 by jincpark          #+#    #+#             */
-/*   Updated: 2023/03/04 19:14:12 by jincpark         ###   ########.fr       */
+/*   Updated: 2023/03/07 16:59:16 by jincpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,6 +35,8 @@ void	door(t_raycast_param *raycast_param)
 	int	door_x;
 	int	door_y;
 
+	door_x = 0;
+	door_y = 0;
 	if (is_near_door(raycast_param->rdata, raycast_param->map_data->map, \
 				&door_x, &door_y))
 	{

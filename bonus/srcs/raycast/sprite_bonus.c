@@ -6,14 +6,14 @@
 /*   By: jincpark <jincpark@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/02 18:03:26 by jincpark          #+#    #+#             */
-/*   Updated: 2023/03/04 19:33:02 by jincpark         ###   ########.fr       */
+/*   Updated: 2023/03/07 19:22:03 by jincpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <math.h>
 #include "raycast_bonus.h"
 
-static void	get_inverse_x_y(t_ray_data *rdata, t_sprite *sprite)
+static void	get_trans_x_y(t_ray_data *rdata, t_sprite *sprite)
 {
 	double	rel_x;
 	double	rel_y;
@@ -27,16 +27,16 @@ static void	get_inverse_x_y(t_ray_data *rdata, t_sprite *sprite)
 		sprite->tex_idx = 0;
 	inv_constant = 1.0 / (rdata->plane_x * rdata->dir_y \
 			- rdata->dir_x * rdata->plane_y);
-	sprite->inverse_x = inv_constant * (rdata->dir_y \
+	sprite->trans_x = inv_constant * (rdata->dir_y \
 			* rel_x - rdata->dir_x * rel_y);
-	sprite->inverse_y = inv_constant * ((-1) * rdata->plane_y \
+	sprite->trans_y = inv_constant * ((-1) * rdata->plane_y \
 			* rel_x + rdata->plane_x * rel_y);
 }
 
 static void	get_draw_y(t_sprite *sprite)
 {
-	sprite->v_move_screen = (int)(VMOVE / sprite->inverse_y);
-	sprite->sprite_height = (int)d_abs((HEIGHT / sprite->inverse_y) / VDIV);
+	sprite->v_move_screen = (int)(VMOVE / sprite->trans_y);
+	sprite->sprite_height = (int)d_abs((HEIGHT / sprite->trans_y) / VDIV);
 	sprite->draw_start_y = (-1) * sprite->sprite_height / 2 \
 						+ HEIGHT / 2 + sprite->v_move_screen;
 	if (sprite->draw_start_y < 0)
@@ -49,9 +49,9 @@ static void	get_draw_y(t_sprite *sprite)
 
 static void	get_draw_x(t_sprite *sprite)
 {
-	sprite->sprite_width = (int)d_abs((HEIGHT / sprite->inverse_y) / UDIV);
+	sprite->sprite_width = (int)d_abs((HEIGHT / sprite->trans_y) / UDIV);
 	sprite->sprite_screen_x = (int)((WIDTH / 2) \
-			* (1 + sprite->inverse_x / sprite->inverse_y));
+			* (1 + sprite->trans_x / sprite->trans_y));
 	sprite->draw_start_x = (-1) * sprite->sprite_width / 2 \
 						+ sprite->sprite_screen_x;
 	if (sprite->draw_start_x < 0)
@@ -93,7 +93,7 @@ void	draw_sprite(t_ray_data *rdata, t_sprite *sprite, t_img_data *img_data)
 	int	tex_x;
 	int	tex_width;
 
-	get_inverse_x_y(rdata, sprite);
+	get_trans_x_y(rdata, sprite);
 	get_draw_y(sprite);
 	get_draw_x(sprite);
 	tex_width = sprite->tex_data[sprite->tex_idx].width;
@@ -103,8 +103,8 @@ void	draw_sprite(t_ray_data *rdata, t_sprite *sprite, t_img_data *img_data)
 		tex_x = (int)((256 * (x - ((-1) * sprite->sprite_width \
 							/ 2 + sprite->sprite_screen_x)) \
 					* tex_width / sprite->sprite_width) / 256);
-		if (sprite->inverse_y > 0 && x > 0 && x < WIDTH && \
-				sprite->inverse_y < sprite->perp_wall_dist[x])
+		if (sprite->trans_y > 0 && x > 0 && x < WIDTH && \
+				sprite->trans_y < sprite->perp_wall_dist[x])
 			draw_sprite_ver_line(sprite, img_data, x, tex_x);
 	}
 }
