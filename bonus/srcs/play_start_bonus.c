@@ -6,7 +6,7 @@
 /*   By: jincpark <jincpark@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/10 22:54:29 by jincpark          #+#    #+#             */
-/*   Updated: 2023/03/07 19:44:16 by jincpark         ###   ########.fr       */
+/*   Updated: 2023/03/08 23:39:02 by jincpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,7 +73,8 @@ static void	update_mouse(t_raycast_param *raycast_param)
 static int	loop(t_raycast_param *raycast_param)
 {
 	update_mouse(raycast_param);
-	move_player(raycast_param);
+	move_player(&raycast_param->key_state, raycast_param->rdata, \
+			raycast_param->map_data->map);
 	raycast(raycast_param, raycast_param->rdata, \
 			raycast_param->map_data, raycast_param->mlx_vars);
 	put_minimap(raycast_param->mlx_vars, &raycast_param->minimap_img, \

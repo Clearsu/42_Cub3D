@@ -6,7 +6,7 @@
 /*   By: jincpark <jincpark@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/10 23:27:18 by jincpark          #+#    #+#             */
-/*   Updated: 2023/03/07 16:57:49 by jincpark         ###   ########.fr       */
+/*   Updated: 2023/03/08 23:44:36 by jincpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,8 @@ static void	close_win_and_exit(t_raycast_param *raycast_param)
 
 	mlx_destroy_image(raycast_param->mlx_vars->mlx, \
 			raycast_param->mlx_vars->img_data.img);
+	mlx_destroy_image(raycast_param->mlx_vars->mlx, \
+			raycast_param->minimap_img.img);
 	mlx_destroy_window(raycast_param->mlx_vars->mlx, \
 			raycast_param->mlx_vars->win);
 	i = 0;

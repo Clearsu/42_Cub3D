@@ -6,13 +6,14 @@
 /*   By: jincpark <jincpark@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/09 16:58:59 by jincpark          #+#    #+#             */
-/*   Updated: 2023/02/27 19:41:03 by jincpark         ###   ########.fr       */
+/*   Updated: 2023/03/08 23:50:45 by jincpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef STATE_BONUS_H
 # define STATE_BONUS_H
 
+// tokenizing
 void	start(t_state *state, t_parse_data *parse_data);
 void	branch(t_state *state, t_parse_data *parse_data);
 void	make_empty_token(t_state *state, t_parse_data *parse_data);
