@@ -6,7 +6,7 @@
 #    By: jincpark <jincpark@student.42seoul.kr>     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/02/08 18:00:49 by jincpark          #+#    #+#              #
-#    Updated: 2023/03/04 19:56:26 by jincpark         ###   ########.fr        #
+#    Updated: 2023/03/08 23:34:37 by jincpark         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -149,4 +149,4 @@ brebug :
 	$(MAKE) fclean
 	$(MAKE) IF_BONUS=1 IF_DEBUG=1 all
 
-.PHONY : all clean fclean re bonus bdebug brebug
+.PHONY : all clean fclean re bonus rebug bdebug brebug
