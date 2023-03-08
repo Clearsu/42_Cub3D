@@ -6,7 +6,7 @@
 /*   By: jincpark <jincpark@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/08 17:20:25 by jincpark          #+#    #+#             */
-/*   Updated: 2023/03/02 17:15:06 by jincpark         ###   ########.fr       */
+/*   Updated: 2023/03/08 17:51:32 by jincpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,8 +32,8 @@
 # define CROSSHAIR_COLOR 0x00ffffff
 
 # define DOOR_TEXTURE_PATH "./textures/door.png"
-# define ENEMY_TEXTURE_1 "./sprites/sealion1.png"
-# define ENEMY_TEXTURE_2 "./sprites/sealion2.png"
+# define SPRITE_TEXTURE_1 "./sprites/sealion1.png"
+# define SPRITE_TEXTURE_2 "./sprites/sealion2.png"
 
 # define TRUE 1
 # define FALSE 0
