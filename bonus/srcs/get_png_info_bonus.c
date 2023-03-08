@@ -6,7 +6,7 @@
 /*   By: jincpark <jincpark@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/21 19:47:29 by jincpark          #+#    #+#             */
-/*   Updated: 2023/03/04 17:19:47 by jincpark         ###   ########.fr       */
+/*   Updated: 2023/03/08 17:51:17 by jincpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,7 +81,7 @@ static void	get_sprite_image_info(t_raycast_param *raycast_param)
 	char		*tex_path;
 
 	i = 0;
-	tex_path = ENEMY_TEXTURE_1;
+	tex_path = SPRITE_TEXTURE_1;
 	while (i < 2)
 	{
 		img_data.img = mlx_png_file_to_image(raycast_param->mlx_vars->mlx,
@@ -99,7 +99,7 @@ static void	get_sprite_image_info(t_raycast_param *raycast_param)
 					img_data.img, raycast_param->sprite.tex_data, i);
 		copy_image(&raycast_param->sprite.tex_data[i++], &img_data);
 		mlx_destroy_image(raycast_param->mlx_vars->mlx, img_data.img);
-		tex_path = ENEMY_TEXTURE_2;
+		tex_path = SPRITE_TEXTURE_2;
 	}
 }
 

@@ -6,7 +6,7 @@
 /*   By: jincpark <jincpark@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/28 18:35:13 by jincpark          #+#    #+#             */
-/*   Updated: 2023/03/04 19:40:13 by jincpark         ###   ########.fr       */
+/*   Updated: 2023/03/08 18:04:25 by jincpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,8 +76,8 @@ void	put_minimap(t_mlx_vars *mlx_vars, t_img_data *minimap_img,
 	int	y;
 
 	y = -1;
-	while (y < MINI_HEIGHT)
-		draw_minimap_vertical_line(minimap_img, rdata, map_data, ++y);
+	while (++y < MINI_HEIGHT)
+		draw_minimap_vertical_line(minimap_img, rdata, map_data, y);
 	draw_player(minimap_img);
 	mlx_put_image_to_window(mlx_vars->mlx, \
 			mlx_vars->win, minimap_img->img, 20, 20);
