@@ -6,7 +6,7 @@
 /*   By: jincpark <jincpark@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/02 18:03:26 by jincpark          #+#    #+#             */
-/*   Updated: 2023/03/07 19:22:03 by jincpark         ###   ########.fr       */
+/*   Updated: 2023/03/10 13:48:01 by jincpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,21 +35,20 @@ static void	get_trans_x_y(t_ray_data *rdata, t_sprite *sprite)
 
 static void	get_draw_y(t_sprite *sprite)
 {
-	sprite->v_move_screen = (int)(VMOVE / sprite->trans_y);
-	sprite->sprite_height = (int)d_abs((HEIGHT / sprite->trans_y) / VDIV);
+	sprite->sprite_height = (int)d_abs(HEIGHT / sprite->trans_y);
 	sprite->draw_start_y = (-1) * sprite->sprite_height / 2 \
-						+ HEIGHT / 2 + sprite->v_move_screen;
+						+ HEIGHT / 2;
 	if (sprite->draw_start_y < 0)
 		sprite->draw_start_y = 0;
 	sprite->draw_end_y = sprite->sprite_height / 2 \
-						+ HEIGHT / 2 + sprite->v_move_screen;
+						+ HEIGHT / 2;
 	if (sprite->draw_end_y >= HEIGHT)
 		sprite->draw_end_y = HEIGHT - 1;
 }
 
 static void	get_draw_x(t_sprite *sprite)
 {
-	sprite->sprite_width = (int)d_abs((HEIGHT / sprite->trans_y) / UDIV);
+	sprite->sprite_width = (int)d_abs(HEIGHT / sprite->trans_y);
 	sprite->sprite_screen_x = (int)((WIDTH / 2) \
 			* (1 + sprite->trans_x / sprite->trans_y));
 	sprite->draw_start_x = (-1) * sprite->sprite_width / 2 \
@@ -74,7 +73,7 @@ static void	draw_sprite_ver_line(t_sprite *sprite, \
 	y = sprite->draw_start_y - 1;
 	while (++y < sprite->draw_end_y)
 	{
-		d = (y - sprite->v_move_screen) * 256 - HEIGHT * 128 \
+		d = y * 256 - HEIGHT * 128 \
 			+ sprite->sprite_height * 128;
 		tex_y = ((d * tex_data->height) \
 				/ sprite->sprite_height) / 256;

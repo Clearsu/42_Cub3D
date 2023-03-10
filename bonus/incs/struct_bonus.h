@@ -6,7 +6,7 @@
 /*   By: jincpark <jincpark@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/08 19:14:11 by jincpark          #+#    #+#             */
-/*   Updated: 2023/03/07 19:22:47 by jincpark         ###   ########.fr       */
+/*   Updated: 2023/03/10 13:48:53 by jincpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -107,10 +107,6 @@ typedef struct s_texture_data
 	int				height;
 }	t_tex_data;
 
-# define UDIV 1
-# define VDIV 1
-# define VMOVE 0.0
-
 typedef struct s_sprite
 {
 	t_tex_data	tex_data[2];
@@ -123,7 +119,6 @@ typedef struct s_sprite
 	int			draw_start_y;
 	int			draw_end_x;
 	int			draw_end_y;
-	int			v_move_screen;
 	int			sprite_height;
 	int			sprite_width;
 	int			sprite_screen_x;
