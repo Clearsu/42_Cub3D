@@ -6,7 +6,7 @@
 /*   By: jincpark <jincpark@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/08 18:36:24 by jincpark          #+#    #+#             */
-/*   Updated: 2023/03/04 19:41:00 by jincpark         ###   ########.fr       */
+/*   Updated: 2023/03/10 22:10:58 by jincpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,4 +77,5 @@ void	parse(t_map_data *map_data, t_parse_data *parse_data, char *fname)
 	map_data->tex_fname[DOOR] = DOOR_TEXTURE_PATH;
 	parse_color(map_data->color, parse_data->token_list);
 	parse_map(map_data, parse_data->token_list);
+	ft_lstclear(&parse_data->token_list, free);
 }
