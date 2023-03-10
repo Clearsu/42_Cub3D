@@ -6,7 +6,7 @@
 /*   By: jincpark <jincpark@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/28 18:35:13 by jincpark          #+#    #+#             */
-/*   Updated: 2023/03/08 18:04:25 by jincpark         ###   ########.fr       */
+/*   Updated: 2023/03/10 15:02:23 by jincpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,8 +32,8 @@ static void	draw_minimap_vertical_line(t_img_data *minimap_img, \
 	int		draw_y;
 	int		draw_x;
 
-	draw_start_x = rdata->pos_x - (double)MINI_OFFSET / 2;
-	draw_start_y = rdata->pos_y - (double)MINI_OFFSET / 2;
+	draw_start_x = rdata->pos_x - MINI_OFFSET / 2;
+	draw_start_y = rdata->pos_y - MINI_OFFSET / 2;
 	draw_y = draw_start_y + MINI_OFFSET * y / (double)MINI_HEIGHT;
 	x = -1;
 	while (++x < MINI_WIDTH)
