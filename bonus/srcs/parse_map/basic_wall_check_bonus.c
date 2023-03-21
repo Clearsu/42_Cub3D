@@ -6,7 +6,7 @@
 /*   By: jincpark <jincpark@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/10 19:14:27 by jincpark          #+#    #+#             */
-/*   Updated: 2023/03/21 15:41:10 by jincpark         ###   ########.fr       */
+/*   Updated: 2023/03/21 16:29:57 by jincpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,7 +66,7 @@ static void	check_top_wall(t_map_data *map_data)
 		y = 0;
 		while (y < map_data->height && map_data->map[y][x] == OUTSIDE)
 			++y;
-		if (y < map_data->heigt && map_data->map[y][x] == WALL)
+		if (y < map_data->height && map_data->map[y][x] == WALL)
 		{
 			++x;
 			continue ;

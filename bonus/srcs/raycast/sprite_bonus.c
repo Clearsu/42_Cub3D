@@ -6,7 +6,7 @@
 /*   By: jincpark <jincpark@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/02 18:03:26 by jincpark          #+#    #+#             */
-/*   Updated: 2023/03/10 14:13:35 by jincpark         ###   ########.fr       */
+/*   Updated: 2023/03/21 16:29:36 by jincpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,11 +51,10 @@ static void	get_draw_x(t_sprite *sprite)
 	sprite->sprite_width = (int)d_abs(HEIGHT / sprite->trans_y);
 	sprite->sprite_screen_x = (int)((WIDTH / 2) \
 			* (1 + sprite->trans_x / sprite->trans_y));
-	sprite->draw_start_x = (-1) * sprite->sprite_width / 2 \
-						+ sprite->sprite_screen_x;
+	sprite->draw_start_x = sprite->sprite_screen_x - sprite->sprite_width / 2;
 	if (sprite->draw_start_x < 0)
 		sprite->draw_start_x = 0;
-	sprite->draw_end_x = sprite->sprite_width / 2 + sprite->sprite_screen_x;
+	sprite->draw_end_x = sprite->sprite_screen_x + sprite->sprite_width / 2;
 	if (sprite->draw_end_x >= WIDTH)
 		sprite->draw_end_x = WIDTH - 1;
 }
