@@ -6,7 +6,7 @@
 /*   By: jincpark <jincpark@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/02 18:03:26 by jincpark          #+#    #+#             */
-/*   Updated: 2023/03/21 16:29:36 by jincpark         ###   ########.fr       */
+/*   Updated: 2023/03/23 20:06:28 by jincpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,8 +72,8 @@ static void	draw_sprite_ver_line(t_sprite *sprite, \
 	y = sprite->draw_start_y - 1;
 	while (++y < sprite->draw_end_y)
 	{
-		d = y * 256 - HEIGHT * 128 + sprite->sprite_height * 128;
-		tex_y = (d * tex_data->height / sprite->sprite_height) / 256;
+		d = (y << 8) - (HEIGHT << 7) + (sprite->sprite_height << 7);
+		tex_y = (d * tex_data->height / sprite->sprite_height) >> 8;
 		if (tex_y >= 0)
 		{
 			color = tex_data->texture[tex_data->width * tex_y + tex_x];
