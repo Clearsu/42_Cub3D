@@ -6,7 +6,7 @@
 /*   By: jincpark <jincpark@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/02 18:03:26 by jincpark          #+#    #+#             */
-/*   Updated: 2023/03/07 19:22:03 by jincpark         ###   ########.fr       */
+/*   Updated: 2023/03/26 20:58:18 by jincpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,10 +74,10 @@ static void	draw_sprite_ver_line(t_sprite *sprite, \
 	y = sprite->draw_start_y - 1;
 	while (++y < sprite->draw_end_y)
 	{
-		d = (y - sprite->v_move_screen) * 256 - HEIGHT * 128 \
-			+ sprite->sprite_height * 128;
+		d = ((y - sprite->v_move_screen) << 8) - (HEIGHT << 7) \
+			+ (sprite->sprite_height << 7);
 		tex_y = ((d * tex_data->height) \
-				/ sprite->sprite_height) / 256;
+				/ sprite->sprite_height) >> 8;
 		if (tex_y >= 0)
 		{
 			color = tex_data->texture[tex_data->width * tex_y + tex_x];
@@ -100,9 +100,9 @@ void	draw_sprite(t_ray_data *rdata, t_sprite *sprite, t_img_data *img_data)
 	x = sprite->draw_start_x - 1;
 	while (++x < sprite->draw_end_x)
 	{
-		tex_x = (int)((256 * (x - ((-1) * sprite->sprite_width \
-							/ 2 + sprite->sprite_screen_x)) \
-					* tex_width / sprite->sprite_width) / 256);
+		tex_x = (((x - ((-1) * sprite->sprite_width \
+							/ 2 + sprite->sprite_screen_x)) << 8) \
+					* tex_width / sprite->sprite_width) >> 8;
 		if (sprite->trans_y > 0 && x > 0 && x < WIDTH && \
 				sprite->trans_y < sprite->perp_wall_dist[x])
 			draw_sprite_ver_line(sprite, img_data, x, tex_x);
