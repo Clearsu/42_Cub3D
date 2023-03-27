@@ -6,11 +6,7 @@
 /*   By: jincpark <jincpark@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/02 18:03:26 by jincpark          #+#    #+#             */
-<<<<<<< HEAD
-/*   Updated: 2023/03/26 20:58:18 by jincpark         ###   ########.fr       */
-=======
-/*   Updated: 2023/03/23 20:06:28 by jincpark         ###   ########.fr       */
->>>>>>> 8b7eccc77de59b86b337f3cf2fb0a7335f684de8
+/*   Updated: 2023/03/27 18:08:15 by jincpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,15 +72,10 @@ static void	draw_sprite_ver_line(t_sprite *sprite, \
 	y = sprite->draw_start_y - 1;
 	while (++y < sprite->draw_end_y)
 	{
-<<<<<<< HEAD
-		d = ((y - sprite->v_move_screen) << 8) - (HEIGHT << 7) \
+		d = (y << 8) - (HEIGHT << 7) \
 			+ (sprite->sprite_height << 7);
 		tex_y = ((d * tex_data->height) \
 				/ sprite->sprite_height) >> 8;
-=======
-		d = (y << 8) - (HEIGHT << 7) + (sprite->sprite_height << 7);
-		tex_y = (d * tex_data->height / sprite->sprite_height) >> 8;
->>>>>>> 8b7eccc77de59b86b337f3cf2fb0a7335f684de8
 		if (tex_y >= 0)
 		{
 			color = tex_data->texture[tex_data->width * tex_y + tex_x];

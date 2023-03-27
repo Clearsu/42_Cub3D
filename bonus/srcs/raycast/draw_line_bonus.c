@@ -6,7 +6,7 @@
 /*   By: jincpark <jincpark@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/26 14:50:14 by jincpark          #+#    #+#             */
-/*   Updated: 2023/03/06 20:43:46 by jincpark         ###   ########.fr       */
+/*   Updated: 2023/03/27 19:56:48 by jincpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,9 +65,6 @@ static int	get_tex_x(t_ray_data *rdata, int tex_width)
 		wall_x = rdata->pos_x + rdata->perp_wall_dist * rdata->ray_dir_x;
 	wall_x = wall_x - (int)wall_x;
 	tex_x = (int)(wall_x * (double)(tex_width));
-	if ((rdata->side == 0 && rdata->ray_dir_x > 0) \
-			|| (rdata->side == 1 && rdata->ray_dir_y < 0))
-		tex_x = tex_width - tex_x - 1;
 	return (tex_x);
 }
 
@@ -85,7 +82,7 @@ static void	draw_texture_line(t_img_data *img_data,
 	tex_height = raycast_param->tex_data[raycast_param->rdata->tex_idx].height;
 	rdata->tex_x = get_tex_x(rdata, tex_width);
 	rdata->tex_step = 1.0 * tex_height / rdata->line_height;
-	rdata->tex_pos = (rdata->draw_start - HEIGHT / 2 + rdata->line_height / 2) \
+	rdata->tex_pos = (rdata->draw_start - (HEIGHT >> 1) + (rdata->line_height >> 1)) \
 					* rdata->tex_step;
 	texture = raycast_param->tex_data[rdata->tex_idx].texture;
 	while (++y < rdata->draw_end)
