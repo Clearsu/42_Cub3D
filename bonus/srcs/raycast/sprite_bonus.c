@@ -6,7 +6,7 @@
 /*   By: jincpark <jincpark@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/02 18:03:26 by jincpark          #+#    #+#             */
-/*   Updated: 2023/03/27 20:42:35 by jincpark         ###   ########.fr       */
+/*   Updated: 2023/03/27 22:20:41 by jincpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ static void	get_trans_x_y(t_ray_data *rdata, t_sprite *sprite)
 
 	rel_x = sprite->pos_x - rdata->pos_x;
 	rel_y = sprite->pos_y - rdata->pos_y;
-	if (sqrt(rel_x * rel_x + rel_y * rel_y) < 3)
+	if (sqrt(rel_x * rel_x + rel_y * rel_y) < 2)
 		sprite->tex_idx = 1;
 	else
 		sprite->tex_idx = 0;
