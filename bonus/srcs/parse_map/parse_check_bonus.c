@@ -6,7 +6,7 @@
 /*   By: jincpark <jincpark@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/09 03:18:05 by jincpark          #+#    #+#             */
-/*   Updated: 2023/02/27 19:45:09 by jincpark         ###   ########.fr       */
+/*   Updated: 2023/03/21 14:45:03 by jincpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,11 +33,11 @@ void	check_invalid_char(t_list *buff_list)
 
 void	check_map_configuration(t_list *token_list)
 {
-	unsigned int	hashmap[TOTAL_STATES - 4];
+	unsigned char	hashmap[TOTAL_STATES - 4];
 	t_token			*token;
 	int				i;
 
-	ft_memset(hashmap, 0, sizeof(unsigned int) * (TOTAL_STATES - 4));
+	ft_memset(hashmap, 0, sizeof(unsigned char) * (TOTAL_STATES - 4));
 	while (token_list)
 	{
 		token = (t_token *)token_list->content;

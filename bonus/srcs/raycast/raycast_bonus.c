@@ -6,7 +6,7 @@
 /*   By: jincpark <jincpark@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/11 21:43:14 by jincpark          #+#    #+#             */
-/*   Updated: 2023/03/04 19:13:20 by jincpark         ###   ########.fr       */
+/*   Updated: 2023/03/23 19:55:26 by jincpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,6 +50,8 @@ int	raycast(t_raycast_param *raycast_param, t_ray_data *rdata,
 {
 	int	x;
 
+	mlx_put_image_to_window(mlx_vars->mlx, mlx_vars->win, \
+			mlx_vars->img_data.img, 0, 0);
 	x = -1;
 	while (++x < WIDTH)
 	{
@@ -67,7 +69,5 @@ int	raycast(t_raycast_param *raycast_param, t_ray_data *rdata,
 	}
 	draw_sprite(rdata, &raycast_param->sprite, &mlx_vars->img_data);
 	draw_crosshair(&raycast_param->mlx_vars->img_data);
-	mlx_put_image_to_window(mlx_vars->mlx, mlx_vars->win, \
-			mlx_vars->img_data.img, 0, 0);
 	return (0);
 }
