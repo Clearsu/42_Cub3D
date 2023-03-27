@@ -6,7 +6,7 @@
 /*   By: jincpark <jincpark@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/10 19:59:07 by jincpark          #+#    #+#             */
-/*   Updated: 2023/03/01 21:40:54 by jincpark         ###   ########.fr       */
+/*   Updated: 2023/03/27 17:29:25 by jincpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,8 +39,8 @@ void	is_map_fully_closed(t_map_data *map_data)
 		{
 			if (map_data->map[y][x] == OUTSIDE)
 			{
-				if (is_element_near(map_data, x, y, INSIDE) || \
-						is_element_near(map_data, x, y, DOOR_CLOSED))
+				if (!is_element_near(map_data, x, y, WALL) && \
+						!is_element_near(map_data, x, y, OUTSIDE))
 					print_err_and_exit(E_MAP);
 			}
 			++x;
