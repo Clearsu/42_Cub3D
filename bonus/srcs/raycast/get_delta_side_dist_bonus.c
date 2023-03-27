@@ -6,7 +6,7 @@
 /*   By: jincpark <jincpark@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/26 15:01:49 by jincpark          #+#    #+#             */
-/*   Updated: 2023/03/04 17:02:41 by jincpark         ###   ########.fr       */
+/*   Updated: 2023/03/27 20:03:06 by jincpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 void	get_camerax_and_ray_dir(t_ray_data *rdata, size_t x)
 {
-	rdata->camera_x = 2 * x / (double)WIDTH - 1;
+	rdata->camera_x = (x << 1) / (double)WIDTH - 1;
 	rdata->ray_dir_x = rdata->dir_x + rdata->plane_x * rdata->camera_x;
 	rdata->ray_dir_y = rdata->dir_y + rdata->plane_y * rdata->camera_x;
 }

@@ -6,7 +6,7 @@
 /*   By: jincpark <jincpark@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/02 18:03:26 by jincpark          #+#    #+#             */
-/*   Updated: 2023/03/27 18:08:15 by jincpark         ###   ########.fr       */
+/*   Updated: 2023/03/27 20:42:35 by jincpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,12 +36,10 @@ static void	get_trans_x_y(t_ray_data *rdata, t_sprite *sprite)
 static void	get_draw_y(t_sprite *sprite)
 {
 	sprite->sprite_height = (int)d_abs(HEIGHT / sprite->trans_y);
-	sprite->draw_start_y = (-1) * sprite->sprite_height / 2 \
-						+ HEIGHT / 2;
+	sprite->draw_start_y = (HEIGHT - sprite->sprite_height) >> 1;
 	if (sprite->draw_start_y < 0)
 		sprite->draw_start_y = 0;
-	sprite->draw_end_y = sprite->sprite_height / 2 \
-						+ HEIGHT / 2;
+	sprite->draw_end_y = (HEIGHT + sprite->sprite_height) >> 1;
 	if (sprite->draw_end_y >= HEIGHT)
 		sprite->draw_end_y = HEIGHT - 1;
 }
@@ -49,12 +47,14 @@ static void	get_draw_y(t_sprite *sprite)
 static void	get_draw_x(t_sprite *sprite)
 {
 	sprite->sprite_width = (int)d_abs(HEIGHT / sprite->trans_y);
-	sprite->sprite_screen_x = (int)((WIDTH / 2) \
+	sprite->sprite_screen_x = (int)((WIDTH >> 1) \
 			* (1 + sprite->trans_x / sprite->trans_y));
-	sprite->draw_start_x = sprite->sprite_screen_x - sprite->sprite_width / 2;
+	sprite->draw_start_x = sprite->sprite_screen_x \
+						   - (sprite->sprite_width >> 1);
 	if (sprite->draw_start_x < 0)
 		sprite->draw_start_x = 0;
-	sprite->draw_end_x = sprite->sprite_screen_x + sprite->sprite_width / 2;
+	sprite->draw_end_x = sprite->sprite_screen_x + \
+						 (sprite->sprite_width >> 1);
 	if (sprite->draw_end_x >= WIDTH)
 		sprite->draw_end_x = WIDTH - 1;
 }
@@ -72,10 +72,8 @@ static void	draw_sprite_ver_line(t_sprite *sprite, \
 	y = sprite->draw_start_y - 1;
 	while (++y < sprite->draw_end_y)
 	{
-		d = (y << 8) - (HEIGHT << 7) \
-			+ (sprite->sprite_height << 7);
-		tex_y = ((d * tex_data->height) \
-				/ sprite->sprite_height) >> 8;
+		d = y - ((HEIGHT - sprite->sprite_height) >> 1);
+		tex_y = d * tex_data->height / sprite->sprite_height;
 		if (tex_y >= 0)
 		{
 			color = tex_data->texture[tex_data->width * tex_y + tex_x];
@@ -98,9 +96,8 @@ void	draw_sprite(t_ray_data *rdata, t_sprite *sprite, t_img_data *img_data)
 	x = sprite->draw_start_x - 1;
 	while (++x < sprite->draw_end_x)
 	{
-		tex_x = (((x - ((-1) * sprite->sprite_width \
-							/ 2 + sprite->sprite_screen_x)) << 8) \
-					* tex_width / sprite->sprite_width) >> 8;
+		tex_x = (x - sprite->sprite_screen_x - (sprite->sprite_width >> 1)) \
+					* tex_width / sprite->sprite_width;
 		if (sprite->trans_y > 0 && x > 0 && x < WIDTH && \
 				sprite->trans_y < sprite->perp_wall_dist[x])
 			draw_sprite_ver_line(sprite, img_data, x, tex_x);

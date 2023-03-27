@@ -6,7 +6,7 @@
 /*   By: jincpark <jincpark@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/11 21:43:14 by jincpark          #+#    #+#             */
-/*   Updated: 2023/03/27 19:57:00 by jincpark         ###   ########.fr       */
+/*   Updated: 2023/03/27 20:00:02 by jincpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,11 +38,11 @@ static void	dda(t_ray_data *rdata, char **map)
 static void	get_perp_wall_dist(t_ray_data *rdata)
 {
 	if (rdata->side == 0)
-		rdata->perp_wall_dist = (rdata->map_x + (1 - rdata->step_x)
-				/ 2 - rdata->pos_x) / rdata->ray_dir_x;
+		rdata->perp_wall_dist = (rdata->map_x + ((1 - rdata->step_x)
+				>> 1) - rdata->pos_x) / rdata->ray_dir_x;
 	else
-		rdata->perp_wall_dist = (rdata->map_y + (1 - rdata->step_y)
-				/ 2 - rdata->pos_y) / rdata->ray_dir_y;
+		rdata->perp_wall_dist = (rdata->map_y + ((1 - rdata->step_y)
+				>> 1) - rdata->pos_y) / rdata->ray_dir_y;
 }
 
 int	raycast(t_raycast_param *raycast_param, t_ray_data *rdata,
