@@ -6,7 +6,7 @@
 /*   By: jincpark <jincpark@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/26 14:50:14 by jincpark          #+#    #+#             */
-/*   Updated: 2023/03/27 20:02:04 by jincpark         ###   ########.fr       */
+/*   Updated: 2023/03/28 15:42:57 by jincpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -82,8 +82,8 @@ static void	draw_texture_line(t_img_data *img_data,
 	tex_height = raycast_param->tex_data[raycast_param->rdata->tex_idx].height;
 	rdata->tex_x = get_tex_x(rdata, tex_width);
 	rdata->tex_step = 1.0 * tex_height / rdata->line_height;
-	rdata->tex_pos = (rdata->draw_start - (HEIGHT >> 1) + (rdata->line_height >> 1)) \
-					* rdata->tex_step;
+	rdata->tex_pos = (rdata->draw_start - (HEIGHT >> 1) \
+			+ (rdata->line_height >> 1)) * rdata->tex_step;
 	texture = raycast_param->tex_data[rdata->tex_idx].texture;
 	while (++y < rdata->draw_end)
 	{
