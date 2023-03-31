@@ -6,13 +6,12 @@
 /*   By: jincpark <jincpark@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/08 17:15:46 by jincpark          #+#    #+#             */
-/*   Updated: 2023/03/07 16:55:10 by jincpark         ###   ########.fr       */
+/*   Updated: 2023/03/31 13:12:15 by jincpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <fcntl.h>
 #include <unistd.h>
-#include <string.h>
 #include "parse.h"
 #include "raycast.h"
 #include "error.h"
