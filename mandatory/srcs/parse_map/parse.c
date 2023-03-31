@@ -6,7 +6,7 @@
 /*   By: jincpark <jincpark@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/08 18:36:24 by jincpark          #+#    #+#             */
-/*   Updated: 2023/03/28 17:26:52 by jincpark         ###   ########.fr       */
+/*   Updated: 2023/03/31 19:34:10 by jincpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,6 +70,7 @@ void	parse(t_map_data *map_data, t_parse_data *parse_data, char *fname)
 	if (fd < 0)
 		print_err_and_exit(E_SYS);
 	parse_data->buff_list = put_lines_into_buff_list(fd);
+	close(fd);
 	check_invalid_char(parse_data->buff_list);
 	make_token_list(parse_data);
 	check_map_configuration(parse_data->token_list);
