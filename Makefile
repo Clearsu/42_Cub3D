@@ -6,12 +6,12 @@
 #    By: jincpark <jincpark@student.42seoul.kr>     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/02/08 18:00:49 by jincpark          #+#    #+#              #
-#    Updated: 2023/03/08 23:34:37 by jincpark         ###   ########.fr        #
+#    Updated: 2023/03/31 13:09:48 by jincpark         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 #NAME
-NAME		=	cub3d
+NAME		=	cub3D
 
 #CMDS
 CC			=	cc
